@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>zipline.utils.run_algo &mdash; Zipline 1.4.1 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -49,7 +51,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Zipline
+            <a href="../../../index.html" class="icon icon-home"> Zipline
           
 
           
@@ -119,6 +121,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -239,6 +243,7 @@
          <span class="n">local_namespace</span><span class="p">,</span>
          <span class="n">environ</span><span class="p">,</span>
          <span class="n">blotter</span><span class="p">,</span>
+         <span class="n">custom_loader</span><span class="p">,</span>
          <span class="n">benchmark_spec</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Run a backtest for the given algorithm.</span>
 
@@ -333,9 +338,12 @@
     <span class="k">def</span> <span class="nf">choose_loader</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">USEquityPricing</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pipeline_loader</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="s2">&quot;No PipelineLoader registered for column </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">column</span>
-        <span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">custom_loader</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;No PipelineLoader registered for column </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+            <span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">metrics_set</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
         <span class="k">try</span><span class="p">:</span>
@@ -470,7 +478,8 @@
                   <span class="n">extensions</span><span class="o">=</span><span class="p">(),</span>
                   <span class="n">strict_extensions</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                   <span class="n">environ</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">,</span>
-                  <span class="n">blotter</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">):</span>
+                  <span class="n">blotter</span><span class="o">=</span><span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                  <span class="n">custom_loader</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Run a trading algorithm.</span>
 
@@ -567,6 +576,7 @@
         <span class="n">environ</span><span class="o">=</span><span class="n">environ</span><span class="p">,</span>
         <span class="n">blotter</span><span class="o">=</span><span class="n">blotter</span><span class="p">,</span>
         <span class="n">benchmark_spec</span><span class="o">=</span><span class="n">benchmark_spec</span><span class="p">,</span>
+        <span class="n">custom_loader</span><span class="o">=</span><span class="n">custom_loader</span>
     <span class="p">)</span></div>
 
 
@@ -714,28 +724,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Quantopian Inc.
+        &#169; Copyright 2020, Quantopian Inc..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

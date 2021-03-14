@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>zipline.assets.assets &mdash; Zipline 1.4.1 documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -49,7 +51,7 @@
           
 
           
-            <a href="../../../index.html" class="icon icon-home" alt="Documentation Home"> Zipline
+            <a href="../../../index.html" class="icon icon-home"> Zipline
           
 
           
@@ -119,6 +121,8 @@
         <div class="rst-content">
         
           
+
+
 
 
 
@@ -215,7 +219,7 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">Asset</span><span class="p">,</span> <span class="n">Equity</span><span class="p">,</span> <span class="n">Future</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">.</span> <span class="n">continuous_futures</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">.continuous_futures</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">ADJUSTMENT_STYLES</span><span class="p">,</span>
     <span class="n">CHAIN_PREDICATES</span><span class="p">,</span>
     <span class="n">ContinuousFuture</span><span class="p">,</span>
@@ -390,11 +394,11 @@
 
 <span class="n">CONTINUOUS_FUTURE_ROLL_STYLE_IDS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;calendar&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;volume&#39;</span>  <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">CONTINUOUS_FUTURE_ADJUSTMENT_STYLE_IDS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="kc">None</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="kc">None</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s1">&#39;div&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">&#39;add&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
 <span class="p">}</span>
@@ -455,6 +459,7 @@
 <span class="sd">    --------</span>
 <span class="sd">    :class:`zipline.assets.AssetDBWriter`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="nd">@preprocess</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="n">coerce_string_to_eng</span><span class="p">(</span><span class="n">require_exists</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">future_chain_predicates</span><span class="o">=</span><span class="n">CHAIN_PREDICATES</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>
@@ -1259,8 +1264,8 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_asset_by_symbol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">futures_contracts</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span>\
-                   <span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_select_asset_by_symbol</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">futures_contracts</span><span class="p">,</span> <span class="n">symbol</span><span class="p">)</span> \
+            <span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
 
         <span class="c1"># If no data found, raise an exception</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
@@ -1362,7 +1367,7 @@
                 <span class="nb">list</span><span class="p">(</span><span class="n">sa</span><span class="o">.</span><span class="n">select</span><span class="p">((</span><span class="n">fc_cols</span><span class="o">.</span><span class="n">sid</span><span class="p">,))</span><span class="o">.</span><span class="n">where</span><span class="p">(</span>
                     <span class="p">(</span><span class="n">fc_cols</span><span class="o">.</span><span class="n">root_symbol</span> <span class="o">==</span> <span class="n">root_symbol</span><span class="p">)</span> <span class="o">&amp;</span>
                     <span class="p">(</span><span class="n">fc_cols</span><span class="o">.</span><span class="n">start_date</span> <span class="o">!=</span> <span class="n">pd</span><span class="o">.</span><span class="n">NaT</span><span class="o">.</span><span class="n">value</span><span class="p">))</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span>
-                        <span class="n">fc_cols</span><span class="o">.</span><span class="n">sid</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())]</span>
+                    <span class="n">fc_cols</span><span class="o">.</span><span class="n">sid</span><span class="p">)</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span><span class="o">.</span><span class="n">fetchall</span><span class="p">())]</span>
 
     <span class="k">def</span> <span class="nf">_get_root_symbol_exchange</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root_symbol</span><span class="p">):</span>
         <span class="n">fc_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">futures_root_symbols</span><span class="o">.</span><span class="n">c</span>
@@ -1731,9 +1736,9 @@
 <span class="sd">        Whether or not the `asset` existed at the specified time.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="n">asset</span><span class="o">.</span><span class="n">start_date</span><span class="o">.</span><span class="n">value</span>
-        <span class="o">&lt;=</span> <span class="n">reference_date_value</span>
-        <span class="o">&lt;=</span> <span class="n">asset</span><span class="o">.</span><span class="n">end_date</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">asset</span><span class="o">.</span><span class="n">start_date</span><span class="o">.</span><span class="n">value</span>
+            <span class="o">&lt;=</span> <span class="n">reference_date_value</span>
+            <span class="o">&lt;=</span> <span class="n">asset</span><span class="o">.</span><span class="n">end_date</span><span class="o">.</span><span class="n">value</span>
     <span class="p">)</span>
 
 
@@ -1763,28 +1768,25 @@
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Quantopian Inc.
+        &#169; Copyright 2020, Quantopian Inc..
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
