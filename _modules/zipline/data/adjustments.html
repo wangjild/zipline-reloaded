@@ -189,7 +189,6 @@
 
 <span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
-
 <span class="n">SQLITE_ADJUSTMENT_TABLENAMES</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s1">&#39;splits&#39;</span><span class="p">,</span> <span class="s1">&#39;dividends&#39;</span><span class="p">,</span> <span class="s1">&#39;mergers&#39;</span><span class="p">])</span>
 
 <span class="n">UNPAID_QUERY_TEMPLATE</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -209,13 +208,11 @@
     <span class="p">[</span><span class="s1">&#39;asset&#39;</span><span class="p">,</span> <span class="s1">&#39;payment_asset&#39;</span><span class="p">,</span> <span class="s1">&#39;ratio&#39;</span><span class="p">,</span> <span class="s1">&#39;pay_date&#39;</span><span class="p">],</span>
 <span class="p">)</span>
 
-
 <span class="n">SQLITE_ADJUSTMENT_COLUMN_DTYPES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;effective_date&#39;</span><span class="p">:</span> <span class="n">any_integer</span><span class="p">,</span>
     <span class="s1">&#39;ratio&#39;</span><span class="p">:</span> <span class="n">float64_dtype</span><span class="p">,</span>
     <span class="s1">&#39;sid&#39;</span><span class="p">:</span> <span class="n">any_integer</span><span class="p">,</span>
 <span class="p">}</span>
-
 
 <span class="n">SQLITE_DIVIDEND_PAYOUT_COLUMN_DTYPES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;sid&#39;</span><span class="p">:</span> <span class="n">any_integer</span><span class="p">,</span>
@@ -225,7 +222,6 @@
     <span class="s1">&#39;pay_date&#39;</span><span class="p">:</span> <span class="n">any_integer</span><span class="p">,</span>
     <span class="s1">&#39;amount&#39;</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
 <span class="p">}</span>
-
 
 <span class="n">SQLITE_STOCK_DIVIDEND_PAYOUT_COLUMN_DTYPES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;sid&#39;</span><span class="p">:</span> <span class="n">any_integer</span><span class="p">,</span>
@@ -420,8 +416,8 @@
 
             <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
                 <span class="n">stock_div</span> <span class="o">=</span> <span class="n">StockDividend</span><span class="p">(</span>
-                    <span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_asset</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>    <span class="c1"># asset</span>
-                    <span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_asset</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>    <span class="c1"># payment_asset</span>
+                    <span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_asset</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># asset</span>
+                    <span class="n">asset_finder</span><span class="o">.</span><span class="n">retrieve_asset</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>  <span class="c1"># payment_asset</span>
                     <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
                     <span class="n">Timestamp</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;UTC&#39;</span><span class="p">))</span>
                 <span class="n">stock_divs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stock_div</span><span class="p">)</span>
@@ -457,19 +453,14 @@
             <span class="n">date_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datetime_int_cols</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s2">&quot;Requested table </span><span class="si">%s</span><span class="s2"> not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                <span class="s2">&quot;Available tables: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
-                    <span class="n">table_name</span><span class="p">,</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">_datetime_int_cols</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
-                <span class="p">)</span>
+                <span class="s2">&quot;Requested table </span><span class="si">{}</span><span class="s2"> not found.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;Available tables: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span>
+                                                <span class="bp">self</span><span class="o">.</span><span class="n">_datetime_int_cols</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
             <span class="p">)</span>
 
         <span class="c1"># Dates are stored in second resolution as ints in adj.db tables.</span>
-        <span class="c1"># Need to specifically convert them as UTC, not local time.</span>
         <span class="n">kwargs</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="p">{</span><span class="s1">&#39;parse_dates&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;unit&#39;</span><span class="p">:</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;utc&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
-                             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">date_cols</span><span class="p">}</span>
-             <span class="p">}</span>
+            <span class="p">{</span><span class="s1">&#39;parse_dates&#39;</span><span class="p">:</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;unit&#39;</span><span class="p">:</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;utc&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">date_cols</span><span class="p">}}</span>
             <span class="k">if</span> <span class="n">convert_dates</span>
             <span class="k">else</span> <span class="p">{}</span>
         <span class="p">)</span>
@@ -479,12 +470,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">conn</span><span class="p">,</span>
             <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span>
             <span class="o">**</span><span class="n">kwargs</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">dtypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df_dtypes</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">convert_dates</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-            <span class="n">dtypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_df_dtypes</span><span class="p">(</span><span class="n">table_name</span><span class="p">,</span> <span class="n">convert_dates</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">empty_dataframe</span><span class="p">(</span><span class="o">*</span><span class="n">keysorted</span><span class="p">(</span><span class="n">dtypes</span><span class="p">))</span>
 
+        <span class="n">result</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="nb">sorted</span><span class="p">(</span><span class="n">dtypes</span><span class="p">)]</span>  <span class="c1"># ensure expected order of columns</span>
         <span class="k">return</span> <span class="n">result</span>
 
     <span class="k">def</span> <span class="nf">_df_dtypes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">table_name</span><span class="p">,</span> <span class="n">convert_dates</span><span class="p">):</span>
@@ -698,17 +691,17 @@
             <span class="n">dividend_payouts</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">dividend_payouts</span> <span class="o">=</span> <span class="n">dividends</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-            <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span>\
+            <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span> \
                 <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span>\
-                <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span> \
+                    <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span>\
-                <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span> \
+                    <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span>\
-                <span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span> \
+                    <span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">write_dividend_payouts</span><span class="p">(</span><span class="n">dividend_payouts</span><span class="p">)</span>
 
@@ -718,17 +711,17 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">stock_dividend_payouts</span> <span class="o">=</span> <span class="n">stock_dividends</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
             <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span>\
-                <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;ex_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span> \
+                    <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span>\
-                <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;record_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span> \
+                    <span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span><span class="o">.</span>\
-                <span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;declared_date&#39;</span><span class="p">]</span><span class="o">.</span> \
+                    <span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
             <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span><span class="o">.</span>\
-                <span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
+                <span class="n">stock_dividend_payouts</span><span class="p">[</span><span class="s1">&#39;pay_date&#39;</span><span class="p">]</span><span class="o">.</span> \
+                    <span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">int64_dtype</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">write_stock_dividend_payouts</span><span class="p">(</span><span class="n">stock_dividend_payouts</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SQLiteAdjustmentWriter.write_dividend_data"><a class="viewcode-back" href="../../../appendix.html#zipline.data.adjustments.SQLiteAdjustmentWriter.write_dividend_data">[docs]</a>    <span class="k">def</span> <span class="nf">write_dividend_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dividends</span><span class="p">,</span> <span class="n">stock_dividends</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -906,6 +899,19 @@
 
   
   
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74956955-3', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
     
    
 

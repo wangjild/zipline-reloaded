@@ -1,323 +1,401 @@
-
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Zipline &mdash; Zipline 1.4.1 documentation</title>
-  
+    <meta charset="utf-8"/>
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  
-  
+    <title>Zipline Docs</title>
 
-  
-  
 
-  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
 
-  
-  <!--[if lt IE 9]>
+
+    <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
+    <![endif]-->
+
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./"
+            src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
-    
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Install" href="install.html" /> 
+
+    <link rel="index" title="Index" href="genindex.html"/>
+    <link rel="search" title="Search" href="search.html"/>
+    <link rel="next" title="Install" href="install.html"/>
 </head>
 
 <body class="wy-body-for-nav">
 
-   
-  <div class="wy-grid-for-nav">
-    
+
+<div class="wy-grid-for-nav">
+
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
 
-          
-            <a href="#" class="icon icon-home"> Zipline
-          
 
-          
-          </a>
+                <a href="#" class="icon icon-home"> Zipline
 
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
 
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
+                </a>
 
-          
+
+                <div class="version">
+                    1.4.1
+                </div>
+
+
+                <div role="search">
+                    <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+                        <input type="text" name="q" placeholder="Search docs"/>
+                        <input type="hidden" name="check_keywords" value="yes"/>
+                        <input type="hidden" name="area" value="default"/>
+                    </form>
+                </div>
+
+
+            </div>
+
+
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner
+                        Tutorial</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="bundles.html">Data Bundles</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading
+                        Calendars</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="risk-and-perf-metrics.html">Risk and
+                        Performance Metrics</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development
+                        Guidelines</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
+                    <li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
+                </ul>
+
+
+            </div>
+
         </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Zipline</a>
-        
-      </nav>
+
+        <nav class="wy-nav-top" aria-label="top navigation">
+
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="#">Zipline</a>
+
+        </nav>
 
 
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
+        <div class="wy-nav-content">
+
+            <div class="rst-content">
 
 
+                <div role="navigation" aria-label="breadcrumbs navigation">
+
+                    <ul class="wy-breadcrumbs">
+
+                        <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+
+                        <li>Zipline</li>
 
 
+                        <li class="wy-breadcrumbs-aside">
 
 
+                            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
 
 
+                        </li>
+
+                    </ul>
 
 
+                    <hr/>
+                </div>
+                <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                    <div itemprop="articleBody">
+
+                        <a class="reference external image-reference"
+                           href="https://stefan-jansen.github.io/zipline"><img alt="Zipline" class="align-center"
+                                                                               src="https://media.quantopian.com/logos/open_source/zipline-logo-03_.png"
+                                                                               style="width: 212px;"/></a>
+                        <hr class="docutils"/>
+                        <p><a class="reference external" href="https://pypi.python.org/pypi/zipline"><img
+                                alt="pypi version status" src="https://img.shields.io/pypi/v/zipline.svg"/></a>
+                            <a class="reference external" href="https://pypi.python.org/pypi/zipline"><img
+                                    alt="pypi pyversion status"
+                                    src="https://img.shields.io/pypi/pyversions/zipline.svg"/></a>
+                            <a class="reference external" href="https://travis-ci.org/stefan-jansen/zipline"><img
+                                    alt="travis status"
+                                    src="https://travis-ci.org/stefan-jansen/zipline.svg?branch=master"/></a>
+                            <a class="reference external"
+                               href="https://ci.appveyor.com/project/stefan-jansen/zipline/branch/master"><img
+                                    alt="appveyor status"
+                                    src="https://ci.appveyor.com/api/projects/status/3dg18e6227dvstw6/branch/master?svg=true"/></a>
+                            <a class="reference external" href="https://coveralls.io/r/stefan-jansen/zipline"><img
+                                    alt="Coverage Status"
+                                    src="https://coveralls.io/repos/stefan-jansen/zipline/badge.svg"/></a></p>
+                        <p>Zipline is a Pythonic event-driven system for backtesting, used as the backtesting and
+                            live-trading
+                            engine by Quantopian before the company
+                            <a class="reference external"
+                               href="https://www.bizjournals.com/boston/news/2020/11/10/quantopian-shuts-down-cofounders-head-elsewhere.html">closed
+                                down</a>
+                            in late 2020. Since then, the domain that originally hosted these docs have expired. The
+                            library is used extensively in
+                            the book <a class="reference external" href="https://ml4trading.io">Machine Larning for
+                                Algorithmic Trading</a> by
+                            <a class="reference external" href="https://www.linkedin.com/in/applied-ai/">Stefan
+                                Jansen</a> who is trying to keep the library up to date and available
+                            to his readers and the wider Python algotrading community.</p>
+                        <ul class="simple">
+                            <li><p><a class="reference external" href="https://exchange.ml4trading.io">Join our
+                                Community!</a></p></li>
+                            <li><p><a class="reference external" href="https://stefan-jansen.github.io/zipline">Documentation</a>
+                            </p></li>
+                        </ul>
+                        <div class="section" id="features">
+                            <h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a>
+                            </h1>
+                            <ul class="simple">
+                                <li><p><strong>Ease of Use:</strong> Zipline tries to get out of your way so that you
+                                    can
+                                    focus on algorithm development. See below for a code example.</p></li>
+                                <li><p><strong>“Batteries Included”:</strong> many common statistics like
+                                    moving average and linear regression can be readily accessed from
+                                    within a user-written algorithm.</p></li>
+                                <li><p><strong>PyData Integration:</strong> Input of historical data and output of
+                                    performance statistics are
+                                    based on Pandas DataFrames to integrate nicely into the existing
+                                    PyData ecosystem.</p></li>
+                                <li><p><strong>Statistics and Machine Learning Libraries:</strong> You can use libraries
+                                    like matplotlib, scipy,
+                                    statsmodels, and sklearn to support development, analysis, and
+                                    visualization of state-of-the-art trading systems.</p></li>
+                            </ul>
+                        </div>
+                        <div class="section" id="installation">
+                            <h1>Installation<a class="headerlink" href="#installation"
+                                               title="Permalink to this headline">¶</a></h1>
+                            <p>Zipline currently supports Python 2.7, 3.5, and 3.6, and may be installed via
+                                either pip or conda.</p>
+                            <p><strong>Note:</strong> Installing Zipline is slightly more involved than the average
+                                Python
+                                package. See the full <a class="reference external"
+                                                         href="https://www.zipline.io/install">Zipline Install
+                                    Documentation</a> for detailed
+                                instructions.</p>
+                            <p>For a development installation (used to develop Zipline itself), create and
+                                activate a virtualenv, then run the <code class="docutils literal notranslate"><span
+                                        class="pre">etc/dev-install</span></code> script.</p>
+                        </div>
+                        <div class="section" id="quickstart">
+                            <h1>Quickstart<a class="headerlink" href="#quickstart"
+                                             title="Permalink to this headline">¶</a></h1>
+                            <p>See our <a class="reference external"
+                                          href="https://stefan-jansen.github.io/zipline/beginner-tutorial">getting
+                                started tutorial</a>.</p>
+                            <p>The following code implements a simple dual moving average algorithm.</p>
+                            <div class="highlight-python notranslate">
+                                <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zipline.api</span> <span
+                                        class="kn">import</span> <span class="n">order_target</span><span
+                                        class="p">,</span> <span class="n">record</span><span class="p">,</span> <span
+                                        class="n">symbol</span>
+
+<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span
+                                            class="p">):</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span
+                                            class="mi">0</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">asset</span> <span class="o">=</span> <span
+                                            class="n">symbol</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span
+                                            class="p">)</span>
 
 
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Zipline</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-            
-  <a class="reference external image-reference" href="https://stefan-jansen.github.io/zipline"><img alt="Zipline" class="align-center" src="https://media.quantopian.com/logos/open_source/zipline-logo-03_.png" style="width: 212px;" /></a>
-<hr class="docutils" />
-<p><a class="reference external" href="https://pypi.python.org/pypi/zipline"><img alt="pypi version status" src="https://img.shields.io/pypi/v/zipline.svg" /></a>
-<a class="reference external" href="https://pypi.python.org/pypi/zipline"><img alt="pypi pyversion status" src="https://img.shields.io/pypi/pyversions/zipline.svg" /></a>
-<a class="reference external" href="https://travis-ci.org/stefan-jansen/zipline"><img alt="travis status" src="https://travis-ci.org/stefan-jansen/zipline.svg?branch=master" /></a>
-<a class="reference external" href="https://ci.appveyor.com/project/stefan-jansen/zipline/branch/master"><img alt="appveyor status" src="https://ci.appveyor.com/api/projects/status/3dg18e6227dvstw6/branch/master?svg=true" /></a>
-<a class="reference external" href="https://coveralls.io/r/stefan-jansen/zipline"><img alt="Coverage Status" src="https://coveralls.io/repos/stefan-jansen/zipline/badge.svg" /></a></p>
-<p>Zipline is a Pythonic event-driven system for backtesting, used as the backtesting and live-trading
-engine by Quantopian before the company
-<a class="reference external" href="https://www.bizjournals.com/boston/news/2020/11/10/quantopian-shuts-down-cofounders-head-elsewhere.html">closed down</a>
-in late 2020. Since then, the domain that originally hosted these docs have expired. The library is used extensively in
-the book <a class="reference external" href="https://ml4trading.io">Machine Larning for Algorithmic Trading</a> by
-<a class="reference external" href="https://www.linkedin.com/in/applied-ai/">Stefan Jansen</a> who is trying to keep the library up to date and available
-to his readers and the wider Python algotrading community.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://exchange.ml4trading.io">Join our Community!</a></p></li>
-<li><p><a class="reference external" href="https://stefan-jansen.github.io/zipline">Documentation</a></p></li>
-</ul>
-<div class="section" id="features">
-<h1>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><strong>Ease of Use:</strong> Zipline tries to get out of your way so that you can
-focus on algorithm development. See below for a code example.</p></li>
-<li><p><strong>“Batteries Included”:</strong> many common statistics like
-moving average and linear regression can be readily accessed from
-within a user-written algorithm.</p></li>
-<li><p><strong>PyData Integration:</strong> Input of historical data and output of performance statistics are
-based on Pandas DataFrames to integrate nicely into the existing
-PyData ecosystem.</p></li>
-<li><p><strong>Statistics and Machine Learning Libraries:</strong> You can use libraries like matplotlib, scipy,
-statsmodels, and sklearn to support development, analysis, and
-visualization of state-of-the-art trading systems.</p></li>
-</ul>
-</div>
-<div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>Zipline currently supports Python 2.7, 3.5, and 3.6, and may be installed via
-either pip or conda.</p>
-<p><strong>Note:</strong> Installing Zipline is slightly more involved than the average Python
-package. See the full <a class="reference external" href="https://www.zipline.io/install">Zipline Install Documentation</a> for detailed
-instructions.</p>
-<p>For a development installation (used to develop Zipline itself), create and
-activate a virtualenv, then run the <code class="docutils literal notranslate"><span class="pre">etc/dev-install</span></code> script.</p>
-</div>
-<div class="section" id="quickstart">
-<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
-<p>See our <a class="reference external" href="https://stefan-jansen.github.io/zipline/beginner-tutorial">getting started tutorial</a>.</p>
-<p>The following code implements a simple dual moving average algorithm.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zipline.api</span> <span class="kn">import</span> <span class="n">order_target</span><span class="p">,</span> <span class="n">record</span><span class="p">,</span> <span class="n">symbol</span>
-
-<span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">context</span><span class="p">):</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">asset</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span
+                                            class="n">context</span><span class="p">,</span> <span class="n">data</span><span
+                                            class="p">):</span>
     <span class="c1"># Skip first 300 days to get full windows</span>
-    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span
+                                            class="mi">1</span>
+    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">i</span> <span
+                                            class="o">&lt;</span> <span class="mi">300</span><span class="p">:</span>
         <span class="k">return</span>
 
     <span class="c1"># Compute averages</span>
     <span class="c1"># data.history() has to be called with the same params</span>
     <span class="c1"># from above and returns a pandas dataframe.</span>
-    <span class="n">short_mavg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">bar_count</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="s2">&quot;1d&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="n">long_mavg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">history</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">bar_count</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="s2">&quot;1d&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">short_mavg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span
+                                            class="n">history</span><span class="p">(</span><span
+                                            class="n">context</span><span class="o">.</span><span class="n">asset</span><span
+                                            class="p">,</span> <span class="s1">&#39;price&#39;</span><span
+                                            class="p">,</span> <span class="n">bar_count</span><span
+                                            class="o">=</span><span class="mi">100</span><span class="p">,</span> <span
+                                            class="n">frequency</span><span class="o">=</span><span class="s2">&quot;1d&quot;</span><span
+                                            class="p">)</span><span class="o">.</span><span class="n">mean</span><span
+                                            class="p">()</span>
+    <span class="n">long_mavg</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span
+                                            class="n">history</span><span class="p">(</span><span
+                                            class="n">context</span><span class="o">.</span><span class="n">asset</span><span
+                                            class="p">,</span> <span class="s1">&#39;price&#39;</span><span
+                                            class="p">,</span> <span class="n">bar_count</span><span
+                                            class="o">=</span><span class="mi">300</span><span class="p">,</span> <span
+                                            class="n">frequency</span><span class="o">=</span><span class="s2">&quot;1d&quot;</span><span
+                                            class="p">)</span><span class="o">.</span><span class="n">mean</span><span
+                                            class="p">()</span>
 
     <span class="c1"># Trading logic</span>
-    <span class="k">if</span> <span class="n">short_mavg</span> <span class="o">&gt;</span> <span class="n">long_mavg</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">short_mavg</span> <span class="o">&gt;</span> <span
+                                            class="n">long_mavg</span><span class="p">:</span>
         <span class="c1"># order_target orders as many shares as needed to</span>
         <span class="c1"># achieve the desired number of shares.</span>
-        <span class="n">order_target</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">short_mavg</span> <span class="o">&lt;</span> <span class="n">long_mavg</span><span class="p">:</span>
-        <span class="n">order_target</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">order_target</span><span class="p">(</span><span class="n">context</span><span
+                                            class="o">.</span><span class="n">asset</span><span class="p">,</span> <span
+                                            class="mi">100</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">short_mavg</span> <span class="o">&lt;</span> <span
+                                            class="n">long_mavg</span><span class="p">:</span>
+        <span class="n">order_target</span><span class="p">(</span><span class="n">context</span><span
+                                            class="o">.</span><span class="n">asset</span><span class="p">,</span> <span
+                                            class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># Save values for later inspection</span>
-    <span class="n">record</span><span class="p">(</span><span class="n">AAPL</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">current</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">asset</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">),</span>
-           <span class="n">short_mavg</span><span class="o">=</span><span class="n">short_mavg</span><span class="p">,</span>
-           <span class="n">long_mavg</span><span class="o">=</span><span class="n">long_mavg</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>You can then run this algorithm using the Zipline CLI.
-First, you must download some sample pricing and asset data:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zipline ingest
+    <span class="n">record</span><span class="p">(</span><span class="n">AAPL</span><span class="o">=</span><span
+                                            class="n">data</span><span class="o">.</span><span
+                                            class="n">current</span><span class="p">(</span><span
+                                            class="n">context</span><span class="o">.</span><span class="n">asset</span><span
+                                            class="p">,</span> <span class="s1">&#39;price&#39;</span><span
+                                            class="p">),</span>
+           <span class="n">short_mavg</span><span class="o">=</span><span class="n">short_mavg</span><span
+                                            class="p">,</span>
+           <span class="n">long_mavg</span><span class="o">=</span><span class="n">long_mavg</span><span
+                                            class="p">)</span>
+</pre>
+                                </div>
+                            </div>
+                            <p>You can then run this algorithm using the Zipline CLI.
+                                First, you must download some sample pricing and asset data:</p>
+                            <div class="highlight-bash notranslate">
+                                <div class="highlight"><pre><span></span>$ zipline ingest
 $ zipline run -f dual_moving_average.py --start <span class="m">2014</span>-1-1 --end <span class="m">2018</span>-1-1 -o dma.pickle --no-benchmark
-</pre></div>
-</div>
-<p>This will download asset pricing data data sourced from Quandl, and stream it through the algorithm over the specified time range.
-Then, the resulting performance DataFrame is saved in <code class="docutils literal notranslate"><span class="pre">dma.pickle</span></code>, which you can load and analyze from within Python.</p>
-<p>You can find other examples in the <code class="docutils literal notranslate"><span class="pre">zipline/examples</span></code> directory.</p>
-</div>
-<div class="section" id="questions">
-<h1>Questions?<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h1>
-<p>If you find a bug, feel free to <a class="reference external" href="https://github.com/stefan-jansen/zipline/issues/new">open an issue</a> and fill out the issue template.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-</ul>
-</div>
-</div>
+</pre>
+                                </div>
+                            </div>
+                            <p>This will download asset pricing data data sourced from Quandl, and stream it through the
+                                algorithm over the specified time range.
+                                Then, the resulting performance DataFrame is saved in <code
+                                        class="docutils literal notranslate"><span class="pre">dma.pickle</span></code>,
+                                which you can load and analyze from within Python.</p>
+                            <p>You can find other examples in the <code class="docutils literal notranslate"><span
+                                    class="pre">zipline/examples</span></code> directory.</p>
+                        </div>
+                        <div class="section" id="questions">
+                            <h1>Questions?<a class="headerlink" href="#questions"
+                                             title="Permalink to this headline">¶</a></h1>
+                            <p>If you find a bug, feel free to <a class="reference external"
+                                                                  href="https://github.com/stefan-jansen/zipline/issues/new">open
+                                an issue</a> and fill out the issue template.</p>
+                            <div class="toctree-wrapper compound">
+                                <ul>
+                                    <li class="toctree-l1"><a class="reference internal" href="install.html">Install</a>
+                                    </li>
+                                    <li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline
+                                        Beginner Tutorial</a></li>
+                                    <li class="toctree-l1"><a class="reference internal" href="bundles.html">Data
+                                        Bundles</a></li>
+                                    <li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading
+                                        Calendars</a></li>
+                                    <li class="toctree-l1"><a class="reference internal"
+                                                              href="risk-and-perf-metrics.html">Risk and Performance
+                                        Metrics</a></li>
+                                    <li class="toctree-l1"><a class="reference internal"
+                                                              href="development-guidelines.html">Development
+                                        Guidelines</a></li>
+                                    <li class="toctree-l1"><a class="reference internal" href="appendix.html">API
+                                        Reference</a></li>
+                                    <li class="toctree-l1"><a class="reference internal" href="release-process.html">Release
+                                        Process</a></li>
+                                    <li class="toctree-l1"><a class="reference internal" href="releases.html">Release
+                                        Notes</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+                    </div>
 
-  <hr/>
+                </div>
+                <footer>
+                    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+                        <a href="install.html" class="btn btn-neutral float-right" title="Install" accesskey="n"
+                           rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+                    </div>
 
-  <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Quantopian Inc..
+                    <hr/>
 
-    </p>
-  </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+                    <div role="contentinfo">
+                        <p>
+                            &#169; Copyright 2020, Quantopian Inc..
 
-</footer>
+                        </p>
+                    </div>
+
+
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+                </footer>
+            </div>
         </div>
-      </div>
 
     </section>
 
-  </div>
-  
+</div>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
 
-  
-  
-    
-   
+<script type="text/javascript">
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+</script>
+
+
+<!-- Theme Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-74956955-3', 'auto');
+
+    ga('send', 'pageview');
+</script>
+
 
 </body>
 </html>

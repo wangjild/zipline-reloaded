@@ -1382,20 +1382,22 @@
         <span class="n">end_dt</span> <span class="o">=</span> <span class="n">trading_days</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="mf">1e9</span>
 
         <span class="n">dividends</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_adjustment_reader</span><span class="o">.</span><span class="n">conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span>
-            <span class="s2">&quot;SELECT * FROM stock_dividend_payouts WHERE sid = ? AND &quot;</span>
-            <span class="s2">&quot;ex_date &gt; ? AND pay_date &lt; ?&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sid</span><span class="p">),</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">,))</span><span class="o">.</span>\
-            <span class="n">fetchall</span><span class="p">()</span>
+            <span class="s2">&quot;SELECT declared_date, ex_date, pay_date, payment_sid, ratio, &quot;</span>
+            <span class="s2">&quot;record_date, sid FROM stock_dividend_payouts &quot;</span>
+            <span class="s2">&quot;WHERE sid = ? AND ex_date &gt; ? AND pay_date &lt; ?&quot;</span><span class="p">,</span>
+            <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sid</span><span class="p">),</span> <span class="n">start_dt</span><span class="p">,</span> <span class="n">end_dt</span><span class="p">,)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 
         <span class="n">dividend_info</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">dividend_tuple</span> <span class="ow">in</span> <span class="n">dividends</span><span class="p">:</span>
             <span class="n">dividend_info</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-                <span class="s2">&quot;declared_date&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                <span class="s2">&quot;ex_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
-                <span class="s2">&quot;pay_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
-                <span class="s2">&quot;payment_sid&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
-                <span class="s2">&quot;ratio&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span>
-                <span class="s2">&quot;record_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
-                <span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+                <span class="s2">&quot;declared_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;ex_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;pay_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;payment_sid&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                <span class="s2">&quot;ratio&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                <span class="s2">&quot;record_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">),</span>
+                <span class="s2">&quot;sid&quot;</span><span class="p">:</span> <span class="n">dividend_tuple</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span>
             <span class="p">})</span>
 
         <span class="k">return</span> <span class="n">dividend_info</span></div>
@@ -1628,6 +1630,19 @@
 
   
   
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74956955-3', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
     
    
 

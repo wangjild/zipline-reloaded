@@ -1021,13 +1021,13 @@ Let’s look at the strategy which should make this clear:</p>
     <span class="n">perf</span><span class="p">[</span><span class="s1">&#39;AAPL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
     <span class="n">perf</span><span class="p">[[</span><span class="s1">&#39;short_mavg&#39;</span><span class="p">,</span> <span class="s1">&#39;long_mavg&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 
-    <span class="n">perf_trans</span> <span class="o">=</span> <span class="n">perf</span><span class="o">.</span><span class="n">ix</span><span class="p">[[</span><span class="n">t</span> <span class="o">!=</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">perf</span><span class="o">.</span><span class="n">transactions</span><span class="p">]]</span>
-    <span class="n">buys</span> <span class="o">=</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">ix</span><span class="p">[[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">transactions</span><span class="p">]]</span>
-    <span class="n">sells</span> <span class="o">=</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span>
+    <span class="n">perf_trans</span> <span class="o">=</span> <span class="n">perf</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">t</span> <span class="o">!=</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">perf</span><span class="o">.</span><span class="n">transactions</span><span class="p">]]</span>
+    <span class="n">buys</span> <span class="o">=</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">transactions</span><span class="p">]]</span>
+    <span class="n">sells</span> <span class="o">=</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
         <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">perf_trans</span><span class="o">.</span><span class="n">transactions</span><span class="p">]]</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">buys</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">perf</span><span class="o">.</span><span class="n">short_mavg</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">buys</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">buys</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">perf</span><span class="o">.</span><span class="n">short_mavg</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">buys</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
              <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;m&#39;</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sells</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">perf</span><span class="o">.</span><span class="n">short_mavg</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">sells</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sells</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">perf</span><span class="o">.</span><span class="n">short_mavg</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sells</span><span class="o">.</span><span class="n">index</span><span class="p">],</span>
              <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
     <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;price in $&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1114,6 +1114,19 @@ and <a class="reference external" href="https://quantopian.com">checkout Quantop
 
   
   
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-74956955-3', 'auto');
+    
+    ga('send', 'pageview');
+    </script>
+
     
    
 
