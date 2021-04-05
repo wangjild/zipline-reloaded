@@ -1,236 +1,362 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Data Bundles &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/zipline.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Trading Calendars" href="trading-calendars.html" />
-    <link rel="prev" title="Zipline Beginner Tutorial" href="beginner-tutorial.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <link rel="prev" title="Tutorial" href="beginner-tutorial.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-          
-            <a href="index.html" class="icon icon-home"> Zipline
-          
 
-          
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="releases.html">
+  Releases
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Bundles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#discovering-available-bundles">Discovering Available Bundles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ingesting-data">Ingesting Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#old-data">Old Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-backtests-with-data-bundles">Running Backtests with Data Bundles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#default-data-bundles">Default Data Bundles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quandl-wiki-bundle">Quandl WIKI Bundle</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#writing-a-new-bundle">Writing a New Bundle</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#environ"><code class="docutils literal notranslate"><span class="pre">environ</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#asset-db-writer"><code class="docutils literal notranslate"><span class="pre">asset_db_writer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#minute-bar-writer"><code class="docutils literal notranslate"><span class="pre">minute_bar_writer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#daily-bar-writer"><code class="docutils literal notranslate"><span class="pre">daily_bar_writer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adjustment-writer"><code class="docutils literal notranslate"><span class="pre">adjustment_writer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calendar"><code class="docutils literal notranslate"><span class="pre">calendar</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start-session"><code class="docutils literal notranslate"><span class="pre">start_session</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#end-session"><code class="docutils literal notranslate"><span class="pre">end_session</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cache"><code class="docutils literal notranslate"><span class="pre">cache</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#show-progress"><code class="docutils literal notranslate"><span class="pre">show_progress</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#output-dir"><code class="docutils literal notranslate"><span class="pre">output_dir</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ingesting-data-from-csv-files">Ingesting Data from .csv Files</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
     </nav>
+    
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Zipline</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
+    <div class="container-xl">
+      <div class="row">
           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Data Bundles</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/bundles.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
             
-  <div class="section" id="data-bundles">
-<span id="id1"></span><h1>Data Bundles<a class="headerlink" href="#data-bundles" title="Permalink to this headline">¶</a></h1>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discovering-available-bundles">
+   Discovering Available Bundles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ingesting-data">
+   Ingesting Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#old-data">
+   Old Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-backtests-with-data-bundles">
+   Running Backtests with Data Bundles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#default-data-bundles">
+   Default Data Bundles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quandl-wiki-bundle">
+     Quandl WIKI Bundle
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-a-new-bundle">
+   Writing a New Bundle
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environ">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       environ
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#asset-db-writer">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       asset_db_writer
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minute-bar-writer">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       minute_bar_writer
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#daily-bar-writer">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       daily_bar_writer
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adjustment-writer">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       adjustment_writer
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calendar">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       calendar
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-session">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       start_session
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-session">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       end_session
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cache">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       cache
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#show-progress">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       show_progress
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#output-dir">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       output_dir
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ingesting-data-from-csv-files">
+   Ingesting Data from .csv Files
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practical-examples">
+   Practical Examples
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="data">
+<span id="data-bundles"></span><h1>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h1>
 <p>A data bundle is a collection of pricing data, adjustment data, and an asset
 database. Bundles allow us to preload all of the data we will need to run
 backtests and store the data for future runs.</p>
 <div class="section" id="discovering-available-bundles">
 <span id="bundles-command"></span><h2>Discovering Available Bundles<a class="headerlink" href="#discovering-available-bundles" title="Permalink to this headline">¶</a></h2>
-<p>Zipline comes with a few bundles by default as well as the ability to register
-new bundles. To see which bundles we have available, we may run the
+<p>Zipline comes with a default bundle as well as the ability to register
+new bundles. To see which bundles we may be available, we may run the
 <code class="docutils literal notranslate"><span class="pre">bundles</span></code> command, for example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zipline bundles
 my-custom-bundle <span class="m">2016</span>-05-05 <span class="m">20</span>:35:19.809398
 my-custom-bundle <span class="m">2016</span>-05-05 <span class="m">20</span>:34:53.654082
 my-custom-bundle <span class="m">2016</span>-05-05 <span class="m">20</span>:34:48.401767
-quandl &lt;no ingestions&gt;
-quantopian-quandl <span class="m">2016</span>-05-05 <span class="m">20</span>:06:40.894956
+quandl <span class="m">2016</span>-05-05 <span class="m">20</span>:06:40.894956
 </pre></div>
 </div>
 <p>The output here shows that there are 3 bundles available:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">my-custom-bundle</span></code> (added by the user)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quandl</span></code> (provided by zipline, though deprecated)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code> (provided by zipline, the default bundle)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quandl</span></code> (provided by Zipline, the default bundle)</p></li>
 </ul>
 <p>The dates and times next to the name show the times when the data for this
 bundle was ingested. We have run three different ingestions for
 <code class="docutils literal notranslate"><span class="pre">my-custom-bundle</span></code>. We have never ingested any data for the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> bundle
-so it just shows <code class="docutils literal notranslate"><span class="pre">&lt;no</span> <span class="pre">ingestions&gt;</span></code> instead. Finally, there is only one
-ingestion for <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code>.</p>
+so it just shows <code class="docutils literal notranslate"><span class="pre">&lt;no</span> <span class="pre">ingestions&gt;</span></code> instead.</p>
+<p><strong>Note</strong>: Quantopian used to provide a re-packaged version of the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> bundle as <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code>
+that is still available in April 2021. While it ingests much faster, it does not have the country code that
+the library has since come to require and which the current Zipline version inserts for the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> bundle.
+If you want to use <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code> instead, use <a class="reference external" href="https://github.com/quantopian/zipline/issues/2517">this workaround</a>
+to manually update the database.</p>
 </div>
 <div class="section" id="ingesting-data">
-<span id="id2"></span><h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Ingesting Data<a class="headerlink" href="#ingesting-data" title="Permalink to this headline">¶</a></h2>
 <p>The first step to using a data bundle is to ingest the data.
-The ingestion process will invoke some custom bundle command and then write the data to a standard location that zipline can find.
+The ingestion process will invoke some custom bundle command and then write the data to a standard location that Zipline can find.
 By default the location where ingested data will be written is <code class="docutils literal notranslate"><span class="pre">$ZIPLINE_ROOT/data/&lt;bundle&gt;</span></code> where by default <code class="docutils literal notranslate"><span class="pre">ZIPLINE_ROOT=~/.zipline</span></code>.
 The ingestion step may take some time as it could involve downloading and processing a lot of data.
 To ingest a bundle, run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zipline ingest <span class="o">[</span>-b &lt;bundle&gt;<span class="o">]</span>
 </pre></div>
 </div>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;bundle&gt;</span></code> is the name of the bundle to ingest, defaulting to <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code>.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;bundle&gt;</span></code> is the name of the bundle to ingest, defaulting to <code class="docutils literal notranslate"><span class="pre">quandl</span></code>.</p>
 </div>
 <div class="section" id="old-data">
 <h2>Old Data<a class="headerlink" href="#old-data" title="Permalink to this headline">¶</a></h2>
@@ -280,32 +406,31 @@ the current day to use the most recent data.</p>
 <h2>Default Data Bundles<a class="headerlink" href="#default-data-bundles" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="quandl-wiki-bundle">
 <span id="quandl-data-bundle"></span><h3>Quandl WIKI Bundle<a class="headerlink" href="#quandl-wiki-bundle" title="Permalink to this headline">¶</a></h3>
-<p>By default zipline comes with the <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code> data bundle which uses quandl’s <a class="reference external" href="https://www.quandl.com/data/WIKI">WIKI dataset</a>.
-The quandl data bundle includes daily pricing data, splits, cash dividends, and asset metadata.
-Quantopian has ingested the data from quandl and rebundled it to make ingestion much faster.
-To ingest the <code class="docutils literal notranslate"><span class="pre">quantopian-quandl</span></code> data bundle, run either of the following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zipline ingest -b quantopian-quandl
+<p>By default Zipline comes with the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> data bundle which uses
+Quandl’s <a class="reference external" href="https://www.quandl.com/data/WIKI">WIKI dataset</a>.
+The Quandl data bundle includes daily pricing data, splits, cash dividends, and asset metadata.
+To ingest the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> data bundle, run either of the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ zipline ingest -b quandl
 $ zipline ingest
 </pre></div>
 </div>
-<p>Either command should only take a few seconds to download the data.</p>
+<p>Either command should only take a few minutes to download and process the data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Quandl has discontinued this dataset.
-The dataset is no longer updating, but is reasonable for trying out Zipline without setting up your own dataset.</p>
+<p>Quandl has discontinued this dataset early 2018 and it no longer updates. Regardless, it is a useful starting point to try out Zipline without setting up your own dataset.</p>
 </div>
 </div>
 </div>
 <div class="section" id="writing-a-new-bundle">
-<h2>Writing a New Bundle<a class="headerlink" href="#writing-a-new-bundle" title="Permalink to this headline">¶</a></h2>
+<span id="new-bundle"></span><h2>Writing a New Bundle<a class="headerlink" href="#writing-a-new-bundle" title="Permalink to this headline">¶</a></h2>
 <p>Data bundles exist to make it easy to use different data sources with
-zipline. To add a new bundle, one must implement an <code class="docutils literal notranslate"><span class="pre">ingest</span></code> function.</p>
+Zipline. To add a new bundle, one must implement an <code class="docutils literal notranslate"><span class="pre">ingest</span></code> function.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ingest</span></code> function is responsible for loading the data into memory and
-passing it to a set of writer objects provided by zipline to convert the data to
-zipline’s internal format. The ingest function may work by downloading data from
+passing it to a set of writer objects provided by Zipline to convert the data to
+Zipline’s internal format. The ingest function may work by downloading data from
 a remote location like the <code class="docutils literal notranslate"><span class="pre">quandl</span></code> bundle or it may just
 load files that are already on the machine. The function is provided with
-writers that will write the data to the correct location transactionally. If an
+writers that will write the data to the correct location. If an
 ingestion fails part way through the bundle will not be written in an incomplete
 state.</p>
 <p>The signature of the ingest function should be:</p>
@@ -331,31 +456,31 @@ download retry attempt count.</p>
 </div>
 <div class="section" id="asset-db-writer">
 <h3><code class="docutils literal notranslate"><span class="pre">asset_db_writer</span></code><a class="headerlink" href="#asset-db-writer" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">asset_db_writer</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.assets.AssetDBWriter" title="zipline.assets.AssetDBWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssetDBWriter</span></code></a>.
+<p><code class="docutils literal notranslate"><span class="pre">asset_db_writer</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.assets.AssetDBWriter" title="zipline.assets.AssetDBWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssetDBWriter</span></code></a>.
 This is the writer for the asset metadata which provides the asset lifetimes and
 the symbol to asset id (sid) mapping. This may also contain the asset name,
 exchange and a few other columns. To write data, invoke
-<a class="reference internal" href="appendix.html#zipline.assets.AssetDBWriter.write" title="zipline.assets.AssetDBWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> with dataframes for the various
+<a class="reference internal" href="api-reference.html#zipline.assets.AssetDBWriter.write" title="zipline.assets.AssetDBWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> with dataframes for the various
 pieces of metadata. More information about the format of the data exists in the
 docs for write.</p>
 </div>
 <div class="section" id="minute-bar-writer">
 <h3><code class="docutils literal notranslate"><span class="pre">minute_bar_writer</span></code><a class="headerlink" href="#minute-bar-writer" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">minute_bar_writer</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter" title="zipline.data.minute_bars.BcolzMinuteBarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzMinuteBarWriter</span></code></a>. This writer is used to
-convert data to zipline’s internal bcolz format to later be read by a
-<a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarReader" title="zipline.data.minute_bars.BcolzMinuteBarReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzMinuteBarReader</span></code></a>. If minute data is
+<a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter" title="zipline.data.minute_bars.BcolzMinuteBarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzMinuteBarWriter</span></code></a>. This writer is used to
+convert data to Zipline’s internal bcolz format to later be read by a
+<a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarReader" title="zipline.data.minute_bars.BcolzMinuteBarReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzMinuteBarReader</span></code></a>. If minute data is
 provided, users should call
-<a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> with an iterable of
+<a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> with an iterable of
 (sid, dataframe) tuples. The <code class="docutils literal notranslate"><span class="pre">show_progress</span></code> argument should also be forwarded
 to this method. If the data source does not provide minute level data, then
 there is no need to call the write method. It is also acceptable to pass an
-empty iterator to <a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>
+empty iterator to <a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>
 to signal that there is no minutely data.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The data passed to
-<a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> may be a lazy
+<a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> may be a lazy
 iterator or generator to avoid loading all of the minute data into memory at
 a single time. A given sid may also appear multiple times in the data as long
 as the dates are strictly increasing.</p>
@@ -364,21 +489,21 @@ as the dates are strictly increasing.</p>
 <div class="section" id="daily-bar-writer">
 <h3><code class="docutils literal notranslate"><span class="pre">daily_bar_writer</span></code><a class="headerlink" href="#daily-bar-writer" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">daily_bar_writer</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.data.bcolz_daily_bars.BcolzDailyBarWriter" title="zipline.data.bcolz_daily_bars.BcolzDailyBarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzDailyBarWriter</span></code></a>. This writer is
-used to convert data into zipline’s internal bcolz format to later be read by a
-<a class="reference internal" href="appendix.html#zipline.data.bcolz_daily_bars.BcolzDailyBarReader" title="zipline.data.bcolz_daily_bars.BcolzDailyBarReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzDailyBarReader</span></code></a>. If daily data is
+<a class="reference internal" href="api-reference.html#zipline.data.bcolz_daily_bars.BcolzDailyBarWriter" title="zipline.data.bcolz_daily_bars.BcolzDailyBarWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzDailyBarWriter</span></code></a>. This writer is
+used to convert data into Zipline’s internal bcolz format to later be read by a
+<a class="reference internal" href="api-reference.html#zipline.data.bcolz_daily_bars.BcolzDailyBarReader" title="zipline.data.bcolz_daily_bars.BcolzDailyBarReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">BcolzDailyBarReader</span></code></a>. If daily data is
 provided, users should call
 <code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code> with an iterable of
 (sid dataframe) tuples. The <code class="docutils literal notranslate"><span class="pre">show_progress</span></code> argument should also be forwarded
 to this method. If the data source does not provide daily data, then there is
 no need to call the write method. It is also acceptable to pass an empty
-iterable to <a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> to
+iterable to <a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> to
 signal that there is no daily data. If no daily data is provided but minute data
 is provided, a daily rollup will happen to service daily history requests.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Like the <code class="docutils literal notranslate"><span class="pre">minute_bar_writer</span></code>, the data passed to
-<a class="reference internal" href="appendix.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> may be a lazy
+<a class="reference internal" href="api-reference.html#zipline.data.minute_bars.BcolzMinuteBarWriter.write" title="zipline.data.minute_bars.BcolzMinuteBarWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a> may be a lazy
 iterable or generator to avoid loading all of the data into memory at once.
 Unlike the <code class="docutils literal notranslate"><span class="pre">minute_bar_writer</span></code>, a sid may only appear once in the data
 iterable.</p>
@@ -387,17 +512,17 @@ iterable.</p>
 <div class="section" id="adjustment-writer">
 <h3><code class="docutils literal notranslate"><span class="pre">adjustment_writer</span></code><a class="headerlink" href="#adjustment-writer" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">adjustment_writer</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.data.adjustments.SQLiteAdjustmentWriter" title="zipline.data.adjustments.SQLiteAdjustmentWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SQLiteAdjustmentWriter</span></code></a>. This writer is
+<a class="reference internal" href="api-reference.html#zipline.data.adjustments.SQLiteAdjustmentWriter" title="zipline.data.adjustments.SQLiteAdjustmentWriter"><code class="xref py py-class docutils literal notranslate"><span class="pre">SQLiteAdjustmentWriter</span></code></a>. This writer is
 used to store splits, mergers, dividends, and stock dividends. The data should
 be provided as dataframes and passed to
-<a class="reference internal" href="appendix.html#zipline.data.adjustments.SQLiteAdjustmentWriter.write" title="zipline.data.adjustments.SQLiteAdjustmentWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. Each of
+<a class="reference internal" href="api-reference.html#zipline.data.adjustments.SQLiteAdjustmentWriter.write" title="zipline.data.adjustments.SQLiteAdjustmentWriter.write"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write()</span></code></a>. Each of
 these fields are optional, but the writer can accept as much of the data as you
 have.</p>
 </div>
 <div class="section" id="calendar">
 <h3><code class="docutils literal notranslate"><span class="pre">calendar</span></code><a class="headerlink" href="#calendar" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">calendar</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipline.utils.calendars.TradingCalendar</span></code></a>. The calendar is provided to
+<a class="reference internal" href="api-reference.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">zipline.utils.calendars.TradingCalendar</span></code></a>. The calendar is provided to
 help some bundles generate queries for the days needed.</p>
 </div>
 <div class="section" id="start-session">
@@ -412,7 +537,7 @@ that the bundle should load data for.</p>
 </div>
 <div class="section" id="cache">
 <h3><code class="docutils literal notranslate"><span class="pre">cache</span></code><a class="headerlink" href="#cache" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">cache</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.utils.cache.dataframe_cache" title="zipline.utils.cache.dataframe_cache"><code class="xref py py-class docutils literal notranslate"><span class="pre">dataframe_cache</span></code></a>. This
+<p><code class="docutils literal notranslate"><span class="pre">cache</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.utils.cache.dataframe_cache" title="zipline.utils.cache.dataframe_cache"><code class="xref py py-class docutils literal notranslate"><span class="pre">dataframe_cache</span></code></a>. This
 object is a mapping from strings to dataframes. This object is provided in case
 an ingestion crashes part way through. The idea is that the ingest function
 should check the cache for raw data, if it doesn’t exist in the cache, it should
@@ -429,7 +554,7 @@ feedback about the ingest function’s progress fetching and writing the
 data. Some examples for where to show how many files you have downloaded out of
 the total needed, or how far into some data conversion the ingest function
 is. One tool that may help with implementing <code class="docutils literal notranslate"><span class="pre">show_progress</span></code> for a loop is
-<a class="reference internal" href="appendix.html#zipline.utils.cli.maybe_show_progress" title="zipline.utils.cli.maybe_show_progress"><code class="xref py py-class docutils literal notranslate"><span class="pre">maybe_show_progress</span></code></a>. This argument should always be
+<a class="reference internal" href="api-reference.html#zipline.utils.cli.maybe_show_progress" title="zipline.utils.cli.maybe_show_progress"><code class="xref py py-class docutils literal notranslate"><span class="pre">maybe_show_progress</span></code></a>. This argument should always be
 forwarded to <code class="docutils literal notranslate"><span class="pre">minute_bar_writer.write</span></code> and <code class="docutils literal notranslate"><span class="pre">daily_bar_writer.write</span></code>.</p>
 </div>
 <div class="section" id="output-dir">
@@ -497,71 +622,56 @@ Merging daily equity files:  <span class="o">[</span><span class="c1">##########
 $ <span class="nv">CSVDIR</span><span class="o">=</span>/path/to/your/csvs zipline ingest -b custom-csvdir-bundle
 </pre></div>
 </div>
-<p>If you would like to use equities that are not in the NYSE calendar, or the existing zipline calendars,
+<p>If you would like to use equities that are not in the NYSE calendar, or the existing Zipline calendars,
 you can look at the <code class="docutils literal notranslate"><span class="pre">Trading</span> <span class="pre">Calendar</span> <span class="pre">Tutorial</span></code> to build a custom trading calendar that you can then pass
 the name of to <code class="docutils literal notranslate"><span class="pre">register()</span></code>.</p>
 </div>
+<div class="section" id="practical-examples">
+<h2>Practical Examples<a class="headerlink" href="#practical-examples" title="Permalink to this headline">¶</a></h2>
+<p>See examples for <a class="reference external" href="https://www.algoseek.com/">Algoseek</a> <a class="reference external" href="https://github.com/stefan-jansen/machine-learning-for-trading/tree/master/08_ml4t_workflow/04_ml4t_workflow_with_zipline/01_custom_bundles">minute data</a>
+and <a class="reference external" href="https://github.com/stefan-jansen/machine-learning-for-trading/tree/master/11_decision_trees_random_forests/00_custom_bundle">Japanese equities</a>
+at daily frequency from the book <a class="reference external" href="https://www.amazon.com/Machine-Learning-Algorithmic-Trading-alternative/dp/1839217715?pf_rd_r=GZH2XZ35GB3BET09PCCA&amp;pf_rd_p=c5b6893a-24f2-4a59-9d4b-aff5065c90ec&amp;pd_rd_r=91a679c7-f069-4a6e-bdbb-a2b3f548f0c8&amp;pd_rd_w=2B0Q0&amp;pd_rd_wg=GMY5S&amp;ref_=pd_gw_ci_mcx_mr_hp_d">Machine Learning for Trading</a>.</p>
+</div>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="trading-calendars.html" class="btn btn-neutral float-right" title="Trading Calendars" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="beginner-tutorial.html" class="btn btn-neutral float-left" title="Zipline Beginner Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="beginner-tutorial.html" title="previous page">Tutorial</a>
+    <a class='right-next' id="next-link" href="trading-calendars.html" title="next page">Trading Calendars</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
 
-  <hr/>
+    
+  <script src="_static/js/index.a26b4849e0a18c48af57.js"></script>
 
-  <div role="contentinfo">
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.data.dataset &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.data.dataset &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.data.dataset</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.data.dataset</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">abc</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span><span class="p">,</span> <span class="n">OrderedDict</span>
@@ -168,10 +166,7 @@
 <span class="kn">from</span> <span class="nn">textwrap</span> <span class="kn">import</span> <span class="n">dedent</span>
 <span class="kn">from</span> <span class="nn">weakref</span> <span class="kn">import</span> <span class="n">WeakKeyDictionary</span>
 
-<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">iteritems</span><span class="p">,</span>
-    <span class="n">with_metaclass</span><span class="p">,</span>
-<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">with_metaclass</span>
 <span class="kn">from</span> <span class="nn">toolz</span> <span class="kn">import</span> <span class="n">first</span>
 
 <span class="kn">from</span> <span class="nn">zipline.currency</span> <span class="kn">import</span> <span class="n">Currency</span>
@@ -197,25 +192,29 @@
 <span class="kn">from</span> <span class="nn">zipline.utils.string_formatting</span> <span class="kn">import</span> <span class="n">bulleted_list</span>
 
 
-<span class="n">IsSpecialization</span> <span class="o">=</span> <span class="n">sentinel</span><span class="p">(</span><span class="s1">&#39;IsSpecialization&#39;</span><span class="p">)</span>
+<span class="n">IsSpecialization</span> <span class="o">=</span> <span class="n">sentinel</span><span class="p">(</span><span class="s2">&quot;IsSpecialization&quot;</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Column"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.Column">[docs]</a><span class="k">class</span> <span class="nc">Column</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Column"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.Column">[docs]</a><span class="k">class</span> <span class="nc">Column</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An abstract column of data, not yet associated with a dataset.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="nd">@preprocess</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">ensure_dtype</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">dtype</span><span class="p">,</span>
-                 <span class="n">missing_value</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                 <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">currency_aware</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">currency_aware</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="k">if</span> <span class="n">currency_aware</span> <span class="ow">and</span> <span class="n">dtype</span> <span class="o">!=</span> <span class="n">float64_dtype</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s1">&#39;Columns cannot be constructed with currency_aware=</span><span class="si">{}</span><span class="s1">, &#39;</span>
-                <span class="s1">&#39;dtype=</span><span class="si">{}</span><span class="s1">. Currency aware columns must have a float64 dtype.&#39;</span>
-                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">currency_aware</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+                <span class="s2">&quot;Columns cannot be constructed with currency_aware=</span><span class="si">{}</span><span class="s2">, &quot;</span>
+                <span class="s2">&quot;dtype=</span><span class="si">{}</span><span class="s2">. Currency aware columns must have a float64 dtype.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">currency_aware</span><span class="p">,</span> <span class="n">dtype</span>
+                <span class="p">)</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
@@ -224,7 +223,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">currency_aware</span> <span class="o">=</span> <span class="n">currency_aware</span>
 
-<div class="viewcode-block" id="Column.bind"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.Column.bind">[docs]</a>    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<div class="viewcode-block" id="Column.bind"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.Column.bind">[docs]</a>    <span class="k">def</span> <span class="nf">bind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Bind a `Column` object to its name.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -246,13 +245,8 @@
 <span class="sd">    This exists so that subclasses of DataSets don&#39;t share columns with their</span>
 <span class="sd">    parent classes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">dtype</span><span class="p">,</span>
-                 <span class="n">missing_value</span><span class="p">,</span>
-                 <span class="n">name</span><span class="p">,</span>
-                 <span class="n">doc</span><span class="p">,</span>
-                 <span class="n">metadata</span><span class="p">,</span>
-                 <span class="n">currency_aware</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">missing_value</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">doc</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">currency_aware</span><span class="p">):</span>
         <span class="c1"># Validating and calculating default missing values here guarantees</span>
         <span class="c1"># that we fail quickly if the user passes an unsupporte dtype or fails</span>
         <span class="c1"># to provide a missing value for a dtype that requires one</span>
@@ -297,7 +291,7 @@
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="BoundColumn"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn">[docs]</a><span class="k">class</span> <span class="nc">BoundColumn</span><span class="p">(</span><span class="n">LoadableTerm</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundColumn"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn">[docs]</a><span class="k">class</span> <span class="nc">BoundColumn</span><span class="p">(</span><span class="n">LoadableTerm</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A column of data that&#39;s been concretely bound to a particular dataset.</span>
 
@@ -327,23 +321,26 @@
 <span class="sd">    class. Pipeline API users should never construct instances of this</span>
 <span class="sd">    directly.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">mask</span> <span class="o">=</span> <span class="n">AssetExists</span><span class="p">()</span>
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">dtype</span><span class="p">,</span>
-                <span class="n">missing_value</span><span class="p">,</span>
-                <span class="n">dataset</span><span class="p">,</span>
-                <span class="n">name</span><span class="p">,</span>
-                <span class="n">doc</span><span class="p">,</span>
-                <span class="n">metadata</span><span class="p">,</span>
-                <span class="n">currency_conversion</span><span class="p">,</span>
-                <span class="n">currency_aware</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">doc</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">currency_conversion</span><span class="p">,</span>
+        <span class="n">currency_aware</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="k">if</span> <span class="n">currency_aware</span> <span class="ow">and</span> <span class="n">dtype</span> <span class="o">!=</span> <span class="n">float64_dtype</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="s1">&#39;The </span><span class="si">{}</span><span class="s1"> column on dataset </span><span class="si">{}</span><span class="s1"> cannot be constructed with &#39;</span>
-                <span class="s1">&#39;currency_aware=</span><span class="si">{}</span><span class="s1">, dtype=</span><span class="si">{}</span><span class="s1">. Currency aware columns must &#39;</span>
-                <span class="s1">&#39;have a float64 dtype.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="s2">&quot;The </span><span class="si">{}</span><span class="s2"> column on dataset </span><span class="si">{}</span><span class="s2"> cannot be constructed with &quot;</span>
+                <span class="s2">&quot;currency_aware=</span><span class="si">{}</span><span class="s2">, dtype=</span><span class="si">{}</span><span class="s2">. Currency aware columns must &quot;</span>
+                <span class="s2">&quot;have a float64 dtype.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">name</span><span class="p">,</span>
                     <span class="n">dataset</span><span class="p">,</span>
                     <span class="n">currency_aware</span><span class="p">,</span>
@@ -365,14 +362,17 @@
             <span class="n">currency_aware</span><span class="o">=</span><span class="n">currency_aware</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-              <span class="n">dataset</span><span class="p">,</span>
-              <span class="n">name</span><span class="p">,</span>
-              <span class="n">doc</span><span class="p">,</span>
-              <span class="n">metadata</span><span class="p">,</span>
-              <span class="n">currency_conversion</span><span class="p">,</span>
-              <span class="n">currency_aware</span><span class="p">,</span>
-              <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">doc</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">currency_conversion</span><span class="p">,</span>
+        <span class="n">currency_aware</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span> <span class="o">=</span> <span class="n">dataset</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">name</span>
         <span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span> <span class="o">=</span> <span class="n">doc</span>
@@ -382,14 +382,17 @@
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">BoundColumn</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                         <span class="n">dataset</span><span class="p">,</span>
-                         <span class="n">name</span><span class="p">,</span>
-                         <span class="n">doc</span><span class="p">,</span>
-                         <span class="n">metadata</span><span class="p">,</span>
-                         <span class="n">currency_conversion</span><span class="p">,</span>
-                         <span class="n">currency_aware</span><span class="p">,</span>
-                         <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">dataset</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">,</span>
+        <span class="n">doc</span><span class="p">,</span>
+        <span class="n">metadata</span><span class="p">,</span>
+        <span class="n">currency_conversion</span><span class="p">,</span>
+        <span class="n">currency_aware</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="nb">super</span><span class="p">(</span><span class="n">BoundColumn</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">_static_identity</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
             <span class="n">dataset</span><span class="p">,</span>
@@ -421,15 +424,14 @@
 
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)(</span><span class="o">**</span><span class="n">kw</span><span class="p">)</span>
 
-<div class="viewcode-block" id="BoundColumn.specialize"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn.specialize">[docs]</a>    <span class="k">def</span> <span class="nf">specialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Specialize ``self`` to a concrete domain.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BoundColumn.specialize"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn.specialize">[docs]</a>    <span class="k">def</span> <span class="nf">specialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Specialize ``self`` to a concrete domain.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">domain</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">specialize</span><span class="p">(</span><span class="n">domain</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="BoundColumn.unspecialize"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn.unspecialize">[docs]</a>    <span class="k">def</span> <span class="nf">unspecialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundColumn.unspecialize"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn.unspecialize">[docs]</a>    <span class="k">def</span> <span class="nf">unspecialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Unspecialize a column to its generic form.</span>
 
@@ -437,7 +439,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">specialize</span><span class="p">(</span><span class="n">GENERIC</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="BoundColumn.fx"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn.fx">[docs]</a>    <span class="nd">@coerce_types</span><span class="p">(</span><span class="n">currency</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Currency</span><span class="p">))</span>
+<div class="viewcode-block" id="BoundColumn.fx"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn.fx">[docs]</a>    <span class="nd">@coerce_types</span><span class="p">(</span><span class="n">currency</span><span class="o">=</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Currency</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">fx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">currency</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a currency-converted version of this column.</span>
@@ -457,8 +459,8 @@
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_currency_aware</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s1">&#39;The .fx() method cannot be called on </span><span class="si">{}</span><span class="s1"> because it does not &#39;</span>
-                <span class="s1">&#39;produce currency-denominated data.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qualname</span><span class="p">)</span>
+                <span class="s2">&quot;The .fx() method cannot be called on </span><span class="si">{}</span><span class="s2"> because it does not &quot;</span>
+                <span class="s2">&quot;produce currency-denominated data.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">qualname</span><span class="p">)</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">conversion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">conversion</span><span class="o">.</span><span class="n">currency</span> <span class="o">==</span> <span class="n">currency</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
@@ -472,8 +474,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">currency_conversion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Specification for currency conversions applied for this term.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Specification for currency conversions applied for this term.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_currency_conversion</span>
 
     <span class="nd">@property</span>
@@ -506,12 +507,11 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">qualname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The fully-qualified name of this column.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">qualname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+        <span class="sd">&quot;&quot;&quot;The fully-qualified name of this column.&quot;&quot;&quot;</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;.&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">qualname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
         <span class="n">conversion</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_currency_conversion</span>
         <span class="k">if</span> <span class="n">conversion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">out</span> <span class="o">+=</span> <span class="s1">&#39;.fx(</span><span class="si">{!r}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conversion</span><span class="o">.</span><span class="n">currency</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">+=</span> <span class="s2">&quot;.fx(</span><span class="si">{!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conversion</span><span class="o">.</span><span class="n">currency</span><span class="o">.</span><span class="n">code</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">out</span>
 
     <span class="nd">@property</span>
@@ -538,15 +538,14 @@
             <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="BoundColumn.graph_repr"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundColumn.graph_repr"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Short repr to use when rendering Pipeline graphs.&quot;&quot;&quot;</span>
         <span class="c1"># Graphviz interprets `\l` as &quot;divide label into lines, left-justified&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;BoundColumn:</span><span class="se">\\</span><span class="s2">l  Dataset: </span><span class="si">{}</span><span class="se">\\</span><span class="s2">l  Column: </span><span class="si">{}</span><span class="se">\\</span><span class="s2">l&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="BoundColumn.recursive_repr"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.BoundColumn.recursive_repr">[docs]</a>    <span class="k">def</span> <span class="nf">recursive_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="BoundColumn.recursive_repr"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.BoundColumn.recursive_repr">[docs]</a>    <span class="k">def</span> <span class="nf">recursive_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Short repr used to render in recursive contexts.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">qualname</span></div></div>
 
@@ -558,6 +557,7 @@
 <span class="sd">    Supplies name and dataset information to Column attributes, and manages</span>
 <span class="sd">    families of specialized dataset.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="n">mcls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dict_</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># Disallowing multiple inheritance makes it easier for us to</span>
@@ -580,11 +580,11 @@
 
         <span class="c1"># Collect all of the column names that we inherit from our parents.</span>
         <span class="n">column_names</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span><span class="o">.</span><span class="n">union</span><span class="p">(</span>
-            <span class="o">*</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;_column_names&#39;</span><span class="p">,</span> <span class="p">())</span> <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">)</span>
+            <span class="o">*</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s2">&quot;_column_names&quot;</span><span class="p">,</span> <span class="p">())</span> <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">)</span>
         <span class="p">)</span>
 
         <span class="c1"># Collect any new columns from this dataset.</span>
-        <span class="k">for</span> <span class="n">maybe_colname</span><span class="p">,</span> <span class="n">maybe_column</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">dict_</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">maybe_colname</span><span class="p">,</span> <span class="n">maybe_column</span> <span class="ow">in</span> <span class="n">dict_</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">maybe_column</span><span class="p">,</span> <span class="n">Column</span><span class="p">):</span>
                 <span class="c1"># add column names defined on our class</span>
                 <span class="n">bound_column_descr</span> <span class="o">=</span> <span class="n">maybe_column</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">maybe_colname</span><span class="p">)</span>
@@ -596,9 +596,11 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_specialization</span><span class="p">:</span>
             <span class="c1"># This is the new root of a family of specializations. Store the</span>
             <span class="c1"># memoized dictionary for family on this type.</span>
-            <span class="n">newtype</span><span class="o">.</span><span class="n">_domain_specializations</span> <span class="o">=</span> <span class="n">WeakKeyDictionary</span><span class="p">({</span>
-                <span class="n">newtype</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span> <span class="n">newtype</span><span class="p">,</span>
-            <span class="p">})</span>
+            <span class="n">newtype</span><span class="o">.</span><span class="n">_domain_specializations</span> <span class="o">=</span> <span class="n">WeakKeyDictionary</span><span class="p">(</span>
+                <span class="p">{</span>
+                    <span class="n">newtype</span><span class="o">.</span><span class="n">domain</span><span class="p">:</span> <span class="n">newtype</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
 
         <span class="k">return</span> <span class="n">newtype</span>
 
@@ -653,7 +655,7 @@
         <span class="c1"># Always allow specializing to a generic domain.</span>
         <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">elif</span> <span class="s1">&#39;_domain_specializations&#39;</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="s2">&quot;_domain_specializations&quot;</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
             <span class="c1"># This branch is True if we&#39;re the root of a family.</span>
             <span class="c1"># Allow specialization if we&#39;re generic.</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span>
@@ -666,14 +668,15 @@
         <span class="c1"># These are all assertions because we should have handled these cases</span>
         <span class="c1"># already in specialize().</span>
         <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">Domain</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">domain</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domain_specializations</span><span class="p">,</span> <span class="p">(</span>
-            <span class="s2">&quot;Domain specializations should be memoized!&quot;</span>
-        <span class="p">)</span>
+        <span class="k">assert</span> <span class="p">(</span>
+            <span class="n">domain</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_domain_specializations</span>
+        <span class="p">),</span> <span class="s2">&quot;Domain specializations should be memoized!&quot;</span>
         <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">GENERIC</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span><span class="p">,</span> <span class="p">(</span>
-                <span class="s2">&quot;Can&#39;t specialize dataset with domain </span><span class="si">{}</span><span class="s2"> to domain </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span>
-                <span class="p">)</span>
+            <span class="k">assert</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span>
+            <span class="p">),</span> <span class="s2">&quot;Can&#39;t specialize dataset with domain </span><span class="si">{}</span><span class="s2"> to domain </span><span class="si">{}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
+                <span class="n">domain</span><span class="p">,</span>
             <span class="p">)</span>
 
         <span class="c1"># Create a new subclass of ``self`` with the given domain.</span>
@@ -681,23 +684,21 @@
         <span class="c1"># family for it.</span>
         <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
         <span class="n">bases</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="p">,)</span>
-        <span class="n">dict_</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="n">domain</span><span class="p">,</span> <span class="n">IsSpecialization</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="n">dict_</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="n">domain</span><span class="p">,</span> <span class="n">IsSpecialization</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
         <span class="n">out</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dict_</span><span class="p">)</span>
         <span class="n">out</span><span class="o">.</span><span class="vm">__module__</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__module__</span>
         <span class="k">return</span> <span class="n">out</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">columns</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span>
-            <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colname</span><span class="p">)</span> <span class="k">for</span> <span class="n">colname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_names</span>
-        <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">frozenset</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">colname</span><span class="p">)</span> <span class="k">for</span> <span class="n">colname</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_column_names</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">qualname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span><span class="p">:</span>
-            <span class="n">specialization_key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="n">specialization_key</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">specialization_key</span> <span class="o">=</span> <span class="s1">&#39;&lt;&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">country_code</span> <span class="o">+</span> <span class="s1">&#39;&gt;&#39;</span>
+            <span class="n">specialization_key</span> <span class="o">=</span> <span class="s2">&quot;&lt;&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="o">.</span><span class="n">country_code</span> <span class="o">+</span> <span class="s2">&quot;&gt;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="n">specialization_key</span>
 
@@ -710,10 +711,10 @@
         <span class="k">return</span> <span class="nb">id</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">id</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;DataSet: </span><span class="si">%r</span><span class="s1">, domain=</span><span class="si">%s</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;DataSet: </span><span class="si">%r</span><span class="s2">, domain=</span><span class="si">%s</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="DataSet"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.DataSet">[docs]</a><span class="k">class</span> <span class="nc">DataSet</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">DataSetMeta</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
+<div class="viewcode-block" id="DataSet"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.DataSet">[docs]</a><span class="k">class</span> <span class="nc">DataSet</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">DataSetMeta</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for Pipeline datasets.</span>
 
@@ -790,10 +791,11 @@
 <span class="sd">    numeric. Doing so enables the use of `NaN` as a natural missing value,</span>
 <span class="sd">    which has useful propagation semantics.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">domain</span> <span class="o">=</span> <span class="n">GENERIC</span>
     <span class="n">ndim</span> <span class="o">=</span> <span class="mi">2</span>
 
-<div class="viewcode-block" id="DataSet.get_column"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.DataSet.get_column">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="DataSet.get_column"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.DataSet.get_column">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">get_column</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Look up a column by name.</span>
 
@@ -853,6 +855,7 @@
 <span class="sd">    column_name : str</span>
 <span class="sd">        The name of the column accessed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">family_name</span><span class="p">,</span> <span class="n">column_name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">family_name</span> <span class="o">=</span> <span class="n">family_name</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">column_name</span> <span class="o">=</span> <span class="n">column_name</span>
@@ -867,7 +870,9 @@
 <span class="sd">            slice using the ``slice`` method:</span>
 
 <span class="sd">                {d}.slice(...).{c}</span>
-<span class="sd">            &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column_name</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">family_name</span><span class="p">)</span>
+<span class="sd">            &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">c</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">column_name</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">family_name</span>
+            <span class="p">)</span>
         <span class="p">)</span>
 
 
@@ -880,6 +885,7 @@
 <span class="sd">    column_names : str</span>
 <span class="sd">        The name of the column.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column_name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">column_name</span> <span class="o">=</span> <span class="n">column_name</span>
 
@@ -891,7 +897,6 @@
 
 
 <span class="k">class</span> <span class="nc">DataSetFamilyMeta</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABCMeta</span><span class="p">):</span>
-
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">dict_</span><span class="p">):</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dict_</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -903,7 +908,7 @@
                 <span class="n">columns</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
                 <span class="n">dict_</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_DataSetFamilyColumn</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 
-        <span class="n">is_abstract</span> <span class="o">=</span> <span class="n">dict_</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;_abstract&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">is_abstract</span> <span class="o">=</span> <span class="n">dict_</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;_abstract&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
 
         <span class="bp">self</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">DataSetFamilyMeta</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
@@ -913,14 +918,13 @@
         <span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_abstract</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">extra_dims</span> <span class="o">=</span> <span class="n">extra_dims</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
-                <span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
-                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extra_dims</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-            <span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extra_dims</span> <span class="o">=</span> <span class="n">extra_dims</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">(</span>
+                <span class="p">[(</span><span class="n">k</span><span class="p">,</span> <span class="nb">frozenset</span><span class="p">(</span><span class="n">v</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">OrderedDict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extra_dims</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+            <span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">extra_dims</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s1">&#39;DataSetFamily must be defined with non-empty&#39;</span>
-                    <span class="s1">&#39; extra_dims, or with `_abstract = True`&#39;</span><span class="p">,</span>
+                    <span class="s2">&quot;DataSetFamily must be defined with non-empty&quot;</span>
+                    <span class="s2">&quot; extra_dims, or with `_abstract = True`&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
 
             <span class="k">class</span> <span class="nc">BaseSlice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_SliceType</span><span class="p">):</span>
@@ -931,7 +935,7 @@
 
                 <span class="nb">locals</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
 
-            <span class="n">BaseSlice</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">BaseSlice&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
+            <span class="n">BaseSlice</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">BaseSlice&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_SliceType</span> <span class="o">=</span> <span class="n">BaseSlice</span>
 
         <span class="c1"># each type gets a unique cache</span>
@@ -939,7 +943,7 @@
         <span class="k">return</span> <span class="bp">self</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;&lt;DataSetFamily: </span><span class="si">%r</span><span class="s1">, extra_dims=</span><span class="si">%r</span><span class="s1">&gt;&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="k">return</span> <span class="s2">&quot;&lt;DataSetFamily: </span><span class="si">%r</span><span class="s2">, extra_dims=</span><span class="si">%r</span><span class="s2">&gt;&quot;</span> <span class="o">%</span> <span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
             <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">extra_dims</span><span class="p">),</span>
         <span class="p">)</span>
@@ -953,7 +957,7 @@
 
 <span class="c1"># XXX: This docstring was mostly written when the abstraction here was</span>
 <span class="c1"># &quot;MultiDimensionalDataSet&quot;. It probably needs some rewriting.</span>
-<div class="viewcode-block" id="DataSetFamily"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.DataSetFamily">[docs]</a><span class="k">class</span> <span class="nc">DataSetFamily</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">DataSetFamilyMeta</span><span class="p">)):</span>
+<div class="viewcode-block" id="DataSetFamily"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.DataSetFamily">[docs]</a><span class="k">class</span> <span class="nc">DataSetFamily</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">DataSetFamilyMeta</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for Pipeline dataset families.</span>
 
@@ -1016,6 +1020,7 @@
 <span class="sd">    This sliced dataset represents the rows from the higher dimensional dataset</span>
 <span class="sd">    where ``(dimension_0 == &#39;a&#39;) &amp; (dimension_1 == &#39;e&#39;)``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">_abstract</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Removed by metaclass</span>
 
     <span class="n">domain</span> <span class="o">=</span> <span class="n">GENERIC</span>
@@ -1030,6 +1035,7 @@
 <span class="sd">        May be defined on subclasses as an iterable of pairs: the</span>
 <span class="sd">        metaclass converts this attribute to an OrderedDict.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="n">__isabstractmethod__</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">owner</span><span class="p">):</span>
@@ -1042,23 +1048,25 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">dimensions_set</span><span class="p">:</span>
             <span class="n">extra</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-</span> <span class="n">dimensions_set</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> does not have the following </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span>
-                <span class="s1">&#39;Valid dimensions are: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> does not have the following </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;Valid dimensions are: </span><span class="si">%s</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
                     <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-                    <span class="n">s</span><span class="p">(</span><span class="s1">&#39;dimension&#39;</span><span class="p">,</span> <span class="n">extra</span><span class="p">),</span>
-                    <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extra</span><span class="p">),</span>
-                    <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extra_dims</span><span class="p">),</span>
+                    <span class="n">s</span><span class="p">(</span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="p">),</span>
+                    <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extra</span><span class="p">),</span>
+                    <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">extra_dims</span><span class="p">),</span>
                 <span class="p">),</span>
             <span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">extra_dims</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> has </span><span class="si">%d</span><span class="s1"> extra </span><span class="si">%s</span><span class="s1"> but </span><span class="si">%d</span><span class="s1"> </span><span class="si">%s</span><span class="s1"> given&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> has </span><span class="si">%d</span><span class="s2"> extra </span><span class="si">%s</span><span class="s2"> but </span><span class="si">%d</span><span class="s2"> </span><span class="si">%s</span><span class="s2"> given&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
                     <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                     <span class="nb">len</span><span class="p">(</span><span class="n">extra_dims</span><span class="p">),</span>
-                    <span class="n">s</span><span class="p">(</span><span class="s1">&#39;dimension&#39;</span><span class="p">,</span> <span class="n">extra_dims</span><span class="p">),</span>
+                    <span class="n">s</span><span class="p">(</span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span> <span class="n">extra_dims</span><span class="p">),</span>
                     <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">),</span>
-                    <span class="n">plural</span><span class="p">(</span><span class="s1">&#39;was&#39;</span><span class="p">,</span> <span class="s1">&#39;were&#39;</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span>
+                    <span class="n">plural</span><span class="p">(</span><span class="s2">&quot;was&quot;</span><span class="p">,</span> <span class="s2">&quot;were&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span>
                 <span class="p">),</span>
             <span class="p">)</span>
 
@@ -1071,7 +1079,8 @@
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">added</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                    <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> got multiple values for dimension </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> got multiple values for dimension </span><span class="si">%r</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span>
                         <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                         <span class="n">coords</span><span class="p">,</span>
                     <span class="p">),</span>
@@ -1083,10 +1092,11 @@
         <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
             <span class="n">missing</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">)</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="s1">&#39;no coordinate provided to </span><span class="si">%s</span><span class="s1"> for the following </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="s2">&quot;no coordinate provided to </span><span class="si">%s</span><span class="s2"> for the following </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span>
+                <span class="o">%</span> <span class="p">(</span>
                     <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-                    <span class="n">s</span><span class="p">(</span><span class="s1">&#39;dimension&#39;</span><span class="p">,</span> <span class="n">missing</span><span class="p">),</span>
-                    <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">),</span>
+                    <span class="n">s</span><span class="p">(</span><span class="s2">&quot;dimension&quot;</span><span class="p">,</span> <span class="n">missing</span><span class="p">),</span>
+                    <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing</span><span class="p">),</span>
                 <span class="p">),</span>
             <span class="p">)</span>
 
@@ -1095,7 +1105,8 @@
         <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">extra_dims</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s1">&#39;</span><span class="si">%r</span><span class="s1"> is not a value along the </span><span class="si">%s</span><span class="s1"> dimension of </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="s2">&quot;</span><span class="si">%r</span><span class="s2"> is not a value along the </span><span class="si">%s</span><span class="s2"> dimension of </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span>
                         <span class="n">value</span><span class="p">,</span>
                         <span class="n">key</span><span class="p">,</span>
                         <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
@@ -1106,18 +1117,18 @@
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_make_dataset</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Construct a new dataset given the coordinates.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Construct a new dataset given the coordinates.&quot;&quot;&quot;</span>
+
         <span class="k">class</span> <span class="nc">Slice</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_SliceType</span><span class="p">):</span>
             <span class="n">extra_coords</span> <span class="o">=</span> <span class="n">coords</span>
 
-        <span class="n">Slice</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.slice(</span><span class="si">%s</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+        <span class="n">Slice</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">.slice(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span>
             <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">=</span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+            <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">=</span><span class="si">%r</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">coords</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">Slice</span>
 
-<div class="viewcode-block" id="DataSetFamily.slice"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.data.DataSetFamily.slice">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="DataSetFamily.slice"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.data.DataSetFamily.slice">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">slice</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Take a slice of a DataSetFamily to produce a dataset</span>
 <span class="sd">        indexed by asset and date.</span>
@@ -1150,65 +1161,46 @@
 
 
 <span class="n">CurrencyConversion</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span>
-    <span class="s1">&#39;CurrencyConversion&#39;</span><span class="p">,</span>
-    <span class="p">[</span><span class="s1">&#39;currency&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;CurrencyConversion&quot;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">&quot;currency&quot;</span><span class="p">,</span> <span class="s2">&quot;field&quot;</span><span class="p">],</span>
 <span class="p">)</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

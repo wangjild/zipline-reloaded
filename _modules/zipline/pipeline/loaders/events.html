@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.loaders.events &#8212; Zipline 2.0.0rc4 documentation</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for zipline.pipeline.loaders.events</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">interface</span> <span class="kn">import</span> <span class="n">implements</span>
+<span class="kn">from</span> <span class="nn">toolz</span> <span class="kn">import</span> <span class="n">groupby</span><span class="p">,</span> <span class="n">merge</span>
+
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">PipelineLoader</span>
+<span class="kn">from</span> <span class="nn">zipline.pipeline.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">SID_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">TS_FIELD_NAME</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">zipline.pipeline.loaders.frame</span> <span class="kn">import</span> <span class="n">DataFrameLoader</span>
+<span class="kn">from</span> <span class="nn">zipline.pipeline.loaders.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">next_event_indexer</span><span class="p">,</span>
+    <span class="n">previous_event_indexer</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">required_event_fields</span><span class="p">(</span><span class="n">next_value_columns</span><span class="p">,</span> <span class="n">previous_value_columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the set of resource columns required to serve</span>
+<span class="sd">    ``next_value_columns`` and ``previous_value_columns``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># These metadata columns are used to align event indexers.</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">TS_FIELD_NAME</span><span class="p">,</span> <span class="n">SID_FIELD_NAME</span><span class="p">,</span> <span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">,}</span><span class="o">.</span><span class="n">union</span><span class="p">(</span>
+        <span class="c1"># We also expect any of the field names that our loadable columns</span>
+        <span class="c1"># are mapped to.</span>
+        <span class="n">next_value_columns</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span>
+        <span class="n">previous_value_columns</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">validate_column_specs</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">next_value_columns</span><span class="p">,</span> <span class="n">previous_value_columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verify that the columns of ``events`` can be used by an EventsLoader to</span>
+<span class="sd">    serve the BoundColumns described by ``next_value_columns`` and</span>
+<span class="sd">    ``previous_value_columns``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">required</span> <span class="o">=</span> <span class="n">required_event_fields</span><span class="p">(</span><span class="n">next_value_columns</span><span class="p">,</span> <span class="n">previous_value_columns</span><span class="p">)</span>
+    <span class="n">received</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="n">required</span> <span class="o">-</span> <span class="n">received</span>
+    <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;EventsLoader missing required columns </span><span class="si">{missing}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Got Columns: </span><span class="si">{received}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Expected Columns: </span><span class="si">{required}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">missing</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">),</span>
+                <span class="n">received</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">received</span><span class="p">),</span>
+                <span class="n">required</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">required</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<div class="viewcode-block" id="EventsLoader"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.events.EventsLoader">[docs]</a><span class="k">class</span> <span class="nc">EventsLoader</span><span class="p">(</span><span class="n">implements</span><span class="p">(</span><span class="n">PipelineLoader</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for PipelineLoaders that supports loading the next and previous</span>
+<span class="sd">    value of an event field.</span>
+
+<span class="sd">    Does not currently support adjustments.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    events : pd.DataFrame</span>
+<span class="sd">        A DataFrame representing events (e.g. share buybacks or</span>
+<span class="sd">        earnings announcements) associated with particular companies.</span>
+
+<span class="sd">        ``events`` must contain at least three columns::</span>
+<span class="sd">            sid : int64</span>
+<span class="sd">                The asset id associated with each event.</span>
+
+<span class="sd">            event_date : datetime64[ns]</span>
+<span class="sd">                The date on which the event occurred.</span>
+
+<span class="sd">            timestamp : datetime64[ns]</span>
+<span class="sd">                The date on which we learned about the event.</span>
+
+<span class="sd">    next_value_columns : dict[BoundColumn -&gt; str]</span>
+<span class="sd">        Map from dataset columns to raw field names that should be used when</span>
+<span class="sd">        searching for a next event value.</span>
+
+<span class="sd">    previous_value_columns : dict[BoundColumn -&gt; str]</span>
+<span class="sd">        Map from dataset columns to raw field names that should be used when</span>
+<span class="sd">        searching for a previous event value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EventsLoader.__init__"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.events.EventsLoader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">events</span><span class="p">,</span> <span class="n">next_value_columns</span><span class="p">,</span> <span class="n">previous_value_columns</span><span class="p">):</span>
+        <span class="n">validate_column_specs</span><span class="p">(</span>
+            <span class="n">events</span><span class="p">,</span>
+            <span class="n">next_value_columns</span><span class="p">,</span>
+            <span class="n">previous_value_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">events</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()]</span>
+
+        <span class="c1"># We always work with entries from ``events`` directly as numpy arrays,</span>
+        <span class="c1"># so we coerce from a frame to a dict of arrays here.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">name</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">series</span> <span class="ow">in</span> <span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">)</span><span class="o">.</span><span class="n">iteritems</span><span class="p">())</span>
+        <span class="p">}</span>
+
+        <span class="c1"># Columns to load with self.load_next_events.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">next_value_columns</span> <span class="o">=</span> <span class="n">next_value_columns</span>
+
+        <span class="c1"># Columns to load with self.load_previous_events.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">previous_value_columns</span> <span class="o">=</span> <span class="n">previous_value_columns</span></div>
+
+    <span class="k">def</span> <span class="nf">split_next_and_previous_event_columns</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">requested_columns</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Split requested columns into columns that should load the next known</span>
+<span class="sd">        value and columns that should load the previous known value.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        requested_columns : iterable[BoundColumn]</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        next_cols, previous_cols : iterable[BoundColumn], iterable[BoundColumn]</span>
+<span class="sd">            ``requested_columns``, partitioned into sub-sequences based on</span>
+<span class="sd">            whether the column should produce values from the next event or the</span>
+<span class="sd">            previous event</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">next_or_previous</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_value_columns</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;next&quot;</span>
+            <span class="k">elif</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_value_columns</span><span class="p">:</span>
+                <span class="k">return</span> <span class="s2">&quot;previous&quot;</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{c}</span><span class="s2"> not found in next_value_columns &quot;</span>
+                <span class="s2">&quot;or previous_value_columns&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span><span class="n">next_or_previous</span><span class="p">,</span> <span class="n">requested_columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;next&quot;</span><span class="p">,</span> <span class="p">()),</span> <span class="n">groups</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;previous&quot;</span><span class="p">,</span> <span class="p">())</span>
+
+    <span class="k">def</span> <span class="nf">next_event_indexer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query_cutoff</span><span class="p">,</span> <span class="n">sids</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">next_event_indexer</span><span class="p">(</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">data_query_cutoff</span><span class="p">,</span>
+            <span class="n">sids</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">TS_FIELD_NAME</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">],</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">previous_event_indexer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_query_time</span><span class="p">,</span> <span class="n">sids</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">previous_event_indexer</span><span class="p">(</span>
+            <span class="n">data_query_time</span><span class="p">,</span>
+            <span class="n">sids</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">TS_FIELD_NAME</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">],</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_next_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query_time</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_events</span><span class="p">(</span>
+            <span class="n">name_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">next_value_columns</span><span class="p">,</span>
+            <span class="n">indexer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">next_event_indexer</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">data_query_time</span><span class="p">,</span> <span class="n">sids</span><span class="p">),</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">dates</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span>
+            <span class="n">sids</span><span class="o">=</span><span class="n">sids</span><span class="p">,</span>
+            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_previous_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query_time</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_events</span><span class="p">(</span>
+            <span class="n">name_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">previous_value_columns</span><span class="p">,</span>
+            <span class="n">indexer</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">previous_event_indexer</span><span class="p">(</span><span class="n">data_query_time</span><span class="p">,</span> <span class="n">sids</span><span class="p">),</span>
+            <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+            <span class="n">dates</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span>
+            <span class="n">sids</span><span class="o">=</span><span class="n">sids</span><span class="p">,</span>
+            <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_load_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_map</span><span class="p">,</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">to_frame</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">dates</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">sids</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">indexer</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">sids</span><span class="p">))</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="c1"># Array holding the value for column `c` for every event we have.</span>
+            <span class="n">col_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">name_map</span><span class="p">[</span><span class="n">c</span><span class="p">]]</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">col_array</span><span class="p">):</span>
+                <span class="c1"># We don&#39;t have **any** events, so return col.missing_value</span>
+                <span class="c1"># every day for every sid. We have to special case empty events</span>
+                <span class="c1"># because in normal branch we depend on being able to index</span>
+                <span class="c1"># with -1 for missing values, which fails if there are no</span>
+                <span class="c1"># events at all.</span>
+                <span class="n">raw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span>
+                    <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">sids</span><span class="p">)),</span>
+                    <span class="n">c</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Slot event values into sid/date locations using `indexer`.</span>
+                <span class="c1"># This produces a 2D array of the same shape as `indexer`,</span>
+                <span class="c1"># which must be (len(dates), len(sids))`.</span>
+                <span class="n">raw</span> <span class="o">=</span> <span class="n">col_array</span><span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
+
+                <span class="c1"># indexer will be -1 for locations where we don&#39;t have a known</span>
+                <span class="c1"># value. Overwrite those locations with c.missing_value.</span>
+                <span class="n">raw</span><span class="p">[</span><span class="n">indexer</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">missing_value</span>
+
+            <span class="c1"># Delegate the actual array formatting logic to a DataFrameLoader.</span>
+            <span class="n">loader</span> <span class="o">=</span> <span class="n">DataFrameLoader</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">to_frame</span><span class="p">(</span><span class="n">raw</span><span class="p">),</span> <span class="n">adjustments</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_adjusted_array</span><span class="p">(</span>
+                <span class="n">domain</span><span class="p">,</span>
+                <span class="p">[</span><span class="n">c</span><span class="p">],</span>
+                <span class="n">dates</span><span class="p">,</span>
+                <span class="n">sids</span><span class="p">,</span>
+                <span class="n">mask</span><span class="p">,</span>
+            <span class="p">)[</span><span class="n">c</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">load_adjusted_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="n">data_query</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">data_query_cutoff_for_sessions</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+        <span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_next_and_previous_event_columns</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">merge</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_next_events</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">),</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">load_previous_events</span><span class="p">(</span><span class="n">domain</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">),</span>
+        <span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.engine &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.engine &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.engine</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.engine</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Computation engines for executing Pipelines.</span>
@@ -222,7 +220,6 @@
 <span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
-<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">iteritems</span><span class="p">,</span> <span class="n">with_metaclass</span><span class="p">,</span> <span class="n">viewkeys</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">array</span><span class="p">,</span> <span class="n">arange</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">MultiIndex</span>
 <span class="kn">from</span> <span class="nn">toolz</span> <span class="kn">import</span> <span class="n">groupby</span>
@@ -247,9 +244,8 @@
 <span class="kn">from</span> <span class="nn">zipline.utils.pandas_utils</span> <span class="kn">import</span> <span class="n">categorical_df_concat</span>
 
 
-<div class="viewcode-block" id="PipelineEngine"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.PipelineEngine">[docs]</a><span class="k">class</span> <span class="nc">PipelineEngine</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">ABCMeta</span><span class="p">)):</span>
-
-<div class="viewcode-block" id="PipelineEngine.run_pipeline"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.PipelineEngine.run_pipeline">[docs]</a>    <span class="nd">@abstractmethod</span>
+<div class="viewcode-block" id="PipelineEngine"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.PipelineEngine">[docs]</a><span class="k">class</span> <span class="nc">PipelineEngine</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+<div class="viewcode-block" id="PipelineEngine.run_pipeline"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.PipelineEngine.run_pipeline">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">run_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute values for ``pipeline`` from ``start_date`` to ``end_date``.</span>
@@ -281,13 +277,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;run_pipeline&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="PipelineEngine.run_chunked_pipeline"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.PipelineEngine.run_chunked_pipeline">[docs]</a>    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                             <span class="n">pipeline</span><span class="p">,</span>
-                             <span class="n">start_date</span><span class="p">,</span>
-                             <span class="n">end_date</span><span class="p">,</span>
-                             <span class="n">chunksize</span><span class="p">,</span>
-                             <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="PipelineEngine.run_chunked_pipeline"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.PipelineEngine.run_chunked_pipeline">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute values for ``pipeline`` from ``start_date`` to ``end_date``, in</span>
 <span class="sd">        date chunks of size ``chunksize``.</span>
@@ -340,29 +333,24 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A PipelineEngine that doesn&#39;t do anything.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">run_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">raise</span> <span class="n">NoEngineRegistered</span><span class="p">(</span>
-            <span class="s2">&quot;Attempted to run a pipeline but no pipeline &quot;</span>
-            <span class="s2">&quot;resources were registered.&quot;</span>
+            <span class="s2">&quot;Attempted to run a pipeline but no pipeline &quot;</span> <span class="s2">&quot;resources were registered.&quot;</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                             <span class="n">pipeline</span><span class="p">,</span>
-                             <span class="n">start_date</span><span class="p">,</span>
-                             <span class="n">end_date</span><span class="p">,</span>
-                             <span class="n">chunksize</span><span class="p">,</span>
-                             <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="k">raise</span> <span class="n">NoEngineRegistered</span><span class="p">(</span>
             <span class="s2">&quot;Attempted to run a chunked pipeline but no pipeline &quot;</span>
             <span class="s2">&quot;resources were registered.&quot;</span>
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="default_populate_initial_workspace"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.default_populate_initial_workspace">[docs]</a><span class="k">def</span> <span class="nf">default_populate_initial_workspace</span><span class="p">(</span><span class="n">initial_workspace</span><span class="p">,</span>
-                                       <span class="n">root_mask_term</span><span class="p">,</span>
-                                       <span class="n">execution_plan</span><span class="p">,</span>
-                                       <span class="n">dates</span><span class="p">,</span>
-                                       <span class="n">assets</span><span class="p">):</span>
+<div class="viewcode-block" id="default_populate_initial_workspace"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.default_populate_initial_workspace">[docs]</a><span class="k">def</span> <span class="nf">default_populate_initial_workspace</span><span class="p">(</span>
+    <span class="n">initial_workspace</span><span class="p">,</span> <span class="n">root_mask_term</span><span class="p">,</span> <span class="n">execution_plan</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">assets</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The default implementation for ``populate_initial_workspace``. This</span>
 <span class="sd">    function returns the ``initial_workspace`` argument without making any</span>
 <span class="sd">    modifications.</span>
@@ -391,7 +379,7 @@
     <span class="k">return</span> <span class="n">initial_workspace</span></div>
 
 
-<div class="viewcode-block" id="SimplePipelineEngine"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.SimplePipelineEngine">[docs]</a><span class="k">class</span> <span class="nc">SimplePipelineEngine</span><span class="p">(</span><span class="n">PipelineEngine</span><span class="p">):</span>
+<div class="viewcode-block" id="SimplePipelineEngine"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.SimplePipelineEngine">[docs]</a><span class="k">class</span> <span class="nc">SimplePipelineEngine</span><span class="p">(</span><span class="n">PipelineEngine</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    PipelineEngine class that computes each term independently.</span>
 
@@ -416,24 +404,27 @@
 <span class="sd">    --------</span>
 <span class="sd">    :func:`zipline.pipeline.engine.default_populate_initial_workspace`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s1">&#39;_get_loader&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;_finder&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;_root_mask_term&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;_root_mask_dates_term&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;_populate_initial_workspace&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;_get_loader&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_finder&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_root_mask_term&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_root_mask_dates_term&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;_populate_initial_workspace&quot;</span><span class="p">,</span>
     <span class="p">)</span>
 
-<div class="viewcode-block" id="SimplePipelineEngine.__init__"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.SimplePipelineEngine.__init__">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+<div class="viewcode-block" id="SimplePipelineEngine.__init__"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.SimplePipelineEngine.__init__">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
         <span class="n">default_domain</span><span class="o">=</span><span class="n">Domain</span><span class="p">,</span>
-        <span class="n">__funcname</span><span class="o">=</span><span class="s1">&#39;SimplePipelineEngine&#39;</span><span class="p">,</span>
+        <span class="n">__funcname</span><span class="o">=</span><span class="s2">&quot;SimplePipelineEngine&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">get_loader</span><span class="p">,</span>
-                 <span class="n">asset_finder</span><span class="p">,</span>
-                 <span class="n">default_domain</span><span class="o">=</span><span class="n">GENERIC</span><span class="p">,</span>
-                 <span class="n">populate_initial_workspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">default_hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">get_loader</span><span class="p">,</span>
+        <span class="n">asset_finder</span><span class="p">,</span>
+        <span class="n">default_domain</span><span class="o">=</span><span class="n">GENERIC</span><span class="p">,</span>
+        <span class="n">populate_initial_workspace</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">default_hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_loader</span> <span class="o">=</span> <span class="n">get_loader</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_finder</span> <span class="o">=</span> <span class="n">asset_finder</span>
@@ -451,12 +442,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_default_hooks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">default_hooks</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SimplePipelineEngine.run_chunked_pipeline"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.SimplePipelineEngine.run_chunked_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                             <span class="n">pipeline</span><span class="p">,</span>
-                             <span class="n">start_date</span><span class="p">,</span>
-                             <span class="n">end_date</span><span class="p">,</span>
-                             <span class="n">chunksize</span><span class="p">,</span>
-                             <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimplePipelineEngine.run_chunked_pipeline"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.SimplePipelineEngine.run_chunked_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">run_chunked_pipeline</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute values for ``pipeline`` from ``start_date`` to ``end_date``, in</span>
 <span class="sd">        date chunks of size ``chunksize``.</span>
@@ -518,7 +506,7 @@
         <span class="n">nonempty_chunks</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">chunks</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)]</span>
         <span class="k">return</span> <span class="n">categorical_df_concat</span><span class="p">(</span><span class="n">nonempty_chunks</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SimplePipelineEngine.run_pipeline"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.engine.SimplePipelineEngine.run_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">run_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="SimplePipelineEngine.run_pipeline"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.engine.SimplePipelineEngine.run_pipeline">[docs]</a>    <span class="k">def</span> <span class="nf">run_pipeline</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">hooks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute values for ``pipeline`` from ``start_date`` to ``end_date``.</span>
 
@@ -557,8 +545,7 @@
             <span class="p">)</span></div>
 
     <span class="k">def</span> <span class="nf">_run_pipeline_impl</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">hooks</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Shared core for ``run_pipeline`` and ``run_chunked_pipeline``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Shared core for ``run_pipeline`` and ``run_chunked_pipeline``.&quot;&quot;&quot;</span>
         <span class="c1"># See notes at the top of this module for a description of the</span>
         <span class="c1"># algorithm implemented here.</span>
         <span class="k">if</span> <span class="n">end_date</span> <span class="o">&lt;</span> <span class="n">start_date</span><span class="p">:</span>
@@ -570,18 +557,24 @@
         <span class="n">domain</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_domain</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
 
         <span class="n">plan</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">to_execution_plan</span><span class="p">(</span>
-            <span class="n">domain</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span>
+            <span class="n">domain</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span><span class="p">,</span>
+            <span class="n">start_date</span><span class="p">,</span>
+            <span class="n">end_date</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">extra_rows</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">extra_rows</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span><span class="p">]</span>
         <span class="n">root_mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_root_mask</span><span class="p">(</span>
-            <span class="n">domain</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">extra_rows</span><span class="p">,</span>
+            <span class="n">domain</span><span class="p">,</span>
+            <span class="n">start_date</span><span class="p">,</span>
+            <span class="n">end_date</span><span class="p">,</span>
+            <span class="n">extra_rows</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">root_mask_values</span> <span class="o">=</span> <span class="n">explode</span><span class="p">(</span><span class="n">root_mask</span><span class="p">)</span>
 
         <span class="n">workspace</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_populate_initial_workspace</span><span class="p">(</span>
             <span class="p">{</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span><span class="p">:</span> <span class="n">root_mask_values</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_dates_term</span><span class="p">:</span> <span class="n">as_column</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_dates_term</span><span class="p">:</span> <span class="n">as_column</span><span class="p">(</span><span class="n">dates</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
             <span class="p">},</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span><span class="p">,</span>
             <span class="n">plan</span><span class="p">,</span>
@@ -592,9 +585,7 @@
         <span class="n">refcounts</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">initial_refcounts</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
         <span class="n">execution_order</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">execution_order</span><span class="p">(</span><span class="n">workspace</span><span class="p">,</span> <span class="n">refcounts</span><span class="p">)</span>
 
-        <span class="k">with</span> <span class="n">hooks</span><span class="o">.</span><span class="n">computing_chunk</span><span class="p">(</span><span class="n">execution_order</span><span class="p">,</span>
-                                   <span class="n">start_date</span><span class="p">,</span>
-                                   <span class="n">end_date</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">hooks</span><span class="o">.</span><span class="n">computing_chunk</span><span class="p">(</span><span class="n">execution_order</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">):</span>
 
             <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">compute_chunk</span><span class="p">(</span>
                 <span class="n">graph</span><span class="o">=</span><span class="n">plan</span><span class="p">,</span>
@@ -671,7 +662,7 @@
         <span class="c1"># `start_date.`</span>
         <span class="n">finder</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_finder</span>
         <span class="n">lifetimes</span> <span class="o">=</span> <span class="n">finder</span><span class="o">.</span><span class="n">lifetimes</span><span class="p">(</span>
-            <span class="n">sessions</span><span class="p">[</span><span class="n">start_idx</span> <span class="o">-</span> <span class="n">extra_rows</span><span class="p">:</span><span class="n">end_idx</span><span class="p">],</span>
+            <span class="n">sessions</span><span class="p">[</span><span class="n">start_idx</span> <span class="o">-</span> <span class="n">extra_rows</span> <span class="p">:</span> <span class="n">end_idx</span><span class="p">],</span>
             <span class="n">include_start_date</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">country_codes</span><span class="o">=</span><span class="p">(</span><span class="n">domain</span><span class="o">.</span><span class="n">country_code</span><span class="p">,),</span>
         <span class="p">)</span>
@@ -693,7 +684,9 @@
                 <span class="s2">&quot;between </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
                 <span class="s2">&quot;This probably means that your asset db is old or that it has &quot;</span>
                 <span class="s2">&quot;incorrect country/exchange metadata.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                    <span class="n">domain</span><span class="o">.</span><span class="n">country_code</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span>
+                    <span class="n">domain</span><span class="o">.</span><span class="n">country_code</span><span class="p">,</span>
+                    <span class="n">start_date</span><span class="p">,</span>
+                    <span class="n">end_date</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
@@ -721,7 +714,8 @@
             <span class="c1"># AdjustedArray.</span>
             <span class="k">for</span> <span class="n">input_</span> <span class="ow">in</span> <span class="n">specialized</span><span class="p">:</span>
                 <span class="n">adjusted_array</span> <span class="o">=</span> <span class="n">ensure_adjusted_array</span><span class="p">(</span>
-                    <span class="n">workspace</span><span class="p">[</span><span class="n">input_</span><span class="p">],</span> <span class="n">input_</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
+                    <span class="n">workspace</span><span class="p">[</span><span class="n">input_</span><span class="p">],</span>
+                    <span class="n">input_</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
                 <span class="p">)</span>
                 <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                     <span class="n">adjusted_array</span><span class="o">.</span><span class="n">traverse</span><span class="p">(</span>
@@ -747,14 +741,9 @@
                 <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">out</span>
 
-    <span class="k">def</span> <span class="nf">compute_chunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                      <span class="n">graph</span><span class="p">,</span>
-                      <span class="n">dates</span><span class="p">,</span>
-                      <span class="n">sids</span><span class="p">,</span>
-                      <span class="n">workspace</span><span class="p">,</span>
-                      <span class="n">refcounts</span><span class="p">,</span>
-                      <span class="n">execution_order</span><span class="p">,</span>
-                      <span class="n">hooks</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">compute_chunk</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">workspace</span><span class="p">,</span> <span class="n">refcounts</span><span class="p">,</span> <span class="n">execution_order</span><span class="p">,</span> <span class="n">hooks</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compute the Pipeline terms in the graph for the requested start and end</span>
 <span class="sd">        dates.</span>
@@ -808,9 +797,7 @@
         <span class="c1"># The extra rows condition is a simplification: we don&#39;t currently have</span>
         <span class="c1"># a mechanism for asking a loader to fetch different windows of data</span>
         <span class="c1"># for different terms, so we only batch requests together when they&#39;re</span>
-        <span class="c1"># going to produce data for the same set of dates. That may change in</span>
-        <span class="c1"># the future if we find a loader that can still benefit significantly</span>
-        <span class="c1"># from batching unequal-length requests.</span>
+        <span class="c1"># going to produce data for the same set of dates.</span>
         <span class="k">def</span> <span class="nf">loader_group_key</span><span class="p">(</span><span class="n">term</span><span class="p">):</span>
             <span class="n">loader</span> <span class="o">=</span> <span class="n">get_loader</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
             <span class="n">extra_rows</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">extra_rows</span><span class="p">[</span><span class="n">term</span><span class="p">]</span>
@@ -820,7 +807,7 @@
         <span class="c1"># ensures that we can run pipelines for graphs where we don&#39;t have a</span>
         <span class="c1"># loader registered for an atomic term if all the dependencies of that</span>
         <span class="c1"># term were supplied in the initial workspace.</span>
-        <span class="n">will_be_loaded</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">loadable_terms</span> <span class="o">-</span> <span class="n">viewkeys</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
+        <span class="n">will_be_loaded</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">loadable_terms</span> <span class="o">-</span> <span class="n">workspace</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
         <span class="n">loader_groups</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span>
             <span class="n">loader_group_key</span><span class="p">,</span>
             <span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">execution_order</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">will_be_loaded</span><span class="p">),</span>
@@ -847,18 +834,22 @@
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">LoadableTerm</span><span class="p">):</span>
                 <span class="n">loader</span> <span class="o">=</span> <span class="n">get_loader</span><span class="p">(</span><span class="n">term</span><span class="p">)</span>
                 <span class="n">to_load</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
-                    <span class="n">loader_groups</span><span class="p">[</span><span class="n">loader_group_key</span><span class="p">(</span><span class="n">term</span><span class="p">)],</span>
-                    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">dataset</span>
+                    <span class="n">loader_groups</span><span class="p">[</span><span class="n">loader_group_key</span><span class="p">(</span><span class="n">term</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">dataset</span>
                 <span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_can_load</span><span class="p">(</span><span class="n">loader</span><span class="p">,</span> <span class="n">to_load</span><span class="p">)</span>
                 <span class="k">with</span> <span class="n">hooks</span><span class="o">.</span><span class="n">loading_terms</span><span class="p">(</span><span class="n">to_load</span><span class="p">):</span>
                     <span class="n">loaded</span> <span class="o">=</span> <span class="n">loader</span><span class="o">.</span><span class="n">load_adjusted_array</span><span class="p">(</span>
-                        <span class="n">domain</span><span class="p">,</span> <span class="n">to_load</span><span class="p">,</span> <span class="n">mask_dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span>
+                        <span class="n">domain</span><span class="p">,</span>
+                        <span class="n">to_load</span><span class="p">,</span>
+                        <span class="n">mask_dates</span><span class="p">,</span>
+                        <span class="n">sids</span><span class="p">,</span>
+                        <span class="n">mask</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="k">assert</span> <span class="nb">set</span><span class="p">(</span><span class="n">loaded</span><span class="p">)</span> <span class="o">==</span> <span class="nb">set</span><span class="p">(</span><span class="n">to_load</span><span class="p">),</span> <span class="p">(</span>
-                    <span class="s1">&#39;loader did not return an AdjustedArray for each column</span><span class="se">\n</span><span class="s1">&#39;</span>
-                    <span class="s1">&#39;expected: </span><span class="si">%r</span><span class="se">\n</span><span class="s1">&#39;</span>
-                    <span class="s1">&#39;got:      </span><span class="si">%r</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="s2">&quot;loader did not return an AdjustedArray for each column</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;expected: </span><span class="si">%r</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;got:      </span><span class="si">%r</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span>
                         <span class="nb">sorted</span><span class="p">(</span><span class="n">to_load</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">repr</span><span class="p">),</span>
                         <span class="nb">sorted</span><span class="p">(</span><span class="n">loaded</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="nb">repr</span><span class="p">),</span>
                     <span class="p">)</span>
@@ -891,9 +882,9 @@
         <span class="c1"># At this point, all the output terms are in the workspace.</span>
         <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="n">graph_extra_rows</span> <span class="o">=</span> <span class="n">graph</span><span class="o">.</span><span class="n">extra_rows</span>
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">outputs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="n">graph</span><span class="o">.</span><span class="n">outputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="c1"># Truncate off extra rows from outputs.</span>
-            <span class="n">out</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">[</span><span class="n">term</span><span class="p">][</span><span class="n">graph_extra_rows</span><span class="p">[</span><span class="n">term</span><span class="p">]:]</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">workspace</span><span class="p">[</span><span class="n">term</span><span class="p">][</span><span class="n">graph_extra_rows</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="p">:]</span>
         <span class="k">return</span> <span class="n">out</span>
 
     <span class="k">def</span> <span class="nf">_to_narrow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">terms</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
@@ -937,10 +928,7 @@
             <span class="n">empty_dates</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">empty_assets</span> <span class="o">=</span> <span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span>
-                <span class="n">data</span><span class="o">=</span><span class="p">{</span>
-                    <span class="n">name</span><span class="p">:</span> <span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-                    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-                <span class="p">},</span>
+                <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
                 <span class="n">index</span><span class="o">=</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">([</span><span class="n">empty_dates</span><span class="p">,</span> <span class="n">empty_assets</span><span class="p">]),</span>
             <span class="p">)</span>
 
@@ -958,11 +946,7 @@
 
         <span class="k">return</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">final_columns</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_validate_compute_chunk_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                                       <span class="n">graph</span><span class="p">,</span>
-                                       <span class="n">dates</span><span class="p">,</span>
-                                       <span class="n">sids</span><span class="p">,</span>
-                                       <span class="n">initial_workspace</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_validate_compute_chunk_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">initial_workspace</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Verify that the values passed to compute_chunk are well-formed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1034,13 +1018,14 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;Initial workspace term </span><span class="si">{}</span><span class="s2"> has domain </span><span class="si">{}</span><span class="s2">. &quot;</span>
                     <span class="s2">&quot;Does not match pipeline domain </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">term</span><span class="p">,</span> <span class="n">term</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span> <span class="n">graph</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
+                        <span class="n">term</span><span class="p">,</span>
+                        <span class="n">term</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
+                        <span class="n">graph</span><span class="o">.</span><span class="n">domain</span><span class="p">,</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">resolve_domain</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pipeline</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Resolve a concrete domain for ``pipeline``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Resolve a concrete domain for ``pipeline``.&quot;&quot;&quot;</span>
         <span class="n">domain</span> <span class="o">=</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">domain</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_domain</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">domain</span> <span class="ow">is</span> <span class="n">GENERIC</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -1051,10 +1036,7 @@
         <span class="k">return</span> <span class="n">domain</span>
 
     <span class="k">def</span> <span class="nf">_is_special_root_term</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">term</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="n">term</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span>
-            <span class="ow">or</span> <span class="n">term</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_dates_term</span>
-        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">term</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_term</span> <span class="ow">or</span> <span class="n">term</span> <span class="ow">is</span> <span class="bp">self</span><span class="o">.</span><span class="n">_root_mask_dates_term</span>
 
     <span class="k">def</span> <span class="nf">_resolve_hooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hooks</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">hooks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1062,8 +1044,7 @@
         <span class="k">return</span> <span class="n">DelegatingHooks</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_default_hooks</span> <span class="o">+</span> <span class="n">hooks</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_ensure_can_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loader</span><span class="p">,</span> <span class="n">terms</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Ensure that ``loader`` can load ``terms``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Ensure that ``loader`` can load ``terms``.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">loader</span><span class="o">.</span><span class="n">currency_aware</span><span class="p">:</span>
             <span class="n">bad</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">terms</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">currency_conversion</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">bad</span><span class="p">:</span>
@@ -1104,60 +1085,41 @@
     <span class="p">)</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

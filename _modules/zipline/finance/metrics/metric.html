@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.finance.metrics.metric &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.finance.metrics.metric &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.finance.metrics.metric</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.finance.metrics.metric</h1><div class="highlight"><pre>
 <span></span><span class="c1">#</span>
 <span class="c1"># Copyright 2018 Quantopian, Inc.</span>
@@ -184,13 +182,12 @@
 <span class="kn">import</span> <span class="nn">empyrical</span> <span class="k">as</span> <span class="nn">ep</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">iteritems</span>
 
 <span class="kn">from</span> <span class="nn">zipline.utils.exploding_object</span> <span class="kn">import</span> <span class="n">NamedExplodingObject</span>
 <span class="kn">from</span> <span class="nn">zipline.finance._finance_ext</span> <span class="kn">import</span> <span class="n">minute_annual_volatility</span>
 
 
-<div class="viewcode-block" id="SimpleLedgerField"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.SimpleLedgerField">[docs]</a><span class="k">class</span> <span class="nc">SimpleLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleLedgerField"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.SimpleLedgerField">[docs]</a><span class="k">class</span> <span class="nc">SimpleLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Emit the current value of a ledger field every bar or every session.</span>
 
 <span class="sd">    Parameters</span>
@@ -201,35 +198,26 @@
 <span class="sd">        The name of the field to populate in the packet. If not provided,</span>
 <span class="sd">        ``ledger_field`` will be used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger_field</span><span class="p">,</span> <span class="n">packet_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">attrgetter</span><span class="p">(</span><span class="n">ledger_field</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">packet_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">packet_field</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span>
             <span class="n">ledger</span><span class="p">,</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span>
             <span class="n">ledger</span><span class="p">,</span>
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="DailyLedgerField"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.DailyLedgerField">[docs]</a><span class="k">class</span> <span class="nc">DailyLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="DailyLedgerField"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.DailyLedgerField">[docs]</a><span class="k">class</span> <span class="nc">DailyLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Like :class:`~zipline.finance.metrics.metric.SimpleLedgerField` but</span>
 <span class="sd">    also puts the current value in the ``cumulative_perf`` section.</span>
 
@@ -241,37 +229,28 @@
 <span class="sd">        The name of the field to populate in the packet. If not provided,</span>
 <span class="sd">        ``ledger_field`` will be used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger_field</span><span class="p">,</span> <span class="n">packet_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">attrgetter</span><span class="p">(</span><span class="n">ledger_field</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">packet_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">packet_field</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span><span class="n">ledger</span><span class="p">)</span>
-        <span class="p">)</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span>
+            <span class="n">field</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span><span class="n">ledger</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span><span class="n">ledger</span><span class="p">)</span>
-        <span class="p">)</span></div>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span>
+            <span class="n">field</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span><span class="n">ledger</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="StartOfPeriodLedgerField"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.StartOfPeriodLedgerField">[docs]</a><span class="k">class</span> <span class="nc">StartOfPeriodLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="StartOfPeriodLedgerField"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.StartOfPeriodLedgerField">[docs]</a><span class="k">class</span> <span class="nc">StartOfPeriodLedgerField</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Keep track of the value of a ledger field at the start of the period.</span>
 
 <span class="sd">    Parameters</span>
@@ -282,19 +261,17 @@
 <span class="sd">        The name of the field to populate in the packet. If not provided,</span>
 <span class="sd">        ``ledger_field`` will be used.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger_field</span><span class="p">,</span> <span class="n">packet_field</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span> <span class="o">=</span> <span class="n">op</span><span class="o">.</span><span class="n">attrgetter</span><span class="p">(</span><span class="n">ledger_field</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">packet_field</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">ledger_field</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span> <span class="o">=</span> <span class="n">packet_field</span>
 
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_start_of_simulation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_ledger_field</span><span class="p">(</span><span class="n">ledger</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">start_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
@@ -302,134 +279,100 @@
 
     <span class="k">def</span> <span class="nf">_end_of_period</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sub_field</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">):</span>
         <span class="n">packet_field</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_packet_field</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="n">packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_of_simulation</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="n">packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_of_simulation</span>
         <span class="n">packet</span><span class="p">[</span><span class="n">sub_field</span><span class="p">][</span><span class="n">packet_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_day</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Returns"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.Returns">[docs]</a><span class="k">class</span> <span class="nc">Returns</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks the daily and cumulative returns of the algorithm.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">_end_of_period</span><span class="p">(</span><span class="n">field</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">dt</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">todays_returns</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="s1">&#39;returns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">returns</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;algorithm_period_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">returns</span>
-        <span class="p">)</span>
+<div class="viewcode-block" id="Returns"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.Returns">[docs]</a><span class="k">class</span> <span class="nc">Returns</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks the daily and cumulative returns of the algorithm.&quot;&quot;&quot;</span>
 
-    <span class="n">end_of_bar</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_end_of_period</span><span class="p">,</span> <span class="s1">&#39;minute_perf&#39;</span><span class="p">)</span>
-    <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_end_of_period</span><span class="p">,</span> <span class="s1">&#39;daily_perf&#39;</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">_end_of_period</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;returns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">todays_returns</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="s2">&quot;returns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">returns</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span>
+            <span class="s2">&quot;algorithm_period_return&quot;</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">returns</span>
+
+    <span class="n">end_of_bar</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_end_of_period</span><span class="p">,</span> <span class="s2">&quot;minute_perf&quot;</span><span class="p">)</span>
+    <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_end_of_period</span><span class="p">,</span> <span class="s2">&quot;daily_perf&quot;</span><span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="BenchmarkReturnsAndVolatility"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.BenchmarkReturnsAndVolatility">[docs]</a><span class="k">class</span> <span class="nc">BenchmarkReturnsAndVolatility</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="BenchmarkReturnsAndVolatility"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.BenchmarkReturnsAndVolatility">[docs]</a><span class="k">class</span> <span class="nc">BenchmarkReturnsAndVolatility</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Tracks daily and cumulative returns for the benchmark as well as the</span>
 <span class="sd">    volatility of the benchmark returns.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
         <span class="n">daily_returns_series</span> <span class="o">=</span> <span class="n">benchmark_source</span><span class="o">.</span><span class="n">daily_returns</span><span class="p">(</span>
             <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">sessions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_daily_returns</span> <span class="o">=</span> <span class="n">daily_returns_array</span> <span class="o">=</span> <span class="n">daily_returns_series</span><span class="o">.</span><span class="n">values</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_daily_cumulative_returns</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">daily_returns_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_daily_cumulative_returns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">daily_returns_array</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_daily_annual_volatility</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">daily_returns_series</span><span class="o">.</span><span class="n">expanding</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">252</span><span class="p">)</span>
         <span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
-        <span class="k">if</span> <span class="n">emission_rate</span> <span class="o">==</span> <span class="s1">&#39;daily&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">emission_rate</span> <span class="o">==</span> <span class="s2">&quot;daily&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_minute_cumulative_returns</span> <span class="o">=</span> <span class="n">NamedExplodingObject</span><span class="p">(</span>
-                <span class="s1">&#39;self._minute_cumulative_returns&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;does not exist in daily emission rate&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;self._minute_cumulative_returns&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;does not exist in daily emission rate&quot;</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_minute_annual_volatility</span> <span class="o">=</span> <span class="n">NamedExplodingObject</span><span class="p">(</span>
-                <span class="s1">&#39;self._minute_annual_volatility&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;does not exist in daily emission rate&#39;</span><span class="p">,</span>
+                <span class="s2">&quot;self._minute_annual_volatility&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;does not exist in daily emission rate&quot;</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">open_</span> <span class="o">=</span> <span class="n">trading_calendar</span><span class="o">.</span><span class="n">session_open</span><span class="p">(</span><span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
             <span class="n">close</span> <span class="o">=</span> <span class="n">trading_calendar</span><span class="o">.</span><span class="n">session_close</span><span class="p">(</span><span class="n">sessions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
             <span class="n">returns</span> <span class="o">=</span> <span class="n">benchmark_source</span><span class="o">.</span><span class="n">get_range</span><span class="p">(</span><span class="n">open_</span><span class="p">,</span> <span class="n">close</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_minute_cumulative_returns</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">returns</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
-            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_minute_cumulative_returns</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">returns</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_minute_annual_volatility</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
                 <span class="n">minute_annual_volatility</span><span class="p">(</span>
-                    <span class="n">returns</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">),</span>
+                    <span class="n">returns</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s2">&quot;int64&quot;</span><span class="p">),</span>
                     <span class="n">returns</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                     <span class="n">daily_returns_array</span><span class="p">,</span>
                 <span class="p">),</span>
                 <span class="n">index</span><span class="o">=</span><span class="n">returns</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minute_cumulative_returns</span><span class="p">[</span><span class="n">dt</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
             <span class="n">r</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;benchmark_period_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;benchmark_period_return&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
 
         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_minute_annual_volatility</span><span class="p">[</span><span class="n">dt</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
             <span class="n">v</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;benchmark_volatility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;benchmark_volatility&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_daily_cumulative_returns</span><span class="p">[</span><span class="n">session_ix</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">r</span><span class="p">):</span>
             <span class="n">r</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;benchmark_period_return&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;benchmark_period_return&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
 
         <span class="n">v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_daily_annual_volatility</span><span class="p">[</span><span class="n">session_ix</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
             <span class="n">v</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;benchmark_volatility&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;benchmark_volatility&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span></div>
 
 
 <span class="k">class</span> <span class="nc">PNL</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks daily and cumulative PNL.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks daily and cumulative PNL.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_previous_pnl</span> <span class="o">=</span> <span class="mf">0.0</span>
 
     <span class="k">def</span> <span class="nf">start_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
@@ -437,128 +380,72 @@
 
     <span class="k">def</span> <span class="nf">_end_of_period</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">):</span>
         <span class="n">pnl</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">pnl</span>
-        <span class="n">packet</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s1">&#39;pnl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pnl</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_pnl</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="s1">&#39;pnl&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">pnl</span>
+        <span class="n">packet</span><span class="p">[</span><span class="n">field</span><span class="p">][</span><span class="s2">&quot;pnl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pnl</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_pnl</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="s2">&quot;pnl&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">pnl</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_end_of_period</span><span class="p">(</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="CashFlow"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.CashFlow">[docs]</a><span class="k">class</span> <span class="nc">CashFlow</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="CashFlow"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.CashFlow">[docs]</a><span class="k">class</span> <span class="nc">CashFlow</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Tracks daily and cumulative cash flow.</span>
 
 <span class="sd">    Notes</span>
 <span class="sd">    -----</span>
 <span class="sd">    For historical reasons, this field is named &#39;capital_used&#39; in the packets.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">cash_flow</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">cash_flow</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="s1">&#39;capital_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">cash_flow</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span>
-        <span class="p">)</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="s1">&#39;capital_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span><span class="s2">&quot;capital_used&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="s2">&quot;capital_used&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">session</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="n">cash_flow</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">portfolio</span><span class="o">.</span><span class="n">cash_flow</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="s1">&#39;capital_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">cash_flow</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span>
-        <span class="p">)</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_perf&#39;</span><span class="p">][</span><span class="s1">&#39;capital_used&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span><span class="s2">&quot;capital_used&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_perf&quot;</span><span class="p">][</span><span class="s2">&quot;capital_used&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cash_flow</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_previous_cash_flow</span> <span class="o">=</span> <span class="n">cash_flow</span></div>
 
 
-<div class="viewcode-block" id="Orders"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.Orders">[docs]</a><span class="k">class</span> <span class="nc">Orders</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks daily orders.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="s1">&#39;orders&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<div class="viewcode-block" id="Orders"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.Orders">[docs]</a><span class="k">class</span> <span class="nc">Orders</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks daily orders.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">dt</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="s1">&#39;orders&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">orders</span><span class="p">()</span></div>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span><span class="s2">&quot;orders&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">orders</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span><span class="s2">&quot;orders&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">orders</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Transactions"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.Transactions">[docs]</a><span class="k">class</span> <span class="nc">Transactions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks daily transactions.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="s1">&#39;transactions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">transactions</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<div class="viewcode-block" id="Transactions"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.Transactions">[docs]</a><span class="k">class</span> <span class="nc">Transactions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks daily transactions.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">dt</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="s1">&#39;transactions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span></div>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span><span class="s2">&quot;transactions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">transactions</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span><span class="s2">&quot;transactions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">transactions</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="Positions"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.Positions">[docs]</a><span class="k">class</span> <span class="nc">Positions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks daily positions.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;minute_perf&#39;</span><span class="p">][</span><span class="s1">&#39;positions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">positions</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<div class="viewcode-block" id="Positions"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.Positions">[docs]</a><span class="k">class</span> <span class="nc">Positions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks daily positions.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">dt</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;daily_perf&#39;</span><span class="p">][</span><span class="s1">&#39;positions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">positions</span><span class="p">()</span></div>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;minute_perf&quot;</span><span class="p">][</span><span class="s2">&quot;positions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">positions</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;daily_perf&quot;</span><span class="p">][</span><span class="s2">&quot;positions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">positions</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="ReturnsStatistic"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.ReturnsStatistic">[docs]</a><span class="k">class</span> <span class="nc">ReturnsStatistic</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="ReturnsStatistic"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.ReturnsStatistic">[docs]</a><span class="k">class</span> <span class="nc">ReturnsStatistic</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A metric that reports an end of simulation scalar or time series</span>
 <span class="sd">    computed from the algorithm returns.</span>
 
@@ -570,6 +457,7 @@
 <span class="sd">        The name of the field. If not provided, it will be</span>
 <span class="sd">        ``function.__name__``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">field_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">field_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">field_name</span> <span class="o">=</span> <span class="n">function</span><span class="o">.</span><span class="vm">__name__</span>
@@ -577,93 +465,68 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_function</span> <span class="o">=</span> <span class="n">function</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_field_name</span> <span class="o">=</span> <span class="n">field_name</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_function</span><span class="p">(</span><span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_array</span><span class="p">[:</span><span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_function</span><span class="p">(</span><span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_array</span><span class="p">[:</span> <span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">res</span><span class="p">):</span>
             <span class="n">res</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span>
 
     <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">end_of_bar</span></div>
 
 
-<div class="viewcode-block" id="AlphaBeta"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.AlphaBeta">[docs]</a><span class="k">class</span> <span class="nc">AlphaBeta</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;End of simulation alpha and beta to the benchmark.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
+<div class="viewcode-block" id="AlphaBeta"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.AlphaBeta">[docs]</a><span class="k">class</span> <span class="nc">AlphaBeta</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;End of simulation alpha and beta to the benchmark.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_daily_returns_array</span> <span class="o">=</span> <span class="n">benchmark_source</span><span class="o">.</span><span class="n">daily_returns</span><span class="p">(</span>
             <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
             <span class="n">sessions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
         <span class="p">)</span><span class="o">.</span><span class="n">values</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">risk</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">]</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">risk</span> <span class="o">=</span> <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">]</span>
 
         <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">alpha_beta_aligned</span><span class="p">(</span>
-            <span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_array</span><span class="p">[:</span><span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_daily_returns_array</span><span class="p">[:</span><span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_array</span><span class="p">[:</span> <span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_daily_returns_array</span><span class="p">[:</span> <span class="n">session_ix</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
             <span class="n">alpha</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>
             <span class="n">beta</span> <span class="o">=</span> <span class="kc">None</span>
 
-        <span class="n">risk</span><span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
-        <span class="n">risk</span><span class="p">[</span><span class="s1">&#39;beta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">beta</span>
+        <span class="n">risk</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="n">risk</span><span class="p">[</span><span class="s2">&quot;beta&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">beta</span>
 
     <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">end_of_bar</span></div>
 
 
-<div class="viewcode-block" id="MaxLeverage"><a class="viewcode-back" href="../../../../appendix.html#zipline.finance.metrics.metric.MaxLeverage">[docs]</a><span class="k">class</span> <span class="nc">MaxLeverage</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tracks the maximum account leverage.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="MaxLeverage"><a class="viewcode-back" href="../../../../api-reference.html#zipline.finance.metrics.metric.MaxLeverage">[docs]</a><span class="k">class</span> <span class="nc">MaxLeverage</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tracks the maximum account leverage.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_leverage</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_max_leverage</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_max_leverage</span><span class="p">,</span> <span class="n">ledger</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">leverage</span><span class="p">)</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;max_leverage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_leverage</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;max_leverage&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_leverage</span>
 
     <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">end_of_bar</span></div>
 
 
 <span class="k">class</span> <span class="nc">NumTradingDays</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Report the number of trading days.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Report the number of trading days.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_num_trading_days</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="nf">start_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_num_trading_days</span> <span class="o">+=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                   <span class="n">packet</span><span class="p">,</span>
-                   <span class="n">ledger</span><span class="p">,</span>
-                   <span class="n">dt</span><span class="p">,</span>
-                   <span class="n">session_ix</span><span class="p">,</span>
-                   <span class="n">data_portal</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;trading_days&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_num_trading_days</span>
-        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;trading_days&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_trading_days</span>
 
     <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">end_of_bar</span>
 
@@ -676,56 +539,50 @@
 <span class="sd">    This exists to maintain the existing structure of the perf packets. We</span>
 <span class="sd">    should kill this as soon as possible.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_field</span> <span class="o">=</span> <span class="n">field</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
 
     <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
 
     <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">_field</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_value</span>
 
 
 <span class="k">class</span> <span class="nc">PeriodLabel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Backwards compat, please kill me.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Backwards compat, please kill me.&quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">start_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_label</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">end_of_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">packet</span><span class="p">[</span><span class="s1">&#39;cumulative_risk_metrics&#39;</span><span class="p">][</span><span class="s1">&#39;period_label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
+        <span class="n">packet</span><span class="p">[</span><span class="s2">&quot;cumulative_risk_metrics&quot;</span><span class="p">][</span><span class="s2">&quot;period_label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_label</span>
 
     <span class="n">end_of_session</span> <span class="o">=</span> <span class="n">end_of_bar</span>
 
 
 <span class="k">class</span> <span class="nc">_ClassicRiskMetrics</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Produces original risk packet.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Produces original risk packet.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                            <span class="n">ledger</span><span class="p">,</span>
-                            <span class="n">emission_rate</span><span class="p">,</span>
-                            <span class="n">trading_calendar</span><span class="p">,</span>
-                            <span class="n">sessions</span><span class="p">,</span>
-                            <span class="n">benchmark_source</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_leverages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">sessions</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">start_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">emission_rate</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_leverages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">sessions</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;float64&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                       <span class="n">packet</span><span class="p">,</span>
-                       <span class="n">ledger</span><span class="p">,</span>
-                       <span class="n">dt</span><span class="p">,</span>
-                       <span class="n">session_ix</span><span class="p">,</span>
-                       <span class="n">data_portal</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">end_of_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">session_ix</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_leverages</span><span class="p">[</span><span class="n">session_ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">account</span><span class="o">.</span><span class="n">leverage</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">risk_metric_period</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                           <span class="n">start_session</span><span class="p">,</span>
-                           <span class="n">end_session</span><span class="p">,</span>
-                           <span class="n">algorithm_returns</span><span class="p">,</span>
-                           <span class="n">benchmark_returns</span><span class="p">,</span>
-                           <span class="n">algorithm_leverages</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">risk_metric_period</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">start_session</span><span class="p">,</span>
+        <span class="n">end_session</span><span class="p">,</span>
+        <span class="n">algorithm_returns</span><span class="p">,</span>
+        <span class="n">benchmark_returns</span><span class="p">,</span>
+        <span class="n">algorithm_leverages</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Creates a dictionary representing the state of the risk report.</span>
 
@@ -766,14 +623,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">algorithm_returns</span> <span class="o">=</span> <span class="n">algorithm_returns</span><span class="p">[</span>
-            <span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_session</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">end_session</span><span class="p">)</span>
+            <span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_session</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">end_session</span><span class="p">)</span>
         <span class="p">]</span>
 
         <span class="c1"># Benchmark needs to be masked to the same dates as the algo returns</span>
         <span class="n">benchmark_returns</span> <span class="o">=</span> <span class="n">benchmark_returns</span><span class="p">[</span>
-            <span class="p">(</span><span class="n">benchmark_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_session</span><span class="p">)</span> <span class="o">&amp;</span>
-            <span class="p">(</span><span class="n">benchmark_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+            <span class="p">(</span><span class="n">benchmark_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">start_session</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">benchmark_returns</span><span class="o">.</span><span class="n">index</span> <span class="o">&lt;=</span> <span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="p">]</span>
 
         <span class="n">benchmark_period_returns</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">cum_returns</span><span class="p">(</span><span class="n">benchmark_returns</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -803,64 +660,60 @@
         <span class="p">)</span>
 
         <span class="n">rval</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;algorithm_period_return&#39;</span><span class="p">:</span> <span class="n">algorithm_period_returns</span><span class="p">,</span>
-            <span class="s1">&#39;benchmark_period_return&#39;</span><span class="p">:</span> <span class="n">benchmark_period_returns</span><span class="p">,</span>
-            <span class="s1">&#39;treasury_period_return&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-            <span class="s1">&#39;excess_return&#39;</span><span class="p">:</span> <span class="n">algorithm_period_returns</span><span class="p">,</span>
-            <span class="s1">&#39;alpha&#39;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span>
-            <span class="s1">&#39;beta&#39;</span><span class="p">:</span> <span class="n">beta</span><span class="p">,</span>
-            <span class="s1">&#39;sharpe&#39;</span><span class="p">:</span> <span class="n">sharpe</span><span class="p">,</span>
-            <span class="s1">&#39;sortino&#39;</span><span class="p">:</span> <span class="n">sortino</span><span class="p">,</span>
-            <span class="s1">&#39;period_label&#39;</span><span class="p">:</span> <span class="n">end_session</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">),</span>
-            <span class="s1">&#39;trading_days&#39;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">benchmark_returns</span><span class="p">),</span>
-            <span class="s1">&#39;algo_volatility&#39;</span><span class="p">:</span> <span class="n">ep</span><span class="o">.</span><span class="n">annual_volatility</span><span class="p">(</span><span class="n">algorithm_returns</span><span class="p">),</span>
-            <span class="s1">&#39;benchmark_volatility&#39;</span><span class="p">:</span> <span class="n">benchmark_volatility</span><span class="p">,</span>
-            <span class="s1">&#39;max_drawdown&#39;</span><span class="p">:</span> <span class="n">ep</span><span class="o">.</span><span class="n">max_drawdown</span><span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
-            <span class="s1">&#39;max_leverage&#39;</span><span class="p">:</span> <span class="n">algorithm_leverages</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
+            <span class="s2">&quot;algorithm_period_return&quot;</span><span class="p">:</span> <span class="n">algorithm_period_returns</span><span class="p">,</span>
+            <span class="s2">&quot;benchmark_period_return&quot;</span><span class="p">:</span> <span class="n">benchmark_period_returns</span><span class="p">,</span>
+            <span class="s2">&quot;treasury_period_return&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;excess_return&quot;</span><span class="p">:</span> <span class="n">algorithm_period_returns</span><span class="p">,</span>
+            <span class="s2">&quot;alpha&quot;</span><span class="p">:</span> <span class="n">alpha</span><span class="p">,</span>
+            <span class="s2">&quot;beta&quot;</span><span class="p">:</span> <span class="n">beta</span><span class="p">,</span>
+            <span class="s2">&quot;sharpe&quot;</span><span class="p">:</span> <span class="n">sharpe</span><span class="p">,</span>
+            <span class="s2">&quot;sortino&quot;</span><span class="p">:</span> <span class="n">sortino</span><span class="p">,</span>
+            <span class="s2">&quot;period_label&quot;</span><span class="p">:</span> <span class="n">end_session</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m&quot;</span><span class="p">),</span>
+            <span class="s2">&quot;trading_days&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">benchmark_returns</span><span class="p">),</span>
+            <span class="s2">&quot;algo_volatility&quot;</span><span class="p">:</span> <span class="n">ep</span><span class="o">.</span><span class="n">annual_volatility</span><span class="p">(</span><span class="n">algorithm_returns</span><span class="p">),</span>
+            <span class="s2">&quot;benchmark_volatility&quot;</span><span class="p">:</span> <span class="n">benchmark_volatility</span><span class="p">,</span>
+            <span class="s2">&quot;max_drawdown&quot;</span><span class="p">:</span> <span class="n">ep</span><span class="o">.</span><span class="n">max_drawdown</span><span class="p">(</span><span class="n">algorithm_returns</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
+            <span class="s2">&quot;max_leverage&quot;</span><span class="p">:</span> <span class="n">algorithm_leverages</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span>
         <span class="p">}</span>
 
         <span class="c1"># check if a field in rval is nan or inf, and replace it with None</span>
         <span class="c1"># except period_label which is always a str</span>
         <span class="k">return</span> <span class="p">{</span>
-            <span class="n">k</span><span class="p">:</span> <span class="p">(</span>
-                <span class="kc">None</span>
-                <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s1">&#39;period_label&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">else</span>
-                <span class="n">v</span>
-            <span class="p">)</span>
-            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">iteritems</span><span class="p">(</span><span class="n">rval</span><span class="p">)</span>
+            <span class="n">k</span><span class="p">:</span> <span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">&quot;period_label&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">else</span> <span class="n">v</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rval</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
         <span class="p">}</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_periods_in_range</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                          <span class="n">months</span><span class="p">,</span>
-                          <span class="n">end_session</span><span class="p">,</span>
-                          <span class="n">end_date</span><span class="p">,</span>
-                          <span class="n">algorithm_returns</span><span class="p">,</span>
-                          <span class="n">benchmark_returns</span><span class="p">,</span>
-                          <span class="n">algorithm_leverages</span><span class="p">,</span>
-                          <span class="n">months_per</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_periods_in_range</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">months</span><span class="p">,</span>
+        <span class="n">end_session</span><span class="p">,</span>
+        <span class="n">end_date</span><span class="p">,</span>
+        <span class="n">algorithm_returns</span><span class="p">,</span>
+        <span class="n">benchmark_returns</span><span class="p">,</span>
+        <span class="n">algorithm_leverages</span><span class="p">,</span>
+        <span class="n">months_per</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="k">if</span> <span class="n">months</span><span class="o">.</span><span class="n">size</span> <span class="o">&lt;</span> <span class="n">months_per</span><span class="p">:</span>
             <span class="k">return</span>
 
+        <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">tzinfo</span>
         <span class="n">end_date</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">period_timestamp</span> <span class="ow">in</span> <span class="n">months</span><span class="p">:</span>
-            <span class="n">period</span> <span class="o">=</span> <span class="n">period_timestamp</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">M&#39;</span> <span class="o">%</span> <span class="n">months_per</span><span class="p">)</span>
+            <span class="n">period</span> <span class="o">=</span> <span class="n">period_timestamp</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">M&quot;</span> <span class="o">%</span> <span class="n">months_per</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">period</span><span class="o">.</span><span class="n">end_time</span> <span class="o">&gt;</span> <span class="n">end_date</span><span class="p">:</span>
                 <span class="k">break</span>
 
             <span class="k">yield</span> <span class="bp">cls</span><span class="o">.</span><span class="n">risk_metric_period</span><span class="p">(</span>
-                <span class="n">start_session</span><span class="o">=</span><span class="n">period</span><span class="o">.</span><span class="n">start_time</span><span class="p">,</span>
-                <span class="n">end_session</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span> <span class="n">end_session</span><span class="p">),</span>
+                <span class="n">start_session</span><span class="o">=</span><span class="n">period</span><span class="o">.</span><span class="n">start_time</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">),</span>
+                <span class="n">end_session</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">period</span><span class="o">.</span><span class="n">end_time</span><span class="p">,</span> <span class="n">end_session</span><span class="p">)</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">),</span>
                 <span class="n">algorithm_returns</span><span class="o">=</span><span class="n">algorithm_returns</span><span class="p">,</span>
                 <span class="n">benchmark_returns</span><span class="o">=</span><span class="n">benchmark_returns</span><span class="p">,</span>
                 <span class="n">algorithm_leverages</span><span class="o">=</span><span class="n">algorithm_leverages</span><span class="p">,</span>
             <span class="p">)</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">risk_report</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                    <span class="n">algorithm_returns</span><span class="p">,</span>
-                    <span class="n">benchmark_returns</span><span class="p">,</span>
-                    <span class="n">algorithm_leverages</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">risk_report</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">algorithm_returns</span><span class="p">,</span> <span class="n">benchmark_returns</span><span class="p">,</span> <span class="n">algorithm_leverages</span><span class="p">):</span>
         <span class="n">start_session</span> <span class="o">=</span> <span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">end_session</span> <span class="o">=</span> <span class="n">algorithm_returns</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -869,8 +722,8 @@
             <span class="n">start</span><span class="o">=</span><span class="n">start_session</span><span class="p">,</span>
             <span class="c1"># Ensure we have at least one month</span>
             <span class="n">end</span><span class="o">=</span><span class="n">end</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
-            <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span>
-            <span class="n">tz</span><span class="o">=</span><span class="s1">&#39;utc&#39;</span><span class="p">,</span>
+            <span class="n">freq</span><span class="o">=</span><span class="s2">&quot;M&quot;</span><span class="p">,</span>
+            <span class="n">tz</span><span class="o">=</span><span class="s2">&quot;utc&quot;</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="n">periods_in_range</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span>
@@ -884,83 +737,62 @@
         <span class="p">)</span>
 
         <span class="k">return</span> <span class="p">{</span>
-            <span class="s1">&#39;one_month&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
-            <span class="s1">&#39;three_month&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
-            <span class="s1">&#39;six_month&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">6</span><span class="p">)),</span>
-            <span class="s1">&#39;twelve_month&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">12</span><span class="p">)),</span>
+            <span class="s2">&quot;one_month&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">1</span><span class="p">)),</span>
+            <span class="s2">&quot;three_month&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">3</span><span class="p">)),</span>
+            <span class="s2">&quot;six_month&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">6</span><span class="p">)),</span>
+            <span class="s2">&quot;twelve_month&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="n">periods_in_range</span><span class="p">(</span><span class="n">months_per</span><span class="o">=</span><span class="mi">12</span><span class="p">)),</span>
         <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">end_of_simulation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                          <span class="n">packet</span><span class="p">,</span>
-                          <span class="n">ledger</span><span class="p">,</span>
-                          <span class="n">trading_calendar</span><span class="p">,</span>
-                          <span class="n">sessions</span><span class="p">,</span>
-                          <span class="n">data_portal</span><span class="p">,</span>
-                          <span class="n">benchmark_source</span><span class="p">):</span>
-        <span class="n">packet</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">risk_report</span><span class="p">(</span>
-            <span class="n">algorithm_returns</span><span class="o">=</span><span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_series</span><span class="p">,</span>
-            <span class="n">benchmark_returns</span><span class="o">=</span><span class="n">benchmark_source</span><span class="o">.</span><span class="n">daily_returns</span><span class="p">(</span>
-                <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-                <span class="n">sessions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
-            <span class="p">),</span>
-            <span class="n">algorithm_leverages</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_leverages</span><span class="p">,</span>
-        <span class="p">))</span>
+    <span class="k">def</span> <span class="nf">end_of_simulation</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">packet</span><span class="p">,</span> <span class="n">ledger</span><span class="p">,</span> <span class="n">trading_calendar</span><span class="p">,</span> <span class="n">sessions</span><span class="p">,</span> <span class="n">data_portal</span><span class="p">,</span> <span class="n">benchmark_source</span>
+    <span class="p">):</span>
+        <span class="n">packet</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">risk_report</span><span class="p">(</span>
+                <span class="n">algorithm_returns</span><span class="o">=</span><span class="n">ledger</span><span class="o">.</span><span class="n">daily_returns_series</span><span class="p">,</span>
+                <span class="n">benchmark_returns</span><span class="o">=</span><span class="n">benchmark_source</span><span class="o">.</span><span class="n">daily_returns</span><span class="p">(</span>
+                    <span class="n">sessions</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                    <span class="n">sessions</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                <span class="p">),</span>
+                <span class="n">algorithm_leverages</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_leverages</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

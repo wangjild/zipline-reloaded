@@ -1,477 +1,420 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
-<head>
-    <meta charset="utf-8"/>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Installation &#8212; Zipline 2.0.0rc4 documentation</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
-    <title>Install &mdash; Zipline 1.4.1 documentation</title>
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
 
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css"/>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.a26b4849e0a18c48af57.js">
 
-
-    <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
-
-
-    <script type="text/javascript" id="documentation_options" data-url_root="./"
-            src="_static/documentation_options.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-
-    <link rel="index" title="Index" href="genindex.html"/>
-    <link rel="search" title="Search" href="search.html"/>
-    <link rel="next" title="Zipline Beginner Tutorial" href="beginner-tutorial.html"/>
-    <link rel="prev" title="Features" href="index.html"/>
-</head>
-
-<body class="wy-body-for-nav">
-
-
-<div class="wy-grid-for-nav">
-
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-        <div class="wy-side-scroll">
-            <div class="wy-side-nav-search">
+    <link rel="shortcut icon" href="_static/zipline.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="beginner-tutorial.html" />
+    <link rel="prev" title="Backtest your Trading Strategies" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-                <a href="index.html" class="icon icon-home"> Zipline
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                </a>
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Installation
+ </a>
+</li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
 
-                <div class="version">
-                    1.4.1
-                </div>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="bundles.html">
+  Data
+ </a>
+</li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
 
-                <div role="search">
-                    <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-                        <input type="text" name="q" placeholder="Search docs"/>
-                        <input type="hidden" name="check_keywords" value="yes"/>
-                        <input type="hidden" name="area" value="default"/>
-                    </form>
-                </div>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api-reference.html">
+  API
+ </a>
+</li>
 
-            </div>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="releases.html">
+  Releases
+ </a>
+</li>
 
+        
+      </ul>
 
-            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-
-
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a>
-                        <ul>
-                            <li class="toctree-l2"><a class="reference internal" href="#installing-with-pip">Installing
-                                with <code class="docutils literal notranslate"><span class="pre">pip</span></code></a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal" href="#gnu-linux">GNU/Linux</a>
-                                    </li>
-                                    <li class="toctree-l3"><a class="reference internal" href="#osx">OSX</a></li>
-                                    <li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="toctree-l2"><a class="reference internal" href="#installing-with-conda">Installing
-                                with <code class="docutils literal notranslate"><span
-                                        class="pre">conda</span></code></a>
-                                <ul>
-                                    <li class="toctree-l3"><a class="reference internal"
-                                                              href="#managing-conda-environments">Managing <code
-                                            class="docutils literal notranslate"><span class="pre">conda</span></code>
-                                        environments</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner
-                        Tutorial</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="bundles.html">Data Bundles</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading
-                        Calendars</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="risk-and-perf-metrics.html">Risk and
-                        Performance Metrics</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development
-                        Guidelines</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
-                    <li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-                </ul>
-
-
-            </div>
-
-        </div>
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
     </nav>
+    
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-
-        <nav class="wy-nav-top" aria-label="top navigation">
-
-            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-            <a href="index.html">Zipline</a>
-
-        </nav>
-
-
-        <div class="wy-nav-content">
-
-            <div class="rst-content">
-
-
-                <div role="navigation" aria-label="breadcrumbs navigation">
-
-                    <ul class="wy-breadcrumbs">
-
-                        <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-
-                        <li>Install</li>
-
-
-                        <li class="wy-breadcrumbs-aside">
-
-
-                            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
-
-
-                        </li>
-
-                    </ul>
-
-
-                    <hr/>
-                </div>
-                <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-                    <div itemprop="articleBody">
-
-                        <div class="section" id="install">
-                            <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a>
-                            </h1>
-                            <div class="section" id="installing-with-pip">
-                                <h2>Installing with <code class="docutils literal notranslate"><span
-                                        class="pre">pip</span></code><a class="headerlink" href="#installing-with-pip"
-                                                                        title="Permalink to this headline">¶</a></h2>
-                                <p>Installing Zipline via <code class="docutils literal notranslate"><span class="pre">pip</span></code>
-                                    is slightly more involved than the average
-                                    Python package.</p>
-                                <p>There are two reasons for the additional complexity:</p>
-                                <ol class="arabic simple">
-                                    <li><p>Zipline ships several C extensions that require access to the CPython C API.
-                                        In order to build the C extensions, <code
-                                                class="docutils literal notranslate"><span class="pre">pip</span></code>
-                                        needs access to the CPython
-                                        header files for your Python installation.</p></li>
-                                    <li><p>Zipline depends on <a class="reference external"
-                                                                 href="https://www.numpy.org/">numpy</a>, the core
-                                        library for
-                                        numerical array computing in Python. Numpy depends on having the <a
-                                                class="reference external"
-                                                href="https://www.netlib.org/lapack">LAPACK</a> linear algebra routines
-                                        available.</p></li>
-                                </ol>
-                                <p>Because LAPACK and the CPython headers are non-Python dependencies, the correct
-                                    way to install them varies from platform to platform. If you’d rather use a
-                                    single tool to install Python and non-Python dependencies, or if you’re already
-                                    using <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a>
-                                    as your Python distribution,
-                                    you can skip to the <a class="reference internal" href="#conda"><span
-                                            class="std std-ref">Installing with Conda</span></a> section.</p>
-                                <p>Once you’ve installed the necessary additional dependencies (see below for
-                                    your particular platform), you should be able to simply run</p>
-                                <div class="highlight-bash notranslate">
-                                    <div class="highlight"><pre><span></span>$ pip install zipline
-</pre>
-                                    </div>
-                                </div>
-                                <p>If you use Python for anything other than Zipline, we <strong>strongly</strong>
-                                    recommend
-                                    that you install in a <a class="reference external"
-                                                             href="https://virtualenv.readthedocs.org/en/latest">virtualenv</a>.
-                                    The <a class="reference external" href="https://docs.python-guide.org/en/latest/">Hitchhiker’s
-                                        Guide to
-                                        Python</a> provides an <a class="reference external"
-                                                                  href="https://docs.python-guide.org/en/latest/dev/virtualenvs/">excellent
-                                        tutorial on virtualenv</a>.</p>
-                                <div class="section" id="gnu-linux">
-                                    <h3>GNU/Linux<a class="headerlink" href="#gnu-linux"
-                                                    title="Permalink to this headline">¶</a></h3>
-                                    <p>On <a class="reference external" href="https://www.debian.org/derivatives/">Debian-derived</a>
-                                        Linux distributions, you can acquire all the necessary
-                                        binary dependencies from <code class="docutils literal notranslate"><span
-                                                class="pre">apt</span></code> by running:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ sudo apt-get install libatlas-base-dev python-dev gfortran pkg-config libfreetype6-dev hdf5-tools
-</pre>
-                                        </div>
-                                    </div>
-                                    <p>On recent <a class="reference external"
-                                                    href="https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL-derived</a>
-                                        derived Linux distributions (e.g. Fedora), the
-                                        following should be sufficient to acquire the necessary additional
-                                        dependencies:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ sudo dnf install atlas-devel gcc-c++ gcc-gfortran libgfortran python-devel redhat-rpm-config hdf5
-</pre>
-                                        </div>
-                                    </div>
-                                    <p>On <a class="reference external" href="https://www.archlinux.org/">Arch Linux</a>,
-                                        you can acquire the additional dependencies via <code
-                                                class="docutils literal notranslate"><span
-                                                class="pre">pacman</span></code>:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ pacman -S lapack gcc gcc-fortran pkg-config hdf5
-</pre>
-                                        </div>
-                                    </div>
-                                    <p>There are also AUR packages available for installing <a
-                                            class="reference external"
-                                            href="https://aur.archlinux.org/packages/ta-lib/">ta-lib</a>, an optional
-                                        Zipline dependency.
-                                        Python 2 is also installable via:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ pacman -S python2
-</pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section" id="osx">
-                                    <h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a>
-                                    </h3>
-                                    <p>The version of Python shipped with OSX by default is generally out of date, and
-                                        has a number of quirks because it’s used directly by the operating system. For
-                                        these reasons, many developers choose to install and use a separate Python
-                                        installation. The <a class="reference external"
-                                                             href="https://docs.python-guide.org/en/latest/">Hitchhiker’s
-                                            Guide to Python</a> provides an excellent guide
-                                        to <a class="reference external"
-                                              href="https://docs.python-guide.org/en/latest/">Installing Python on
-                                            OSX</a>, which
-                                        explains how to install Python with the <a class="reference external"
-                                                                                   href="https://brew.sh">Homebrew</a>
-                                        manager.</p>
-                                    <p>Assuming you’ve installed Python with Homebrew, you’ll also likely need the
-                                        following brew packages:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ brew install freetype pkg-config gcc openssl hdf5
-</pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section" id="windows">
-                                    <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a>
-                                    </h3>
-                                    <p>For windows, the easiest and best supported way to install zipline is to use
-                                        <a class="reference internal" href="#conda"><span
-                                                class="std std-ref">Conda</span></a>.</p>
-                                </div>
-                            </div>
-                            <div class="section" id="installing-with-conda">
-                                <span id="conda"></span>
-                                <h2>Installing with <code class="docutils literal notranslate"><span
-                                        class="pre">conda</span></code><a class="headerlink"
-                                                                          href="#installing-with-conda"
-                                                                          title="Permalink to this headline">¶</a></h2>
-                                <p>Another way to install Zipline is via the <code class="docutils literal notranslate"><span
-                                        class="pre">conda</span></code> package manager, which
-                                    comes as part of Continuum Analytics’ <a class="reference external"
-                                                                             href="https://www.anaconda.com/distribution/">Anaconda</a>
-                                    distribution.</p>
-                                <p>The primary advantage of using Conda over <code class="docutils literal notranslate"><span
-                                        class="pre">pip</span></code> is that conda natively
-                                    understands the complex binary dependencies of packages like <code
-                                            class="docutils literal notranslate"><span class="pre">numpy</span></code>
-                                    and
-                                    <code class="docutils literal notranslate"><span class="pre">scipy</span></code>.
-                                    This means that <code class="docutils literal notranslate"><span
-                                            class="pre">conda</span></code> can install Zipline and its dependencies
-                                    without requiring the use of a second tool to acquire Zipline’s non-Python
-                                    dependencies.</p>
-                                <p>For instructions on how to install <code class="docutils literal notranslate"><span
-                                        class="pre">conda</span></code>, see the <a class="reference external"
-                                                                                    href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">Conda
-                                    Installation
-                                    Documentation</a></p>
-                                <p>Once <code class="docutils literal notranslate"><span class="pre">conda</span></code>
-                                    has been set up you can install Zipline from the <code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">conda-forge</span></code> channel:</p>
-                                <div class="highlight-bash notranslate">
-                                    <div class="highlight"><pre><span></span>conda install -c conda-forge zipline
-</pre>
-                                    </div>
-                                </div>
-                                <div class="section" id="managing-conda-environments">
-                                    <span id="id2"></span>
-                                    <h3>Managing <code class="docutils literal notranslate"><span
-                                            class="pre">conda</span></code> environments<a class="headerlink"
-                                                                                           href="#managing-conda-environments"
-                                                                                           title="Permalink to this headline">¶</a>
-                                    </h3>
-                                    <p>It is recommended to install Zipline in an isolated <code
-                                            class="docutils literal notranslate"><span class="pre">conda</span></code>
-                                        environment.
-                                        Installing Zipline in <code class="docutils literal notranslate"><span
-                                                class="pre">conda</span></code> environments will not interfere your
-                                        default
-                                        Python deployment or site-packages, which will prevent any possible conflict
-                                        with your global libraries. For more information on <code
-                                                class="docutils literal notranslate"><span
-                                                class="pre">conda</span></code> environment, see
-                                        the <a class="reference external"
-                                               href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda
-                                            User Guide</a>.</p>
-                                    <p>Assuming <code class="docutils literal notranslate"><span
-                                            class="pre">conda</span></code> has been set up, you can create a <code
-                                            class="docutils literal notranslate"><span class="pre">conda</span></code>
-                                        environment:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ conda create -n env_zipline <span
-                                                class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
-</pre>
-                                        </div>
-                                    </div>
-                                    <p>Now you have set up an isolated environment called <code
-                                            class="docutils literal notranslate"><span
-                                            class="pre">env_zipline</span></code>, a sandbox-like
-                                        structure to install Zipline. Then you should activate the conda environment
-                                        by using the command</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span>$ conda activate env_zipline
-</pre>
-                                        </div>
-                                    </div>
-                                    <p>You can install Zipline by running</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span><span
-                                                class="o">(</span>env_zipline<span class="o">)</span> $ conda install -c conda-forge zipline
-</pre>
-                                        </div>
-                                    </div>
-                                    <div class="admonition note">
-                                        <p class="admonition-title">Note</p>
-                                        <p>The <code class="docutils literal notranslate"><span
-                                                class="pre">conda-forge</span></code> channel so far only has zipline
-                                            1.4.0+ packages for python 3.6.
-                                            Conda packages for previous versions of zipline for pythons 2.7/3.5/3.6 are
-                                            still available on Quantopian’s anaconda channel, but are not being updated.
-                                            They can be installed with:</p>
-                                        <div class="highlight-bash notranslate">
-                                            <div class="highlight"><pre><span></span><span class="o">(</span>env_zipline35<span
-                                                    class="o">)</span> $ conda install -c Quantopian zipline
-</pre>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p>To deactivate the <code class="docutils literal notranslate"><span class="pre">conda</span></code>
-                                        environment:</p>
-                                    <div class="highlight-bash notranslate">
-                                        <div class="highlight"><pre><span></span><span
-                                                class="o">(</span>env_zipline<span class="o">)</span> $ conda deactivate
-</pre>
-                                        </div>
-                                    </div>
-                                    <div class="admonition note">
-                                        <p class="admonition-title">Note</p>
-                                        <p><code class="docutils literal notranslate"><span class="pre">conda</span>
-                                            <span class="pre">activate</span></code> and <code
-                                                class="docutils literal notranslate"><span class="pre">conda</span>
-                                            <span class="pre">deactivate</span></code> only work on conda 4.6 and later
-                                            versions. For conda versions prior to 4.6, run:</p>
-                                        <blockquote>
-                                            <div>
-                                                <ul class="simple">
-                                                    <li><p>Windows: <code class="docutils literal notranslate"><span
-                                                            class="pre">activate</span></code> or <code
-                                                            class="docutils literal notranslate"><span class="pre">deactivate</span></code>
-                                                    </p></li>
-                                                    <li><p>Linux and macOS: <code
-                                                            class="docutils literal notranslate"><span class="pre">source</span>
-                                                        <span class="pre">activate</span></code> or <code
-                                                            class="docutils literal notranslate"><span class="pre">source</span>
-                                                        <span class="pre">deactivate</span></code></p></li>
-                                                </ul>
-                                            </div>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <footer>
-                    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-                        <a href="beginner-tutorial.html" class="btn btn-neutral float-right"
-                           title="Zipline Beginner Tutorial" accesskey="n" rel="next">Next <span
-                                class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-                        <a href="index.html" class="btn btn-neutral float-left" title="Features" accesskey="p"
-                           rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-                    </div>
-
-                    <hr/>
-
-                    <div role="contentinfo">
-                        <p>
-                            &#169; Copyright 2020, Quantopian Inc..
-
-                        </p>
-                    </div>
-
-
-                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-
-                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-
-                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-
-                </footer>
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
             </div>
-        </div>
+            
+          
 
-    </section>
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-with-pip">
+   Installing with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pip
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gnu-linux">
+     GNU/Linux
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#development-libraries">
+       Development Libraries
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compiling-ta-lib">
+       Compiling TA-Lib
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#osx">
+     OSX
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing-with-conda">
+   Installing with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     conda
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#managing-conda-environments">
+     Managing
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       conda
+      </span>
+     </code>
+     environments
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="installation">
+<span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>You can install Zipline either using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, the Python package installer, or
+<a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">conda</a>, the package and environment management system
+that runs on Windows, macOS, and Linux.</p>
+<p>Zipline runs on Python 3.7, 3.8 and 3.9. To install and use different Python versions in parallel as well as create
+a virtual environment, you could use, for example, <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>.</p>
+<div class="section" id="installing-with-pip">
+<h2>Installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#installing-with-pip" title="Permalink to this headline">¶</a></h2>
+<p>Installing Zipline via <code class="docutils literal notranslate"><span class="pre">pip</span></code> is slightly more involved than the average Python package.</p>
+<p>There are two reasons for the additional complexity:</p>
+<ol class="arabic simple">
+<li><p>Zipline ships several C extensions that require access to the CPython C API.
+In order to build these C extensions, <code class="docutils literal notranslate"><span class="pre">pip</span></code> needs access to the CPython
+header files for your Python installation.</p></li>
+<li><p>Zipline depends on <a class="reference external" href="https://www.numpy.org/">NumPy</a>, the core library for
+numerical array computing in Python.  NumPy, in turn, depends on the <a class="reference external" href="https://www.netlib.org/lapack">LAPACK</a> linear algebra routines.</p></li>
+</ol>
+<p>Because LAPACK and the CPython headers are non-Python dependencies, the correct
+way to install them varies from platform to platform.  If you’d rather use a
+single tool to install Python and non-Python dependencies, or if you’re already
+using <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> as your Python distribution,
+you can skip to the :ref: <cite>conda</cite> section.</p>
+<p>Once you’ve installed the necessary additional dependencies (see below for
+your particular platform), you should be able to simply run (preferably inside an activated virtual environment):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install zipline-reloaded
+</pre></div>
+</div>
+<p>If you use Python for anything other than Zipline, we <strong>strongly</strong> recommend
+that you install in a <a class="reference external" href="https://virtualenv.readthedocs.org/en/latest">virtualenv</a>.  The <a class="reference external" href="https://docs.python-guide.org/en/latest/">Hitchhiker’s Guide to
+Python</a> provides an <a class="reference external" href="https://docs.python-guide.org/en/latest/dev/virtualenvs/">excellent tutorial on virtualenv</a>.</p>
+<div class="section" id="gnu-linux">
+<h3>GNU/Linux<a class="headerlink" href="#gnu-linux" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="development-libraries">
+<h4>Development Libraries<a class="headerlink" href="#development-libraries" title="Permalink to this headline">¶</a></h4>
+<p>On <a class="reference external" href="https://www.debian.org/derivatives/">Debian-derived</a> Linux distributions, you can acquire all the necessary
+binary dependencies from <code class="docutils literal notranslate"><span class="pre">apt</span></code> by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo apt install libatlas-base-dev python-dev gfortran pkg-config libfreetype6-dev hdf5-tools
+</pre></div>
+</div>
+<p>On recent <a class="reference external" href="https://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL-derived</a> derived Linux distributions (e.g. Fedora), the
+following should be sufficient to acquire the necessary additional
+dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo dnf install atlas-devel gcc-c++ gcc-gfortran libgfortran python-devel redhat-rpm-config hdf5
+</pre></div>
+</div>
+<p>On <a class="reference external" href="https://www.archlinux.org/">Arch Linux</a>, you can acquire the additional dependencies via <code class="docutils literal notranslate"><span class="pre">pacman</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pacman -S lapack gcc gcc-fortran pkg-config hdf5
+</pre></div>
+</div>
+<p>There are also AUR packages available for installing <a class="reference external" href="https://aur.archlinux.org/packages/ta-lib/">ta-lib</a>.
+Python 3 is also installable via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pacman -S python3
+</pre></div>
+</div>
+</div>
+<div class="section" id="compiling-ta-lib">
+<h4>Compiling TA-Lib<a class="headerlink" href="#compiling-ta-lib" title="Permalink to this headline">¶</a></h4>
+<p>You will also need to compile the <a class="reference external" href="https://www.ta-lib.org/">TA-Lib</a> library for technical analysis so its headers become available.</p>
+<p>You can accomplish this as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ wget http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz
+$ tar -xzf ta-lib-0.4.0-src.tar.gz
+$ <span class="nb">cd</span> ta-lib/
+$ sudo ./configure
+$ sudo make
+$ sudo make install
+</pre></div>
+</div>
+<p>This will allow you to install the Python wrapper with <code class="docutils literal notranslate"><span class="pre">pip</span></code> as expected by the binary wheel.</p>
+</div>
+</div>
+<div class="section" id="osx">
+<h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h3>
+<p>The version of Python shipped with OSX by default is generally out of date, and
+has a number of quirks because it’s used directly by the operating system.  For
+these reasons, many developers choose to install and use a separate Python
+installation. The <a class="reference external" href="https://docs.python-guide.org/en/latest/">Hitchhiker’s Guide to Python</a> provides an excellent guide
+to <a class="reference external" href="https://docs.python-guide.org/en/latest/">Installing Python on OSX</a>, which
+explains how to install Python with the <a class="reference external" href="https://brew.sh/">Homebrew</a> manager.</p>
+<p>Assuming you’ve installed Python with <code class="docutils literal notranslate"><span class="pre">brew</span></code>, you’ll also likely need the
+following packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ brew install freetype pkg-config gcc openssl hdf5 ta-lib
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>For Windows, the easiest and best supported way to install Zipline is to use
+<code class="docutils literal notranslate"><span class="pre">conda</span></code>.</p>
+</div>
+</div>
+<div class="section" id="installing-with-conda">
+<span id="id2"></span><h2>Installing with <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#installing-with-conda" title="Permalink to this headline">¶</a></h2>
+<p>Another way to install Zipline is via the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager, which
+comes as part of the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> distribution. Alternatively, you can use
+the related but more lightweight <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html#">Miniconda</a>  or
+<a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge</a> installers.</p>
+<p>The primary advantage of using Conda over <code class="docutils literal notranslate"><span class="pre">pip</span></code> is that <code class="docutils literal notranslate"><span class="pre">conda</span></code> natively
+understands the complex binary dependencies of packages like <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and
+<code class="docutils literal notranslate"><span class="pre">scipy</span></code>.  This means that <code class="docutils literal notranslate"><span class="pre">conda</span></code> can install Zipline and its dependencies
+without requiring the use of a second tool to acquire Zipline’s non-Python
+dependencies.</p>
+<p>For instructions on how to install <code class="docutils literal notranslate"><span class="pre">conda</span></code>, see the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">Conda Installation
+Documentation</a></p>
+<p>Once <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been set up you can install Zipline from the <code class="docutils literal notranslate"><span class="pre">ml4t</span></code> channel
+(assuming you are listing additional channels like <a class="reference external" href="https://conda-forge.org/">conda-forge</a>
+in your <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">.condarc</a> configuration file):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c ml4t zipline-reloaded
+</pre></div>
+</div>
+<div class="section" id="managing-conda-environments">
+<span id="id4"></span><h3>Managing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments<a class="headerlink" href="#managing-conda-environments" title="Permalink to this headline">¶</a></h3>
+<p>It is recommended to install Zipline in an isolated <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment.
+Installing Zipline in <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments will not interfere your default
+Python deployment or site-packages, which will prevent any possible conflict
+with your global libraries. For more information on <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, see
+the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">Conda User Guide</a>.</p>
+<p>Assuming <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been set up, you can create a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda create -n env_zipline <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8
+</pre></div>
+</div>
+<p>Now you have set up an isolated environment called <code class="docutils literal notranslate"><span class="pre">env_zipline</span></code>, a sandbox-like
+structure to install Zipline. Then you should activate the conda environment
+by using the command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda activate env_zipline
+</pre></div>
+</div>
+<p>You can install Zipline by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>env_zipline<span class="o">)</span> $ conda install -c ml4t zipline-reloaded
+</pre></div>
+</div>
+<p>To deactivate the <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>env_zipline<span class="o">)</span> $ conda deactivate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> and <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">deactivate</span></code> only work on conda 4.6 and later versions. For conda versions prior to 4.6, run:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">activate</span></code> or <code class="docutils literal notranslate"><span class="pre">deactivate</span></code></p></li>
+<li><p>Linux and macOS: <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">activate</span></code> or <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">deactivate</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
 </div>
 
 
-<script type="text/javascript">
-    jQuery(function () {
-        SphinxRtdTheme.Navigation.enable(true);
-    });
-</script>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">Backtest your Trading Strategies</a>
+    <a class='right-next' id="next-link" href="beginner-tutorial.html" title="next page">Tutorial</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.a26b4849e0a18c48af57.js"></script>
 
 
-<!-- Theme Analytics -->
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-
-    ga('send', 'pageview');
-</script>
-
-
-</body>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
 </html>

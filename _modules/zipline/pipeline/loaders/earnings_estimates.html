@@ -1,0 +1,1731 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.loaders.earnings_estimates &#8212; Zipline 2.0.0rc4 documentation</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for zipline.pipeline.loaders.earnings_estimates</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span><span class="p">,</span> <span class="n">abstractproperty</span>
+
+<span class="kn">from</span> <span class="nn">interface</span> <span class="kn">import</span> <span class="n">implements</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">toolz</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+<span class="kn">from</span> <span class="nn">zipline.lib.adjusted_array</span> <span class="kn">import</span> <span class="n">AdjustedArray</span>
+<span class="kn">from</span> <span class="nn">zipline.lib.adjustment</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Datetime641DArrayOverwrite</span><span class="p">,</span>
+    <span class="n">Datetime64Overwrite</span><span class="p">,</span>
+    <span class="n">Float641DArrayOverwrite</span><span class="p">,</span>
+    <span class="n">Float64Multiply</span><span class="p">,</span>
+    <span class="n">Float64Overwrite</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">zipline.pipeline.common</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">FISCAL_QUARTER_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">FISCAL_YEAR_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">SID_FIELD_NAME</span><span class="p">,</span>
+    <span class="n">TS_FIELD_NAME</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">zipline.pipeline.loaders.base</span> <span class="kn">import</span> <span class="n">PipelineLoader</span>
+<span class="kn">from</span> <span class="nn">zipline.utils.numpy_utils</span> <span class="kn">import</span> <span class="n">datetime64ns_dtype</span><span class="p">,</span> <span class="n">float64_dtype</span>
+<span class="kn">from</span> <span class="nn">zipline.pipeline.loaders.utils</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ffill_across_cols</span><span class="p">,</span>
+    <span class="n">last_in_date_group</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">INVALID_NUM_QTRS_MESSAGE</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;Passed invalid number of quarters </span><span class="si">%s</span><span class="s2">; &quot;</span> <span class="s2">&quot;must pass a number of quarters &gt;= 0&quot;</span>
+<span class="p">)</span>
+<span class="n">NEXT_FISCAL_QUARTER</span> <span class="o">=</span> <span class="s2">&quot;next_fiscal_quarter&quot;</span>
+<span class="n">NEXT_FISCAL_YEAR</span> <span class="o">=</span> <span class="s2">&quot;next_fiscal_year&quot;</span>
+<span class="n">NORMALIZED_QUARTERS</span> <span class="o">=</span> <span class="s2">&quot;normalized_quarters&quot;</span>
+<span class="n">PREVIOUS_FISCAL_QUARTER</span> <span class="o">=</span> <span class="s2">&quot;previous_fiscal_quarter&quot;</span>
+<span class="n">PREVIOUS_FISCAL_YEAR</span> <span class="o">=</span> <span class="s2">&quot;previous_fiscal_year&quot;</span>
+<span class="n">SHIFTED_NORMALIZED_QTRS</span> <span class="o">=</span> <span class="s2">&quot;shifted_normalized_quarters&quot;</span>
+<span class="n">SIMULATION_DATES</span> <span class="o">=</span> <span class="s2">&quot;dates&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">normalize_quarters</span><span class="p">(</span><span class="n">years</span><span class="p">,</span> <span class="n">quarters</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">years</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">quarters</span> <span class="o">-</span> <span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">split_normalized_quarters</span><span class="p">(</span><span class="n">normalized_quarters</span><span class="p">):</span>
+    <span class="n">years</span> <span class="o">=</span> <span class="n">normalized_quarters</span> <span class="o">//</span> <span class="mi">4</span>
+    <span class="n">quarters</span> <span class="o">=</span> <span class="n">normalized_quarters</span> <span class="o">%</span> <span class="mi">4</span>
+    <span class="k">return</span> <span class="n">years</span><span class="p">,</span> <span class="n">quarters</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+<span class="c1"># These metadata columns are used to align event indexers.</span>
+<span class="n">metadata_columns</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="n">TS_FIELD_NAME</span><span class="p">,</span>
+        <span class="n">SID_FIELD_NAME</span><span class="p">,</span>
+        <span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">,</span>
+        <span class="n">FISCAL_QUARTER_FIELD_NAME</span><span class="p">,</span>
+        <span class="n">FISCAL_YEAR_FIELD_NAME</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">required_estimates_fields</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the set of resource columns required to serve</span>
+<span class="sd">    `columns`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># We also expect any of the field names that our loadable columns</span>
+    <span class="c1"># are mapped to.</span>
+    <span class="k">return</span> <span class="n">metadata_columns</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">validate_column_specs</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verify that the columns of ``events`` can be used by a</span>
+<span class="sd">    EarningsEstimatesLoader to serve the BoundColumns described by</span>
+<span class="sd">    `columns`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">required</span> <span class="o">=</span> <span class="n">required_estimates_fields</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">received</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">events</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">missing</span> <span class="o">=</span> <span class="n">required</span> <span class="o">-</span> <span class="n">received</span>
+    <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;EarningsEstimatesLoader missing required columns </span><span class="si">{missing}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Got Columns: </span><span class="si">{received}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Expected Columns: </span><span class="si">{required}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">missing</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">missing</span><span class="p">),</span>
+                <span class="n">received</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">received</span><span class="p">),</span>
+                <span class="n">required</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">required</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">add_new_adjustments</span><span class="p">(</span><span class="n">adjustments_dict</span><span class="p">,</span> <span class="n">adjustments</span><span class="p">,</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">adjustments_dict</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">adjustments</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">adjustments_dict</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span> <span class="o">=</span> <span class="n">adjustments</span>
+
+
+<div class="viewcode-block" id="EarningsEstimatesLoader"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.earnings_estimates.EarningsEstimatesLoader">[docs]</a><span class="k">class</span> <span class="nc">EarningsEstimatesLoader</span><span class="p">(</span><span class="n">implements</span><span class="p">(</span><span class="n">PipelineLoader</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An abstract pipeline loader for estimates data that can load data a</span>
+<span class="sd">    variable number of quarters forwards/backwards from calendar dates</span>
+<span class="sd">    depending on the `num_announcements` attribute of the columns&#39; dataset.</span>
+<span class="sd">    If split adjustments are to be applied, a loader, split-adjusted columns,</span>
+<span class="sd">    and the split-adjusted asof-date must be supplied.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimates : pd.DataFrame</span>
+<span class="sd">        The raw estimates data.</span>
+<span class="sd">        ``estimates`` must contain at least 5 columns:</span>
+<span class="sd">            sid : int64</span>
+<span class="sd">                The asset id associated with each estimate.</span>
+
+<span class="sd">            event_date : datetime64[ns]</span>
+<span class="sd">                The date on which the event that the estimate is for will/has</span>
+<span class="sd">                occurred..</span>
+
+<span class="sd">            timestamp : datetime64[ns]</span>
+<span class="sd">                The datetime where we learned about the estimate.</span>
+
+<span class="sd">            fiscal_quarter : int64</span>
+<span class="sd">                The quarter during which the event has/will occur.</span>
+
+<span class="sd">            fiscal_year : int64</span>
+<span class="sd">                The year during which the event has/will occur.</span>
+
+<span class="sd">    name_map : dict[str -&gt; str]</span>
+<span class="sd">        A map of names of BoundColumns that this loader will load to the</span>
+<span class="sd">        names of the corresponding columns in `events`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="EarningsEstimatesLoader.__init__"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.earnings_estimates.EarningsEstimatesLoader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">estimates</span><span class="p">,</span> <span class="n">name_map</span><span class="p">):</span>
+        <span class="n">validate_column_specs</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">name_map</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span> <span class="o">=</span> <span class="n">estimates</span><span class="p">[</span>
+            <span class="n">estimates</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+            <span class="o">&amp;</span> <span class="n">estimates</span><span class="p">[</span><span class="n">FISCAL_QUARTER_FIELD_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+            <span class="o">&amp;</span> <span class="n">estimates</span><span class="p">[</span><span class="n">FISCAL_YEAR_FIELD_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="n">NORMALIZED_QUARTERS</span><span class="p">]</span> <span class="o">=</span> <span class="n">normalize_quarters</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="n">FISCAL_YEAR_FIELD_NAME</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="n">FISCAL_QUARTER_FIELD_NAME</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">array_overwrites_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">datetime64ns_dtype</span><span class="p">:</span> <span class="n">Datetime641DArrayOverwrite</span><span class="p">,</span>
+            <span class="n">float64_dtype</span><span class="p">:</span> <span class="n">Float641DArrayOverwrite</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">scalar_overwrites_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">datetime64ns_dtype</span><span class="p">:</span> <span class="n">Datetime64Overwrite</span><span class="p">,</span>
+            <span class="n">float64_dtype</span><span class="p">:</span> <span class="n">Float64Overwrite</span><span class="p">,</span>
+        <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span> <span class="o">=</span> <span class="n">name_map</span></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_zeroth_quarter_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stacked_last_per_qtr</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;get_zeroth_quarter_idx&quot;</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">get_shifted_qtrs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zero_qtrs</span><span class="p">,</span> <span class="n">num_announcements</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;get_shifted_qtrs&quot;</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">create_overwrite_for_estimate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+        <span class="n">requested_quarter</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">col_to_split_adjustments</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;create_overwrite_for_estimate&quot;</span><span class="p">)</span>
+
+    <span class="nd">@abstractproperty</span>
+    <span class="k">def</span> <span class="nf">searchsorted_side</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;searchsorted_side&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_requested_quarter_data</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">zero_qtr_data</span><span class="p">,</span>
+        <span class="n">zeroth_quarter_idx</span><span class="p">,</span>
+        <span class="n">stacked_last_per_qtr</span><span class="p">,</span>
+        <span class="n">num_announcements</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Selects the requested data for each date.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        zero_qtr_data : pd.DataFrame</span>
+<span class="sd">            The &#39;time zero&#39; data for each calendar date per sid.</span>
+<span class="sd">        zeroth_quarter_idx : pd.Index</span>
+<span class="sd">            An index of calendar dates, sid, and normalized quarters, for only</span>
+<span class="sd">            the rows that have a next or previous earnings estimate.</span>
+<span class="sd">        stacked_last_per_qtr : pd.DataFrame</span>
+<span class="sd">            The latest estimate known with the dates, normalized quarter, and</span>
+<span class="sd">            sid as the index.</span>
+<span class="sd">        num_announcements : int</span>
+<span class="sd">            The number of annoucements out the user requested relative to</span>
+<span class="sd">            each date in the calendar dates.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        --------</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The DataFrame with the latest values for the requested quarter</span>
+<span class="sd">            for all columns; `dates` are the index and columns are a MultiIndex</span>
+<span class="sd">            with sids at the top level and the dataset columns on the bottom.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">zero_qtr_data_idx</span> <span class="o">=</span> <span class="n">zero_qtr_data</span><span class="o">.</span><span class="n">index</span>
+        <span class="n">requested_qtr_idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_arrays</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">zero_qtr_data_idx</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+                <span class="n">zero_qtr_data_idx</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_shifted_qtrs</span><span class="p">(</span>
+                    <span class="n">zeroth_quarter_idx</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span>
+                        <span class="n">NORMALIZED_QUARTERS</span><span class="p">,</span>
+                    <span class="p">),</span>
+                    <span class="n">num_announcements</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">],</span>
+            <span class="n">names</span><span class="o">=</span><span class="p">[</span>
+                <span class="n">zero_qtr_data_idx</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">zero_qtr_data_idx</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="n">requested_qtr_data</span> <span class="o">=</span> <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">requested_qtr_idx</span><span class="p">)</span>
+        <span class="n">requested_qtr_data</span> <span class="o">=</span> <span class="n">requested_qtr_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span>
+            <span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Calculate the actual year/quarter being requested and add those in</span>
+        <span class="c1"># as columns.</span>
+        <span class="p">(</span>
+            <span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">FISCAL_YEAR_FIELD_NAME</span><span class="p">],</span>
+            <span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">FISCAL_QUARTER_FIELD_NAME</span><span class="p">],</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">split_normalized_quarters</span><span class="p">(</span><span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">])</span>
+        <span class="c1"># Once we&#39;re left with just dates as the index, we can reindex by all</span>
+        <span class="c1"># dates so that we have a value for each calendar date.</span>
+        <span class="k">return</span> <span class="n">requested_qtr_data</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">SID_FIELD_NAME</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_split_adjusted_asof_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dates</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compute the index in `dates` where the split-adjusted-asof-date</span>
+<span class="sd">        falls. This is the date up to which, and including which, we will</span>
+<span class="sd">        need to unapply all adjustments for and then re-apply them as they</span>
+<span class="sd">        come in. After this date, adjustments are applied as normal.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates over which the Pipeline is being computed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        split_adjusted_asof_idx : int</span>
+<span class="sd">            The index in `dates` at which the data should be split.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">split_adjusted_asof_idx</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_asof</span><span class="p">,</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="c1"># The split-asof date is after the date index.</span>
+        <span class="k">if</span> <span class="n">split_adjusted_asof_idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">):</span>
+            <span class="n">split_adjusted_asof_idx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_asof</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_asof</span> <span class="o">&lt;</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">split_adjusted_asof_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_asof</span> <span class="o">&lt;</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">):</span>
+                <span class="n">split_adjusted_asof_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">split_adjusted_asof_idx</span>
+
+    <span class="k">def</span> <span class="nf">collect_overwrites_for_sid</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">group</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+        <span class="n">all_adjustments_for_sid</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Given a sid, collect all overwrites that should be applied for this</span>
+<span class="sd">        sid at each quarter boundary.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group : pd.DataFrame</span>
+<span class="sd">            The data for `sid`.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The DataFrame with the latest values for the requested quarter</span>
+<span class="sd">            for all columns.</span>
+<span class="sd">        last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with a column MultiIndex of [self.estimates.columns,</span>
+<span class="sd">            normalized_quarters, sid] that allows easily getting the timeline</span>
+<span class="sd">            of estimates for a particular sid for a particular quarter.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The sid&#39;s index in the asset index.</span>
+<span class="sd">        columns : list of BoundColumn</span>
+<span class="sd">            The columns for which the overwrites should be computed.</span>
+<span class="sd">        all_adjustments_for_sid : dict[int -&gt; AdjustedArray]</span>
+<span class="sd">            A dictionary of the integer index of each timestamp into the date</span>
+<span class="sd">            index, mapped to adjustments that should be applied at that</span>
+<span class="sd">            index for the given sid (`sid`). This dictionary is modified as</span>
+<span class="sd">            adjustments are collected.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which overwrites should be computed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># If data was requested for only 1 date, there can never be any</span>
+        <span class="c1"># overwrites, so skip the extra work.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">next_qtr_start_indices</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span>
+            <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">side</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">searchsorted_side</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">qtrs_with_estimates</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">NORMALIZED_QUARTERS</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">next_qtr_start_indices</span><span class="p">:</span>
+            <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">dates</span><span class="p">):</span>
+                <span class="c1"># Find the quarter being requested in the quarter we&#39;re</span>
+                <span class="c1"># crossing into.</span>
+                <span class="n">requested_quarter</span> <span class="o">=</span> <span class="n">requested_qtr_data</span><span class="p">[</span>
+                    <span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">,</span>
+                    <span class="n">sid</span><span class="p">,</span>
+                <span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+                <span class="c1"># Only add adjustments if the next quarter starts somewhere</span>
+                <span class="c1"># in our date index for this sid. Our &#39;next&#39; quarter can</span>
+                <span class="c1"># never start at index 0; a starting index of 0 means that</span>
+                <span class="c1"># the next quarter&#39;s event date was NaT.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">create_overwrites_for_quarter</span><span class="p">(</span>
+                    <span class="n">all_adjustments_for_sid</span><span class="p">,</span>
+                    <span class="n">idx</span><span class="p">,</span>
+                    <span class="n">last_per_qtr</span><span class="p">,</span>
+                    <span class="n">qtrs_with_estimates</span><span class="p">,</span>
+                    <span class="n">requested_quarter</span><span class="p">,</span>
+                    <span class="n">sid</span><span class="p">,</span>
+                    <span class="n">sid_idx</span><span class="p">,</span>
+                    <span class="n">columns</span><span class="p">,</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_adjustments_for_sid</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">group</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">sid_to_idx</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+        <span class="n">col_to_all_adjustments</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        group : pd.DataFrame</span>
+<span class="sd">            The data for the given sid.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The DataFrame with the latest values for the requested quarter</span>
+<span class="sd">            for all columns.</span>
+<span class="sd">        last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with a column MultiIndex of [self.estimates.columns,</span>
+<span class="sd">            normalized_quarters, sid] that allows easily getting the timeline</span>
+<span class="sd">            of estimates for a particular sid for a particular quarter.</span>
+<span class="sd">        sid_to_idx : dict[int -&gt; int]</span>
+<span class="sd">            A dictionary mapping sid to he sid&#39;s index in the asset index.</span>
+<span class="sd">        columns : list of BoundColumn</span>
+<span class="sd">            The columns for which the overwrites should be computed.</span>
+<span class="sd">        col_to_all_adjustments : dict[int -&gt; AdjustedArray]</span>
+<span class="sd">            A dictionary of the integer index of each timestamp into the date</span>
+<span class="sd">            index, mapped to adjustments that should be applied at that</span>
+<span class="sd">            index. This dictionary is for adjustments for ALL sids. It is</span>
+<span class="sd">            modified as adjustments are collected.</span>
+<span class="sd">        kwargs :</span>
+<span class="sd">            Additional arguments used in collecting adjustments; unused here.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Collect all adjustments for a given sid.</span>
+        <span class="n">all_adjustments_for_sid</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">sid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_overwrites_for_sid</span><span class="p">(</span>
+            <span class="n">group</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">last_per_qtr</span><span class="p">,</span>
+            <span class="n">sid_to_idx</span><span class="p">[</span><span class="n">sid</span><span class="p">],</span>
+            <span class="n">columns</span><span class="p">,</span>
+            <span class="n">all_adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_into_adjustments_for_all_sids</span><span class="p">(</span>
+            <span class="n">all_adjustments_for_sid</span><span class="p">,</span> <span class="n">col_to_all_adjustments</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">merge_into_adjustments_for_all_sids</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">all_adjustments_for_sid</span><span class="p">,</span> <span class="n">col_to_all_adjustments</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge adjustments for a particular sid into a dictionary containing</span>
+<span class="sd">        adjustments for all sids.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        all_adjustments_for_sid : dict[int -&gt; AdjustedArray]</span>
+<span class="sd">            All adjustments for a particular sid.</span>
+<span class="sd">        col_to_all_adjustments : dict[int -&gt; AdjustedArray]</span>
+<span class="sd">            All adjustments for all sids.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">all_adjustments_for_sid</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col_to_all_adjustments</span><span class="p">:</span>
+                <span class="n">col_to_all_adjustments</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">all_adjustments_for_sid</span><span class="p">[</span><span class="n">col_name</span><span class="p">]:</span>
+                <span class="n">adjs</span> <span class="o">=</span> <span class="n">all_adjustments_for_sid</span><span class="p">[</span><span class="n">col_name</span><span class="p">][</span><span class="n">ts</span><span class="p">]</span>
+                <span class="n">add_new_adjustments</span><span class="p">(</span><span class="n">col_to_all_adjustments</span><span class="p">,</span> <span class="n">adjs</span><span class="p">,</span> <span class="n">col_name</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">zero_qtr_data</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">assets</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates an AdjustedArray from the given estimates data for the given</span>
+<span class="sd">        dates.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        zero_qtr_data : pd.DataFrame</span>
+<span class="sd">            The &#39;time zero&#39; data for each calendar date per sid.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The requested quarter data for each calendar date per sid.</span>
+<span class="sd">        last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with a column MultiIndex of [self.estimates.columns,</span>
+<span class="sd">            normalized_quarters, sid] that allows easily getting the timeline</span>
+<span class="sd">            of estimates for a particular sid for a particular quarter.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+<span class="sd">        assets : pd.Int64Index</span>
+<span class="sd">            An index of all the assets from the raw data.</span>
+<span class="sd">        columns : list of BoundColumn</span>
+<span class="sd">            The columns for which adjustments need to be calculated.</span>
+<span class="sd">        kwargs :</span>
+<span class="sd">            Additional keyword arguments that should be forwarded to</span>
+<span class="sd">            `get_adjustments_for_sid` and to be used in computing adjustments</span>
+<span class="sd">            for each sid.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        col_to_all_adjustments : dict[int -&gt; AdjustedArray]</span>
+<span class="sd">            A dictionary of all adjustments that should be applied.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">zero_qtr_data</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Here we want to get the LAST record from each group of records</span>
+        <span class="c1"># corresponding to a single quarter. This is to ensure that we select</span>
+        <span class="c1"># the most up-to-date event date in case the event date changes.</span>
+        <span class="n">quarter_shifts</span> <span class="o">=</span> <span class="n">zero_qtr_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+            <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">,</span> <span class="n">NORMALIZED_QUARTERS</span><span class="p">]</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">col_to_all_adjustments</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">sid_to_idx</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">assets</span><span class="p">))))</span>
+        <span class="n">quarter_shifts</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">SID_FIELD_NAME</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">last_per_qtr</span><span class="p">,</span>
+            <span class="n">sid_to_idx</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">,</span>
+            <span class="n">col_to_all_adjustments</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">col_to_all_adjustments</span>
+
+    <span class="k">def</span> <span class="nf">create_overwrites_for_quarter</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">col_to_overwrites</span><span class="p">,</span>
+        <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">quarters_with_estimates_for_sid</span><span class="p">,</span>
+        <span class="n">requested_quarter</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add entries to the dictionary of columns to adjustments for the given</span>
+<span class="sd">        sid and the given quarter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        col_to_overwrites : dict [column_name -&gt; list of ArrayAdjustment]</span>
+<span class="sd">            A dictionary mapping column names to all overwrites for those</span>
+<span class="sd">            columns.</span>
+<span class="sd">        next_qtr_start_idx : int</span>
+<span class="sd">            The index of the first day of the next quarter in the calendar</span>
+<span class="sd">            dates.</span>
+<span class="sd">        last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with a column MultiIndex of [self.estimates.columns,</span>
+<span class="sd">            normalized_quarters, sid] that allows easily getting the timeline</span>
+<span class="sd">            of estimates for a particular sid for a particular quarter; this</span>
+<span class="sd">            is particularly useful for getting adjustments for &#39;next&#39;</span>
+<span class="sd">            estimates.</span>
+<span class="sd">        quarters_with_estimates_for_sid : np.array</span>
+<span class="sd">            An array of all quarters for which there are estimates for the</span>
+<span class="sd">            given sid.</span>
+<span class="sd">        requested_quarter : float</span>
+<span class="sd">            The quarter for which the overwrite should be created.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which to create overwrites.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The index of the sid in `assets`.</span>
+<span class="sd">        columns : list of BoundColumn</span>
+<span class="sd">            The columns for which to create overwrites.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="n">column_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col_to_overwrites</span><span class="p">:</span>
+                <span class="n">col_to_overwrites</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="c1"># If there are estimates for the requested quarter,</span>
+            <span class="c1"># overwrite all values going up to the starting index of</span>
+            <span class="c1"># that quarter with estimates for that quarter.</span>
+            <span class="k">if</span> <span class="n">requested_quarter</span> <span class="ow">in</span> <span class="n">quarters_with_estimates_for_sid</span><span class="p">:</span>
+                <span class="n">adjs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_overwrite_for_estimate</span><span class="p">(</span>
+                    <span class="n">col</span><span class="p">,</span>
+                    <span class="n">column_name</span><span class="p">,</span>
+                    <span class="n">last_per_qtr</span><span class="p">,</span>
+                    <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+                    <span class="n">requested_quarter</span><span class="p">,</span>
+                    <span class="n">sid</span><span class="p">,</span>
+                    <span class="n">sid_idx</span><span class="p">,</span>
+                <span class="p">)</span>
+                <span class="n">add_new_adjustments</span><span class="p">(</span>
+                    <span class="n">col_to_overwrites</span><span class="p">,</span> <span class="n">adjs</span><span class="p">,</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">next_qtr_start_idx</span>
+                <span class="p">)</span>
+            <span class="c1"># There are no estimates for the quarter. Overwrite all</span>
+            <span class="c1"># values going up to the starting index of that quarter</span>
+            <span class="c1"># with the missing value for this column.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">adjs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">overwrite_with_null</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">next_qtr_start_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">)]</span>
+                <span class="n">add_new_adjustments</span><span class="p">(</span>
+                    <span class="n">col_to_overwrites</span><span class="p">,</span> <span class="n">adjs</span><span class="p">,</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">next_qtr_start_idx</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">overwrite_with_null</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">next_qtr_start_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalar_overwrites_dict</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">dtype</span><span class="p">](</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">next_qtr_start_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">column</span><span class="o">.</span><span class="n">missing_value</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_adjusted_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="c1"># Separate out getting the columns&#39; datasets and the datasets&#39;</span>
+        <span class="c1"># num_announcements attributes to ensure that we&#39;re catching the right</span>
+        <span class="c1"># AttributeError.</span>
+        <span class="n">col_to_datasets</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">dataset</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">}</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">groups</span> <span class="o">=</span> <span class="n">groupby</span><span class="p">(</span>
+                <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col_to_datasets</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">num_announcements</span><span class="p">,</span> <span class="n">col_to_datasets</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                <span class="s2">&quot;Datasets loaded via the &quot;</span>
+                <span class="s2">&quot;EarningsEstimatesLoader must define a &quot;</span>
+                <span class="s2">&quot;`num_announcements` attribute that defines &quot;</span>
+                <span class="s2">&quot;how many quarters out the loader should load&quot;</span>
+                <span class="s2">&quot; the data relative to `dates`.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">num_qtr</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">num_qtr</span> <span class="ow">in</span> <span class="n">groups</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="n">INVALID_NUM_QTRS_MESSAGE</span>
+                <span class="o">%</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">qtr</span><span class="p">)</span> <span class="k">for</span> <span class="n">qtr</span> <span class="ow">in</span> <span class="n">groups</span> <span class="k">if</span> <span class="n">qtr</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># To optimize performance, only work below on assets that are</span>
+        <span class="c1"># actually in the raw data.</span>
+        <span class="n">data_query_cutoff_times</span> <span class="o">=</span> <span class="n">domain</span><span class="o">.</span><span class="n">data_query_cutoff_for_sessions</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+        <span class="n">assets_with_data</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span> <span class="o">&amp;</span> <span class="nb">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">])</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span> <span class="n">stacked_last_per_qtr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_last_data_per_qtr</span><span class="p">(</span>
+            <span class="n">assets_with_data</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">data_query_cutoff_times</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="c1"># Determine which quarter is immediately next/previous for each</span>
+        <span class="c1"># date.</span>
+        <span class="n">zeroth_quarter_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_zeroth_quarter_idx</span><span class="p">(</span><span class="n">stacked_last_per_qtr</span><span class="p">)</span>
+        <span class="n">zero_qtr_data</span> <span class="o">=</span> <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">zeroth_quarter_idx</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">num_announcements</span><span class="p">,</span> <span class="n">columns</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">requested_qtr_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_requested_quarter_data</span><span class="p">(</span>
+                <span class="n">zero_qtr_data</span><span class="p">,</span>
+                <span class="n">zeroth_quarter_idx</span><span class="p">,</span>
+                <span class="n">stacked_last_per_qtr</span><span class="p">,</span>
+                <span class="n">num_announcements</span><span class="p">,</span>
+                <span class="n">dates</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Calculate all adjustments for the given quarter and accumulate</span>
+            <span class="c1"># them for each column.</span>
+            <span class="n">col_to_adjustments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_adjustments</span><span class="p">(</span>
+                <span class="n">zero_qtr_data</span><span class="p">,</span> <span class="n">requested_qtr_data</span><span class="p">,</span> <span class="n">last_per_qtr</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">columns</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Lookup the asset indexer once, this is so we can reindex</span>
+            <span class="c1"># the assets returned into the assets requested for each column.</span>
+            <span class="c1"># This depends on the fact that our column pd.MultiIndex has the same</span>
+            <span class="c1"># sids for each field. This allows us to do the lookup once on</span>
+            <span class="c1"># level 1 instead of doing the lookup each time per value in</span>
+            <span class="c1"># level 0.</span>
+            <span class="n">asset_indexer</span> <span class="o">=</span> <span class="n">sids</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span>
+                <span class="n">requested_qtr_data</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">levels</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+                <span class="n">column_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+                <span class="c1"># allocate the empty output with the correct missing value</span>
+                <span class="c1"># shape = len(dates), len(sids)</span>
+                <span class="c1"># output_array = np.full(shape=shape,</span>
+                <span class="c1">#                        fill_value=col.missing_value,</span>
+                <span class="c1">#                        dtype=col.dtype)</span>
+                <span class="c1"># overwrite the missing value with values from the computed data</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">output_array</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+                        <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">sids</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+                        <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="n">output_array</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span>
+                        <span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">sids</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">na_value</span><span class="o">=</span><span class="n">col</span><span class="o">.</span><span class="n">missing_value</span><span class="p">)</span>
+                        <span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                    <span class="p">)</span>
+
+                <span class="c1"># except ValueError:</span>
+                <span class="c1">#     np.copyto(output_array[:, asset_indexer],</span>
+                <span class="c1">#               requested_qtr_data[column_name].to_numpy(na_value=output_array.dtype),</span>
+                <span class="c1">#               casting=&#39;unsafe&#39;)</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">AdjustedArray</span><span class="p">(</span>
+                    <span class="n">output_array</span><span class="p">,</span>
+                    <span class="c1"># There may not be any adjustments at all (e.g. if</span>
+                    <span class="c1"># len(date) == 1), so provide a default.</span>
+                    <span class="nb">dict</span><span class="p">(</span><span class="n">col_to_adjustments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">column_name</span><span class="p">,</span> <span class="p">{})),</span>
+                    <span class="n">col</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span>
+
+    <span class="k">def</span> <span class="nf">get_last_data_per_qtr</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">assets_with_data</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">data_query_cutoff_times</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine the last piece of information we know for each column on each</span>
+<span class="sd">        date in the index for each sid and quarter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        assets_with_data : pd.Index</span>
+<span class="sd">            Index of all assets that appear in the raw data given to the</span>
+<span class="sd">            loader.</span>
+<span class="sd">        columns : iterable of BoundColumn</span>
+<span class="sd">            The columns that need to be loaded from the raw data.</span>
+<span class="sd">        data_query_cutoff_times : pd.DatetimeIndex</span>
+<span class="sd">            The calendar of dates for which data should be loaded.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        stacked_last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame indexed by [dates, sid, normalized_quarters] that has</span>
+<span class="sd">            the latest information for each row of the index, sorted by event</span>
+<span class="sd">            date.</span>
+<span class="sd">        last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with columns that are a MultiIndex of [</span>
+<span class="sd">            self.estimates.columns, normalized_quarters, sid].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Get a DataFrame indexed by date with a MultiIndex of columns of</span>
+        <span class="c1"># [self.estimates.columns, normalized_quarters, sid], where each cell</span>
+        <span class="c1"># contains the latest data for that day.</span>
+        <span class="n">last_per_qtr</span> <span class="o">=</span> <span class="n">last_in_date_group</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">,</span>
+            <span class="n">data_query_cutoff_times</span><span class="p">,</span>
+            <span class="n">assets_with_data</span><span class="p">,</span>
+            <span class="n">reindex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">extra_groupers</span><span class="o">=</span><span class="p">[</span><span class="n">NORMALIZED_QUARTERS</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">last_per_qtr</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">dates</span>
+        <span class="c1"># Forward fill values for each quarter/sid/dataset column.</span>
+        <span class="n">ffill_across_cols</span><span class="p">(</span><span class="n">last_per_qtr</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span><span class="p">)</span>
+        <span class="c1"># Stack quarter and sid into the index.</span>
+        <span class="n">stacked_last_per_qtr</span> <span class="o">=</span> <span class="n">last_per_qtr</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">,</span> <span class="n">NORMALIZED_QUARTERS</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="c1"># Set date index name for ease of reference</span>
+        <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">(</span>
+            <span class="n">SIMULATION_DATES</span><span class="p">,</span>
+            <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">stacked_last_per_qtr</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+            <span class="n">stacked_last_per_qtr</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="n">stacked_last_per_qtr</span> <span class="o">=</span> <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">last_per_qtr</span><span class="p">,</span> <span class="n">stacked_last_per_qtr</span></div>
+
+
+<span class="k">class</span> <span class="nc">NextEarningsEstimatesLoader</span><span class="p">(</span><span class="n">EarningsEstimatesLoader</span><span class="p">):</span>
+    <span class="n">searchsorted_side</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span>
+
+    <span class="k">def</span> <span class="nf">create_overwrite_for_estimate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+        <span class="n">requested_quarter</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">col_to_split_adjustments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">array_overwrites_dict</span><span class="p">[</span><span class="n">column</span><span class="o">.</span><span class="n">dtype</span><span class="p">](</span>
+                <span class="mi">0</span><span class="p">,</span>
+                <span class="n">next_qtr_start_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">sid_idx</span><span class="p">,</span>
+                <span class="n">sid_idx</span><span class="p">,</span>
+                <span class="n">last_per_qtr</span><span class="p">[</span>
+                    <span class="n">column_name</span><span class="p">,</span>
+                    <span class="n">requested_quarter</span><span class="p">,</span>
+                    <span class="n">sid</span><span class="p">,</span>
+                <span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="n">next_qtr_start_idx</span><span class="p">],</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_shifted_qtrs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zero_qtrs</span><span class="p">,</span> <span class="n">num_announcements</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">zero_qtrs</span> <span class="o">+</span> <span class="p">(</span><span class="n">num_announcements</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_zeroth_quarter_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stacked_last_per_qtr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filters for releases that are on or after each simulation date and</span>
+<span class="sd">        determines the next quarter by picking out the upcoming release for</span>
+<span class="sd">        each date in the index.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        stacked_last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with index of calendar dates, sid, and normalized</span>
+<span class="sd">            quarters with each row being the latest estimate for the row&#39;s</span>
+<span class="sd">            index values, sorted by event date.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        next_releases_per_date_index : pd.MultiIndex</span>
+<span class="sd">            An index of calendar dates, sid, and normalized quarters, for only</span>
+<span class="sd">            the rows that have a next event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">next_releases_per_date</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">stacked_last_per_qtr</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">]</span>
+                <span class="o">&gt;=</span> <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">SIMULATION_DATES</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+                <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="n">SIMULATION_DATES</span><span class="p">,</span> <span class="n">SID_FIELD_NAME</span><span class="p">],</span>
+                <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="c1"># Here we take advantage of the fact that `stacked_last_per_qtr` is</span>
+                <span class="c1"># sorted by event date.</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">next_releases_per_date</span><span class="o">.</span><span class="n">index</span>
+
+
+<span class="k">class</span> <span class="nc">PreviousEarningsEstimatesLoader</span><span class="p">(</span><span class="n">EarningsEstimatesLoader</span><span class="p">):</span>
+    <span class="n">searchsorted_side</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span>
+
+    <span class="k">def</span> <span class="nf">create_overwrite_for_estimate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">column</span><span class="p">,</span>
+        <span class="n">column_name</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+        <span class="n">requested_quarter</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">col_to_split_adjustments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">split_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">overwrite_with_null</span><span class="p">(</span>
+                <span class="n">column</span><span class="p">,</span>
+                <span class="n">next_qtr_start_idx</span><span class="p">,</span>
+                <span class="n">sid_idx</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">get_shifted_qtrs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">zero_qtrs</span><span class="p">,</span> <span class="n">num_announcements</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">zero_qtrs</span> <span class="o">-</span> <span class="p">(</span><span class="n">num_announcements</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_zeroth_quarter_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stacked_last_per_qtr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Filters for releases that are on or after each simulation date and</span>
+<span class="sd">        determines the previous quarter by picking out the most recent</span>
+<span class="sd">        release relative to each date in the index.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        stacked_last_per_qtr : pd.DataFrame</span>
+<span class="sd">            A DataFrame with index of calendar dates, sid, and normalized</span>
+<span class="sd">            quarters with each row being the latest estimate for the row&#39;s</span>
+<span class="sd">            index values, sorted by event date.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        previous_releases_per_date_index : pd.MultiIndex</span>
+<span class="sd">            An index of calendar dates, sid, and normalized quarters, for only</span>
+<span class="sd">            the rows that have a previous event.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">previous_releases_per_date</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+                <span class="n">stacked_last_per_qtr</span><span class="p">[</span><span class="n">EVENT_DATE_FIELD_NAME</span><span class="p">]</span>
+                <span class="o">&lt;=</span> <span class="n">stacked_last_per_qtr</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">SIMULATION_DATES</span><span class="p">)</span>
+            <span class="p">]</span>
+            <span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+                <span class="n">level</span><span class="o">=</span><span class="p">[</span><span class="n">SIMULATION_DATES</span><span class="p">,</span> <span class="n">SID_FIELD_NAME</span><span class="p">],</span>
+                <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="c1"># Here we take advantage of the fact that `stacked_last_per_qtr` is</span>
+                <span class="c1"># sorted by event date.</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">nth</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">previous_releases_per_date</span><span class="o">.</span><span class="n">index</span>
+
+
+<span class="k">def</span> <span class="nf">validate_split_adjusted_column_specs</span><span class="p">(</span><span class="n">name_map</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+    <span class="n">to_be_split</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">available</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">name_map</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">extra</span> <span class="o">=</span> <span class="n">to_be_split</span> <span class="o">-</span> <span class="n">available</span>
+    <span class="k">if</span> <span class="n">extra</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;EarningsEstimatesLoader got the following extra columns to be &quot;</span>
+            <span class="s2">&quot;split-adjusted: </span><span class="si">{extra}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Got Columns: </span><span class="si">{to_be_split}</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="s2">&quot;Available Columns: </span><span class="si">{available}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">extra</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">extra</span><span class="p">),</span>
+                <span class="n">to_be_split</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">to_be_split</span><span class="p">),</span>
+                <span class="n">available</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">available</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">SplitAdjustedEstimatesLoader</span><span class="p">(</span><span class="n">EarningsEstimatesLoader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Estimates loader that loads data that needs to be split-adjusted.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    split_adjustments_loader : SQLiteAdjustmentReader</span>
+<span class="sd">        The loader to use for reading split adjustments.</span>
+<span class="sd">    split_adjusted_column_names : iterable of str</span>
+<span class="sd">        The column names that should be split-adjusted.</span>
+<span class="sd">    split_adjusted_asof : pd.Timestamp</span>
+<span class="sd">        The date that separates data into 2 halves: the first half is the set</span>
+<span class="sd">        of dates up to and including the split_adjusted_asof date. All</span>
+<span class="sd">        adjustments occurring during this first half are applied  to all</span>
+<span class="sd">        dates in this first half. The second half is the set of dates after</span>
+<span class="sd">        the split_adjusted_asof date. All adjustments occurring during this</span>
+<span class="sd">        second half are applied sequentially as they appear in the timeline.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">estimates</span><span class="p">,</span>
+        <span class="n">name_map</span><span class="p">,</span>
+        <span class="n">split_adjustments_loader</span><span class="p">,</span>
+        <span class="n">split_adjusted_column_names</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">validate_split_adjusted_column_specs</span><span class="p">(</span><span class="n">name_map</span><span class="p">,</span> <span class="n">split_adjusted_column_names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjustments</span> <span class="o">=</span> <span class="n">split_adjustments_loader</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_column_names</span> <span class="o">=</span> <span class="n">split_adjusted_column_names</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_asof</span> <span class="o">=</span> <span class="n">split_adjusted_asof</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjustment_dict</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SplitAdjustedEstimatesLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">estimates</span><span class="p">,</span> <span class="n">name_map</span><span class="p">)</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">collect_split_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">adjustments_for_sid</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">sid_estimates</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+        <span class="n">pre_adjustments</span><span class="p">,</span>
+        <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;collect_split_adjustments&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_adjustments_for_sid</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">group</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">sid_to_idx</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+        <span class="n">col_to_all_adjustments</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">split_adjusted_cols_for_group</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collects both overwrites and adjustments for a particular sid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        split_adjusted_asof_idx : int</span>
+<span class="sd">            The integer index of the date on which the data was split-adjusted.</span>
+<span class="sd">        split_adjusted_cols_for_group : list of str</span>
+<span class="sd">            The names of requested columns that should also be split-adjusted.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_adjustments_for_sid</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">sid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_overwrites_for_sid</span><span class="p">(</span>
+            <span class="n">group</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">last_per_qtr</span><span class="p">,</span>
+            <span class="n">sid_to_idx</span><span class="p">[</span><span class="n">sid</span><span class="p">],</span>
+            <span class="n">columns</span><span class="p">,</span>
+            <span class="n">all_adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="p">(</span>
+            <span class="n">pre_adjustments</span><span class="p">,</span>
+            <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_split_adjustment_data_for_sid</span><span class="p">(</span>
+            <span class="n">dates</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">split_adjusted_asof_idx</span>
+        <span class="p">)</span>
+        <span class="n">sid_estimates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">estimates</span><span class="p">[</span><span class="n">SID_FIELD_NAME</span><span class="p">]</span> <span class="o">==</span> <span class="n">sid</span><span class="p">]</span>
+        <span class="c1"># We might not have any overwrites but still have</span>
+        <span class="c1"># adjustments, and we will need to manually add columns if</span>
+        <span class="c1"># that is the case.</span>
+        <span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">split_adjusted_cols_for_group</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">col_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">all_adjustments_for_sid</span><span class="p">:</span>
+                <span class="n">all_adjustments_for_sid</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">collect_split_adjustments</span><span class="p">(</span>
+            <span class="n">all_adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+            <span class="n">sid_to_idx</span><span class="p">[</span><span class="n">sid</span><span class="p">],</span>
+            <span class="n">sid_estimates</span><span class="p">,</span>
+            <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+            <span class="n">pre_adjustments</span><span class="p">,</span>
+            <span class="n">post_adjustments</span><span class="p">,</span>
+            <span class="n">split_adjusted_cols_for_group</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_into_adjustments_for_all_sids</span><span class="p">(</span>
+            <span class="n">all_adjustments_for_sid</span><span class="p">,</span> <span class="n">col_to_all_adjustments</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">zero_qtr_data</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">last_per_qtr</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">assets</span><span class="p">,</span>
+        <span class="n">columns</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Calculates both split adjustments and overwrites for all sids.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">split_adjusted_cols_for_group</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name_map</span><span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjusted_column_names</span>
+        <span class="p">]</span>
+        <span class="c1"># Add all splits to the adjustment dict for this sid.</span>
+        <span class="n">split_adjusted_asof_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_split_adjusted_asof_idx</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">SplitAdjustedEstimatesLoader</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_adjustments</span><span class="p">(</span>
+            <span class="n">zero_qtr_data</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">last_per_qtr</span><span class="p">,</span>
+            <span class="n">dates</span><span class="p">,</span>
+            <span class="n">assets</span><span class="p">,</span>
+            <span class="n">columns</span><span class="p">,</span>
+            <span class="n">split_adjusted_cols_for_group</span><span class="o">=</span><span class="n">split_adjusted_cols_for_group</span><span class="p">,</span>
+            <span class="n">split_adjusted_asof_idx</span><span class="o">=</span><span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">determine_end_idx_for_adjustment</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">adjustment_ts</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">requested_quarter</span><span class="p">,</span> <span class="n">sid_estimates</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determines the date until which the adjustment at the given date</span>
+<span class="sd">        index should be applied for the given quarter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        adjustment_ts : pd.Timestamp</span>
+<span class="sd">            The timestamp at which the adjustment occurs.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates over which the Pipeline is being computed.</span>
+<span class="sd">        upper_bound : int</span>
+<span class="sd">            The index of the upper bound in the calendar dates. This is the</span>
+<span class="sd">            index until which the adjusment will be applied unless there is</span>
+<span class="sd">            information for the requested quarter that comes in on or before</span>
+<span class="sd">            that date.</span>
+<span class="sd">        requested_quarter : float</span>
+<span class="sd">            The quarter for which we are determining how the adjustment</span>
+<span class="sd">            should be applied.</span>
+<span class="sd">        sid_estimates : pd.DataFrame</span>
+<span class="sd">            The DataFrame of estimates data for the sid for which we&#39;re</span>
+<span class="sd">            applying the given adjustment.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        end_idx : int</span>
+<span class="sd">            The last index to which the adjustment should be applied for the</span>
+<span class="sd">            given quarter/sid.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">end_idx</span> <span class="o">=</span> <span class="n">upper_bound</span>
+        <span class="c1"># Find the next newest kd that happens on or after</span>
+        <span class="c1"># the date of this adjustment</span>
+        <span class="n">newest_kd_for_qtr</span> <span class="o">=</span> <span class="n">sid_estimates</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">sid_estimates</span><span class="p">[</span><span class="n">NORMALIZED_QUARTERS</span><span class="p">]</span> <span class="o">==</span> <span class="n">requested_quarter</span><span class="p">)</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sid_estimates</span><span class="p">[</span><span class="n">TS_FIELD_NAME</span><span class="p">],</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">adjustment_ts</span><span class="p">)</span>
+        <span class="p">][</span><span class="n">TS_FIELD_NAME</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notnull</span><span class="p">(</span><span class="n">newest_kd_for_qtr</span><span class="p">):</span>
+            <span class="n">newest_kd_idx</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span>
+                <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">newest_kd_for_qtr</span><span class="p">,</span> <span class="n">utc</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="c1"># We have fresh information that comes in</span>
+            <span class="c1"># before the end of the overwrite and</span>
+            <span class="c1"># presumably is already split-adjusted to the</span>
+            <span class="c1"># current split. We should stop applying the</span>
+            <span class="c1"># adjustment the day before this new</span>
+            <span class="c1"># information comes in.</span>
+            <span class="k">if</span> <span class="n">newest_kd_idx</span> <span class="o">&lt;=</span> <span class="n">upper_bound</span><span class="p">:</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="n">newest_kd_idx</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">end_idx</span>
+
+    <span class="k">def</span> <span class="nf">collect_pre_split_asof_date_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_date_idx</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">pre_adjustments</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collect split adjustments that occur before the</span>
+<span class="sd">        split-adjusted-asof-date. All those adjustments must first be</span>
+<span class="sd">        UN-applied at the first date index and then re-applied on the</span>
+<span class="sd">        appropriate dates in order to match point in time share pricing data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        split_adjusted_asof_date_idx : int</span>
+<span class="sd">            The index in the calendar dates as-of which all data was</span>
+<span class="sd">            split-adjusted.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The index of the sid for which adjustments should be collected in</span>
+<span class="sd">            the adjusted array.</span>
+<span class="sd">        pre_adjustments : tuple(list(float), list(int))</span>
+<span class="sd">            The adjustment values, indexes in `dates`, and timestamps for</span>
+<span class="sd">            adjustments that happened after the split-asof-date.</span>
+<span class="sd">        requested_split_adjusted_columns : list of str</span>
+<span class="sd">            The requested split adjusted columns.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        col_to_split_adjustments : dict[str -&gt; dict[int -&gt; list of Adjustment]]</span>
+<span class="sd">            The adjustments for this sid that occurred on or before the</span>
+<span class="sd">            split-asof-date.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">col_to_split_adjustments</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pre_adjustments</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">adjustment_values</span><span class="p">,</span> <span class="n">date_indexes</span> <span class="o">=</span> <span class="n">pre_adjustments</span>
+            <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">requested_split_adjusted_columns</span><span class="p">:</span>
+                <span class="n">col_to_split_adjustments</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="c1"># We need to undo all adjustments that happen before the</span>
+                <span class="c1"># split_asof_date here by reversing the split ratio.</span>
+                <span class="n">col_to_split_adjustments</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">Float64Multiply</span><span class="p">(</span>
+                        <span class="mi">0</span><span class="p">,</span>
+                        <span class="n">split_adjusted_asof_date_idx</span><span class="p">,</span>
+                        <span class="n">sid_idx</span><span class="p">,</span>
+                        <span class="n">sid_idx</span><span class="p">,</span>
+                        <span class="mi">1</span> <span class="o">/</span> <span class="n">future_adjustment</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">future_adjustment</span> <span class="ow">in</span> <span class="n">adjustment_values</span>
+                <span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">adjustment</span><span class="p">,</span> <span class="n">date_index</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">adjustment_values</span><span class="p">,</span> <span class="n">date_indexes</span><span class="p">):</span>
+                    <span class="n">adj</span> <span class="o">=</span> <span class="n">Float64Multiply</span><span class="p">(</span>
+                        <span class="mi">0</span><span class="p">,</span> <span class="n">split_adjusted_asof_date_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">adjustment</span>
+                    <span class="p">)</span>
+                    <span class="n">add_new_adjustments</span><span class="p">(</span>
+                        <span class="n">col_to_split_adjustments</span><span class="p">,</span> <span class="p">[</span><span class="n">adj</span><span class="p">],</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">date_index</span>
+                    <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">col_to_split_adjustments</span>
+
+    <span class="k">def</span> <span class="nf">collect_post_asof_split_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">sid_estimates</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collect split adjustments that occur after the</span>
+<span class="sd">        split-adjusted-asof-date. Each adjustment needs to be applied to all</span>
+<span class="sd">        dates on which knowledge for the requested quarter was older than the</span>
+<span class="sd">        date of the adjustment.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        post_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values, indexes in `dates`, and timestamps for</span>
+<span class="sd">            adjustments that happened after the split-asof-date.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The requested quarter data for each calendar date per sid.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which adjustments need to be collected.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The index of `sid` in the adjusted array.</span>
+<span class="sd">        sid_estimates : pd.DataFrame</span>
+<span class="sd">            The raw estimates data for this sid.</span>
+<span class="sd">        requested_split_adjusted_columns : list of str</span>
+<span class="sd">            The requested split adjusted columns.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        col_to_split_adjustments : dict[str -&gt; dict[int -&gt; list of Adjustment]]</span>
+<span class="sd">            The adjustments for this sid that occurred after the</span>
+<span class="sd">            split-asof-date.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">col_to_split_adjustments</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">post_adjustments</span><span class="p">:</span>
+            <span class="c1"># Get an integer index</span>
+            <span class="n">requested_qtr_timeline</span> <span class="o">=</span> <span class="n">requested_qtr_data</span><span class="p">[</span><span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">][</span>
+                <span class="n">sid</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+            <span class="n">requested_qtr_timeline</span> <span class="o">=</span> <span class="n">requested_qtr_timeline</span><span class="p">[</span>
+                <span class="n">requested_qtr_timeline</span><span class="p">[</span><span class="n">sid</span><span class="p">]</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span>
+            <span class="p">]</span>
+
+            <span class="c1"># Split the data into range by quarter and determine which quarter</span>
+            <span class="c1"># was being requested in each range.</span>
+            <span class="c1"># Split integer indexes up by quarter range</span>
+            <span class="n">qtr_ranges_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
+                <span class="n">requested_qtr_timeline</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">requested_qtr_timeline</span><span class="p">[</span><span class="n">sid</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">requested_quarters_per_range</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">requested_qtr_timeline</span><span class="p">[</span><span class="n">sid</span><span class="p">][</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">qtr_ranges_idxs</span>
+            <span class="p">]</span>
+            <span class="c1"># Try to apply each adjustment to each quarter range.</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">qtr_range</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">qtr_ranges_idxs</span><span class="p">):</span>
+                <span class="k">for</span> <span class="n">adjustment</span><span class="p">,</span> <span class="n">date_index</span><span class="p">,</span> <span class="n">timestamp</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">post_adjustments</span><span class="p">):</span>
+                    <span class="c1"># In the default case, apply through the end of the quarter</span>
+                    <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">qtr_range</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="c1"># Find the smallest KD in estimates that is on or after the</span>
+                    <span class="c1"># date of the given adjustment. Apply the given adjustment</span>
+                    <span class="c1"># until that KD.</span>
+                    <span class="n">end_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">determine_end_idx_for_adjustment</span><span class="p">(</span>
+                        <span class="n">timestamp</span><span class="p">,</span>
+                        <span class="n">requested_qtr_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+                        <span class="n">upper_bound</span><span class="p">,</span>
+                        <span class="n">requested_quarters_per_range</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                        <span class="n">sid_estimates</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="c1"># In the default case, apply adjustment on the first day of</span>
+                    <span class="c1">#  the quarter.</span>
+                    <span class="n">start_idx</span> <span class="o">=</span> <span class="n">qtr_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="c1"># If the adjustment happens during this quarter, apply the</span>
+                    <span class="c1"># adjustment on the day it happens.</span>
+                    <span class="k">if</span> <span class="n">date_index</span> <span class="o">&gt;</span> <span class="n">start_idx</span><span class="p">:</span>
+                        <span class="n">start_idx</span> <span class="o">=</span> <span class="n">date_index</span>
+                    <span class="c1"># We only want to apply the adjustment if we have any stale</span>
+                    <span class="c1"># data to apply it to.</span>
+                    <span class="k">if</span> <span class="n">qtr_range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">end_idx</span><span class="p">:</span>
+                        <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">requested_split_adjusted_columns</span><span class="p">:</span>
+                            <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">col_to_split_adjustments</span><span class="p">:</span>
+                                <span class="n">col_to_split_adjustments</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                            <span class="n">adj</span> <span class="o">=</span> <span class="n">Float64Multiply</span><span class="p">(</span>
+                                <span class="c1"># Always apply from first day of qtr</span>
+                                <span class="n">qtr_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                <span class="n">end_idx</span><span class="p">,</span>
+                                <span class="n">sid_idx</span><span class="p">,</span>
+                                <span class="n">sid_idx</span><span class="p">,</span>
+                                <span class="n">adjustment</span><span class="p">,</span>
+                            <span class="p">)</span>
+                            <span class="n">add_new_adjustments</span><span class="p">(</span>
+                                <span class="n">col_to_split_adjustments</span><span class="p">,</span> <span class="p">[</span><span class="n">adj</span><span class="p">],</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">start_idx</span>
+                            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">col_to_split_adjustments</span>
+
+    <span class="k">def</span> <span class="nf">retrieve_split_adjustment_data_for_sid</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">split_adjusted_asof_idx</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which we want to retrieve adjustments.</span>
+<span class="sd">        split_adjusted_asof_idx : int</span>
+<span class="sd">            The index in `dates` as-of which the data is split adjusted.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pre_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values and indexes in `dates` for</span>
+<span class="sd">            adjustments that happened before the split-asof-date.</span>
+<span class="sd">        post_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values, indexes in `dates`, and timestamps for</span>
+<span class="sd">            adjustments that happened after the split-asof-date.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">adjustments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_adjustments</span><span class="o">.</span><span class="n">get_adjustments_for_sid</span><span class="p">(</span><span class="s2">&quot;splits&quot;</span><span class="p">,</span> <span class="n">sid</span><span class="p">)</span>
+        <span class="nb">sorted</span><span class="p">(</span><span class="n">adjustments</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">adj</span><span class="p">:</span> <span class="n">adj</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1"># Get rid of any adjustments that happen outside of our date index.</span>
+        <span class="n">adjustments</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">dates</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">adjustments</span><span class="p">))</span>
+        <span class="n">adjustment_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">adj</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">adj</span> <span class="ow">in</span> <span class="n">adjustments</span><span class="p">])</span>
+        <span class="n">timestamps</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="n">adj</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">adj</span> <span class="ow">in</span> <span class="n">adjustments</span><span class="p">])</span>
+        <span class="c1"># We need the first date on which we would have known about each</span>
+        <span class="c1"># adjustment.</span>
+        <span class="n">date_indexes</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">timestamps</span><span class="p">)</span>
+        <span class="n">pre_adjustment_idxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">date_indexes</span> <span class="o">&lt;=</span> <span class="n">split_adjusted_asof_idx</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">last_adjustment_split_asof_idx</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pre_adjustment_idxs</span><span class="p">):</span>
+            <span class="n">last_adjustment_split_asof_idx</span> <span class="o">=</span> <span class="n">pre_adjustment_idxs</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">pre_adjustments</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">adjustment_values</span><span class="p">[:</span> <span class="n">last_adjustment_split_asof_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="n">date_indexes</span><span class="p">[:</span> <span class="n">last_adjustment_split_asof_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">post_adjustments</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">adjustment_values</span><span class="p">[</span><span class="n">last_adjustment_split_asof_idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span>
+            <span class="n">date_indexes</span><span class="p">[</span><span class="n">last_adjustment_split_asof_idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span>
+            <span class="n">timestamps</span><span class="p">[</span><span class="n">last_adjustment_split_asof_idx</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:],</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pre_adjustments</span><span class="p">,</span> <span class="n">post_adjustments</span>
+
+    <span class="k">def</span> <span class="nf">_collect_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">sid_estimates</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+        <span class="n">pre_adjustments</span><span class="p">,</span>
+        <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+
+        <span class="n">pre_adjustments_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_pre_split_asof_date_adjustments</span><span class="p">(</span>
+            <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+            <span class="n">sid_idx</span><span class="p">,</span>
+            <span class="n">pre_adjustments</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">post_adjustments_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collect_post_asof_split_adjustments</span><span class="p">(</span>
+            <span class="n">post_adjustments</span><span class="p">,</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+            <span class="n">sid_idx</span><span class="p">,</span>
+            <span class="n">sid_estimates</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">pre_adjustments_dict</span><span class="p">,</span> <span class="n">post_adjustments_dict</span>
+
+    <span class="k">def</span> <span class="nf">merge_split_adjustments_with_overwrites</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">pre</span><span class="p">,</span> <span class="n">post</span><span class="p">,</span> <span class="n">overwrites</span><span class="p">,</span> <span class="n">requested_split_adjusted_columns</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Merge split adjustments with the dict containing overwrites.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        pre : dict[str -&gt; dict[int -&gt; list]]</span>
+<span class="sd">            The adjustments that occur before the split-adjusted-asof-date.</span>
+<span class="sd">        post : dict[str -&gt; dict[int -&gt; list]]</span>
+<span class="sd">            The adjustments that occur after the split-adjusted-asof-date.</span>
+<span class="sd">        overwrites : dict[str -&gt; dict[int -&gt; list]]</span>
+<span class="sd">            The overwrites across all time. Adjustments will be merged into</span>
+<span class="sd">            this dictionary.</span>
+<span class="sd">        requested_split_adjusted_columns : list of str</span>
+<span class="sd">            List of names of split adjusted columns that are being requested.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">requested_split_adjusted_columns</span><span class="p">:</span>
+            <span class="c1"># We can do a merge here because the timestamps in &#39;pre&#39; and</span>
+            <span class="c1"># &#39;post&#39; are guaranteed to not overlap.</span>
+            <span class="k">if</span> <span class="n">pre</span><span class="p">:</span>
+                <span class="c1"># Either empty or contains all columns.</span>
+                <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">pre</span><span class="p">[</span><span class="n">column_name</span><span class="p">]:</span>
+                    <span class="n">add_new_adjustments</span><span class="p">(</span>
+                        <span class="n">overwrites</span><span class="p">,</span> <span class="n">pre</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">ts</span><span class="p">],</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">ts</span>
+                    <span class="p">)</span>
+            <span class="k">if</span> <span class="n">post</span><span class="p">:</span>
+                <span class="c1"># Either empty or contains all columns.</span>
+                <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">post</span><span class="p">[</span><span class="n">column_name</span><span class="p">]:</span>
+                    <span class="n">add_new_adjustments</span><span class="p">(</span>
+                        <span class="n">overwrites</span><span class="p">,</span> <span class="n">post</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">ts</span><span class="p">],</span> <span class="n">column_name</span><span class="p">,</span> <span class="n">ts</span>
+                    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">PreviousSplitAdjustedEarningsEstimatesLoader</span><span class="p">(</span>
+    <span class="n">SplitAdjustedEstimatesLoader</span><span class="p">,</span> <span class="n">PreviousEarningsEstimatesLoader</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="nf">collect_split_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">adjustments_for_sid</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">sid_estimates</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+        <span class="n">pre_adjustments</span><span class="p">,</span>
+        <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collect split adjustments for previous quarters and apply them to the</span>
+<span class="sd">        given dictionary of splits for the given sid. Since overwrites just</span>
+<span class="sd">        replace all estimates before the new quarter with NaN, we don&#39;t need to</span>
+<span class="sd">        worry about re-applying split adjustments.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        adjustments_for_sid : dict[str -&gt; dict[int -&gt; list]]</span>
+<span class="sd">            The dictionary of adjustments to which splits need to be added.</span>
+<span class="sd">            Initially it contains only overwrites.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The requested quarter data for each calendar date per sid.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which adjustments need to be collected.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The index of `sid` in the adjusted array.</span>
+<span class="sd">        sid_estimates : pd.DataFrame</span>
+<span class="sd">            The raw estimates data for the given sid.</span>
+<span class="sd">        split_adjusted_asof_idx : int</span>
+<span class="sd">            The index in `dates` as-of which the data is split adjusted.</span>
+<span class="sd">        pre_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values and indexes in `dates` for</span>
+<span class="sd">            adjustments that happened before the split-asof-date.</span>
+<span class="sd">        post_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values, indexes in `dates`, and timestamps for</span>
+<span class="sd">            adjustments that happened after the split-asof-date.</span>
+<span class="sd">        requested_split_adjusted_columns : list of str</span>
+<span class="sd">            List of requested split adjusted column names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">pre_adjustments_dict</span><span class="p">,</span> <span class="n">post_adjustments_dict</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collect_adjustments</span><span class="p">(</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+            <span class="n">sid_idx</span><span class="p">,</span>
+            <span class="n">sid_estimates</span><span class="p">,</span>
+            <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+            <span class="n">pre_adjustments</span><span class="p">,</span>
+            <span class="n">post_adjustments</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_split_adjustments_with_overwrites</span><span class="p">(</span>
+            <span class="n">pre_adjustments_dict</span><span class="p">,</span>
+            <span class="n">post_adjustments_dict</span><span class="p">,</span>
+            <span class="n">adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">NextSplitAdjustedEarningsEstimatesLoader</span><span class="p">(</span>
+    <span class="n">SplitAdjustedEstimatesLoader</span><span class="p">,</span> <span class="n">NextEarningsEstimatesLoader</span>
+<span class="p">):</span>
+    <span class="k">def</span> <span class="nf">collect_split_adjustments</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">adjustments_for_sid</span><span class="p">,</span>
+        <span class="n">requested_qtr_data</span><span class="p">,</span>
+        <span class="n">dates</span><span class="p">,</span>
+        <span class="n">sid</span><span class="p">,</span>
+        <span class="n">sid_idx</span><span class="p">,</span>
+        <span class="n">sid_estimates</span><span class="p">,</span>
+        <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+        <span class="n">pre_adjustments</span><span class="p">,</span>
+        <span class="n">post_adjustments</span><span class="p">,</span>
+        <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Collect split adjustments for future quarters. Re-apply adjustments</span>
+<span class="sd">        that would be overwritten by overwrites. Merge split adjustments with</span>
+<span class="sd">        overwrites into the given dictionary of splits for the given sid.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        adjustments_for_sid : dict[str -&gt; dict[int -&gt; list]]</span>
+<span class="sd">            The dictionary of adjustments to which splits need to be added.</span>
+<span class="sd">            Initially it contains only overwrites.</span>
+<span class="sd">        requested_qtr_data : pd.DataFrame</span>
+<span class="sd">            The requested quarter data for each calendar date per sid.</span>
+<span class="sd">        dates : pd.DatetimeIndex</span>
+<span class="sd">            The calendar dates for which estimates data is requested.</span>
+<span class="sd">        sid : int</span>
+<span class="sd">            The sid for which adjustments need to be collected.</span>
+<span class="sd">        sid_idx : int</span>
+<span class="sd">            The index of `sid` in the adjusted array.</span>
+<span class="sd">        sid_estimates : pd.DataFrame</span>
+<span class="sd">            The raw estimates data for the given sid.</span>
+<span class="sd">        split_adjusted_asof_idx : int</span>
+<span class="sd">            The index in `dates` as-of which the data is split adjusted.</span>
+<span class="sd">        pre_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values and indexes in `dates` for</span>
+<span class="sd">            adjustments that happened before the split-asof-date.</span>
+<span class="sd">        post_adjustments : tuple(list(float), list(int), pd.DatetimeIndex)</span>
+<span class="sd">            The adjustment values, indexes in `dates`, and timestamps for</span>
+<span class="sd">            adjustments that happened after the split-asof-date.</span>
+<span class="sd">        requested_split_adjusted_columns : list of str</span>
+<span class="sd">            List of requested split adjusted column names.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="p">(</span><span class="n">pre_adjustments_dict</span><span class="p">,</span> <span class="n">post_adjustments_dict</span><span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_collect_adjustments</span><span class="p">(</span>
+            <span class="n">requested_qtr_data</span><span class="p">,</span>
+            <span class="n">sid</span><span class="p">,</span>
+            <span class="n">sid_idx</span><span class="p">,</span>
+            <span class="n">sid_estimates</span><span class="p">,</span>
+            <span class="n">split_adjusted_asof_idx</span><span class="p">,</span>
+            <span class="n">pre_adjustments</span><span class="p">,</span>
+            <span class="n">post_adjustments</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">requested_split_adjusted_columns</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">overwrite_ts</span> <span class="ow">in</span> <span class="n">adjustments_for_sid</span><span class="p">[</span><span class="n">column_name</span><span class="p">]:</span>
+                <span class="c1"># We need to cumulatively re-apply all adjustments up to the</span>
+                <span class="c1"># split-adjusted-asof-date. We might not have any</span>
+                <span class="c1"># pre-adjustments, so we should check for that.</span>
+                <span class="k">if</span> <span class="n">overwrite_ts</span> <span class="o">&lt;=</span> <span class="n">split_adjusted_asof_idx</span> <span class="ow">and</span> <span class="n">pre_adjustments_dict</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">split_ts</span> <span class="ow">in</span> <span class="n">pre_adjustments_dict</span><span class="p">[</span><span class="n">column_name</span><span class="p">]:</span>
+                        <span class="c1"># The split has to have occurred during the span of</span>
+                        <span class="c1"># the overwrite.</span>
+                        <span class="k">if</span> <span class="n">split_ts</span> <span class="o">&lt;</span> <span class="n">overwrite_ts</span><span class="p">:</span>
+                            <span class="c1"># Create new adjustments here so that we can</span>
+                            <span class="c1"># re-apply all applicable adjustments to ONLY</span>
+                            <span class="c1"># the dates being overwritten.</span>
+                            <span class="n">adjustments_for_sid</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">overwrite_ts</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+                                <span class="p">[</span>
+                                    <span class="n">Float64Multiply</span><span class="p">(</span>
+                                        <span class="mi">0</span><span class="p">,</span>
+                                        <span class="n">overwrite_ts</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                                        <span class="n">sid_idx</span><span class="p">,</span>
+                                        <span class="n">sid_idx</span><span class="p">,</span>
+                                        <span class="n">adjustment</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+                                    <span class="p">)</span>
+                                    <span class="k">for</span> <span class="n">adjustment</span> <span class="ow">in</span> <span class="n">pre_adjustments_dict</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span>
+                                        <span class="n">split_ts</span>
+                                    <span class="p">]</span>
+                                <span class="p">]</span>
+                            <span class="p">)</span>
+                <span class="c1"># After the split-adjusted-asof-date, we need to re-apply all</span>
+                <span class="c1"># adjustments that occur after that date and within the</span>
+                <span class="c1"># bounds of the overwrite. They need to be applied starting</span>
+                <span class="c1"># from the first date and until an end date. The end date is</span>
+                <span class="c1"># the date of the newest information we get about</span>
+                <span class="c1"># `requested_quarter` that is &gt;= `split_ts`, or if there is no</span>
+                <span class="c1"># new knowledge before `overwrite_ts`, then it is the date</span>
+                <span class="c1"># before `overwrite_ts`.</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># Overwrites happen at the first index of a new quarter,</span>
+                    <span class="c1"># so determine here which quarter that is.</span>
+                    <span class="n">requested_quarter</span> <span class="o">=</span> <span class="n">requested_qtr_data</span><span class="p">[</span>
+                        <span class="n">SHIFTED_NORMALIZED_QTRS</span><span class="p">,</span> <span class="n">sid</span>
+                    <span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">overwrite_ts</span><span class="p">]</span>
+
+                    <span class="k">for</span> <span class="n">adjustment_value</span><span class="p">,</span> <span class="n">date_index</span><span class="p">,</span> <span class="n">timestamp</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
+                        <span class="o">*</span><span class="n">post_adjustments</span>
+                    <span class="p">):</span>
+                        <span class="k">if</span> <span class="n">split_adjusted_asof_idx</span> <span class="o">&lt;</span> <span class="n">date_index</span> <span class="o">&lt;</span> <span class="n">overwrite_ts</span><span class="p">:</span>
+                            <span class="c1"># Assume the entire overwrite contains stale data</span>
+                            <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">overwrite_ts</span> <span class="o">-</span> <span class="mi">1</span>
+                            <span class="n">end_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">determine_end_idx_for_adjustment</span><span class="p">(</span>
+                                <span class="n">timestamp</span><span class="p">,</span>
+                                <span class="n">dates</span><span class="p">,</span>
+                                <span class="n">upper_bound</span><span class="p">,</span>
+                                <span class="n">requested_quarter</span><span class="p">,</span>
+                                <span class="n">sid_estimates</span><span class="p">,</span>
+                            <span class="p">)</span>
+                            <span class="n">adjustments_for_sid</span><span class="p">[</span><span class="n">column_name</span><span class="p">][</span><span class="n">overwrite_ts</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                                <span class="n">Float64Multiply</span><span class="p">(</span>
+                                    <span class="mi">0</span><span class="p">,</span> <span class="n">end_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">sid_idx</span><span class="p">,</span> <span class="n">adjustment_value</span>
+                                <span class="p">)</span>
+                            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">merge_split_adjustments_with_overwrites</span><span class="p">(</span>
+            <span class="n">pre_adjustments_dict</span><span class="p">,</span>
+            <span class="n">post_adjustments_dict</span><span class="p">,</span>
+            <span class="n">adjustments_for_sid</span><span class="p">,</span>
+            <span class="n">requested_split_adjusted_columns</span><span class="p">,</span>
+        <span class="p">)</span>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

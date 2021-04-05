@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.loaders.frame &#8212; Zipline 2.0.0rc4 documentation</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+
+<nav id="bd-toc-nav">
+    
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <h1>Source code for zipline.pipeline.loaders.frame</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">PipelineLoader accepting a DataFrame as input.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="kn">from</span> <span class="nn">interface</span> <span class="kn">import</span> <span class="n">implements</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ix_</span><span class="p">,</span>
+    <span class="n">zeros</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">DatetimeIndex</span><span class="p">,</span>
+    <span class="n">Index</span><span class="p">,</span>
+    <span class="n">Int64Index</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">zipline.lib.adjusted_array</span> <span class="kn">import</span> <span class="n">AdjustedArray</span>
+<span class="kn">from</span> <span class="nn">zipline.lib.adjustment</span> <span class="kn">import</span> <span class="n">make_adjustment_from_labels</span>
+<span class="kn">from</span> <span class="nn">zipline.utils.numpy_utils</span> <span class="kn">import</span> <span class="n">as_column</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">PipelineLoader</span>
+
+<span class="n">ADJUSTMENT_COLUMNS</span> <span class="o">=</span> <span class="n">Index</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;sid&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kind&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;start_date&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;end_date&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;apply_date&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="DataFrameLoader"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.frame.DataFrameLoader">[docs]</a><span class="k">class</span> <span class="nc">DataFrameLoader</span><span class="p">(</span><span class="n">implements</span><span class="p">(</span><span class="n">PipelineLoader</span><span class="p">)):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A PipelineLoader that reads its input from DataFrames.</span>
+
+<span class="sd">    Mostly useful for testing, but can also be used for real work if your data</span>
+<span class="sd">    fits in memory.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    column : zipline.pipeline.data.BoundColumn</span>
+<span class="sd">        The column whose data is loadable by this loader.</span>
+<span class="sd">    baseline : pandas.DataFrame</span>
+<span class="sd">        A DataFrame with index of type DatetimeIndex and columns of type</span>
+<span class="sd">        Int64Index.  Dates should be labelled with the first date on which a</span>
+<span class="sd">        value would be **available** to an algorithm.  This means that OHLCV</span>
+<span class="sd">        data should generally be shifted back by a trading day before being</span>
+<span class="sd">        supplied to this class.</span>
+
+<span class="sd">    adjustments : pandas.DataFrame, default=None</span>
+<span class="sd">        A DataFrame with the following columns:</span>
+<span class="sd">            sid : int</span>
+<span class="sd">            value : any</span>
+<span class="sd">            kind : int (zipline.pipeline.loaders.frame.ADJUSTMENT_TYPES)</span>
+<span class="sd">            start_date : datetime64 (can be NaT)</span>
+<span class="sd">            end_date : datetime64 (must be set)</span>
+<span class="sd">            apply_date : datetime64 (must be set)</span>
+
+<span class="sd">        The default of None is interpreted as &quot;no adjustments to the baseline&quot;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="DataFrameLoader.__init__"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.frame.DataFrameLoader.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">adjustments</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="o">=</span> <span class="n">column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dates</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assets</span> <span class="o">=</span> <span class="n">baseline</span><span class="o">.</span><span class="n">columns</span>
+
+        <span class="k">if</span> <span class="n">adjustments</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">adjustments</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span>
+                <span class="n">index</span><span class="o">=</span><span class="n">DatetimeIndex</span><span class="p">([]),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">ADJUSTMENT_COLUMNS</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Ensure that columns are in the correct order.</span>
+            <span class="n">adjustments</span> <span class="o">=</span> <span class="n">adjustments</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">ADJUSTMENT_COLUMNS</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">adjustments</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;apply_date&quot;</span><span class="p">,</span> <span class="s2">&quot;sid&quot;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjustments</span> <span class="o">=</span> <span class="n">adjustments</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_apply_dates</span> <span class="o">=</span> <span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">adjustments</span><span class="o">.</span><span class="n">apply_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_end_dates</span> <span class="o">=</span> <span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">adjustments</span><span class="o">.</span><span class="n">end_date</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_sids</span> <span class="o">=</span> <span class="n">Int64Index</span><span class="p">(</span><span class="n">adjustments</span><span class="o">.</span><span class="n">sid</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="DataFrameLoader.format_adjustments"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.frame.DataFrameLoader.format_adjustments">[docs]</a>    <span class="k">def</span> <span class="nf">format_adjustments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">assets</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Build a dict of Adjustment objects in the format expected by</span>
+<span class="sd">        AdjustedArray.</span>
+
+<span class="sd">        Returns a dict of the form:</span>
+<span class="sd">        {</span>
+<span class="sd">            # Integer index into `dates` for the date on which we should</span>
+<span class="sd">            # apply the list of adjustments.</span>
+<span class="sd">            1 : [</span>
+<span class="sd">                Float64Multiply(first_row=2, last_row=4, col=3, value=0.5),</span>
+<span class="sd">                Float64Overwrite(first_row=3, last_row=5, col=1, value=2.0),</span>
+<span class="sd">                ...</span>
+<span class="sd">            ],</span>
+<span class="sd">            ...</span>
+<span class="sd">        }</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">make_adjustment</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">make_adjustment_from_labels</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">assets</span><span class="p">)</span>
+
+        <span class="n">min_date</span><span class="p">,</span> <span class="n">max_date</span> <span class="o">=</span> <span class="n">dates</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="c1"># TODO: Consider porting this to Cython.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjustments</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{}</span>
+
+        <span class="c1"># Mask for adjustments whose apply_dates are in the requested window of</span>
+        <span class="c1"># dates.</span>
+        <span class="n">date_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_apply_dates</span><span class="o">.</span><span class="n">slice_indexer</span><span class="p">(</span>
+            <span class="n">min_date</span><span class="p">,</span>
+            <span class="n">max_date</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">dates_filter</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">adjustments</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;bool&quot;</span><span class="p">)</span>
+        <span class="n">dates_filter</span><span class="p">[</span><span class="n">date_bounds</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># Ignore adjustments whose apply_date is in range, but whose end_date</span>
+        <span class="c1"># is out of range.</span>
+        <span class="n">dates_filter</span> <span class="o">&amp;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_end_dates</span> <span class="o">&gt;=</span> <span class="n">min_date</span>
+
+        <span class="c1"># Mask for adjustments whose sids are in the requested assets.</span>
+        <span class="n">sids_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjustment_sids</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">assets</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+        <span class="n">adjustments_to_use</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjustments</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dates_filter</span> <span class="o">&amp;</span> <span class="n">sids_filter</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>
+            <span class="s2">&quot;apply_date&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># For each apply_date on which we have an adjustment, compute</span>
+        <span class="c1"># the integer index of that adjustment&#39;s apply_date in `dates`.</span>
+        <span class="c1"># Then build a list of Adjustment objects for that apply_date.</span>
+        <span class="c1"># This logic relies on the sorting applied on the previous line.</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">previous_apply_date</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">adjustments_to_use</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+            <span class="c1"># This expansion depends on the ordering of the DataFrame columns,</span>
+            <span class="c1"># defined above.</span>
+            <span class="n">apply_date</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">row</span>
+            <span class="k">if</span> <span class="n">apply_date</span> <span class="o">!=</span> <span class="n">previous_apply_date</span><span class="p">:</span>
+                <span class="c1"># Get the next apply date if no exact match.</span>
+                <span class="n">row_loc</span> <span class="o">=</span> <span class="n">dates</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">apply_date</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;bfill&quot;</span><span class="p">)</span>
+                <span class="n">current_date_adjustments</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="n">row_loc</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">previous_apply_date</span> <span class="o">=</span> <span class="n">apply_date</span>
+
+            <span class="c1"># Look up the approprate Adjustment constructor based on the value</span>
+            <span class="c1"># of `kind`.</span>
+            <span class="n">current_date_adjustments</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="n">make_adjustment</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="DataFrameLoader.load_adjusted_array"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.loaders.frame.DataFrameLoader.load_adjusted_array">[docs]</a>    <span class="k">def</span> <span class="nf">load_adjusted_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">columns</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load data from our stored baseline.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t load multiple columns with DataFrameLoader&quot;</span><span class="p">)</span>
+
+        <span class="n">column</span> <span class="o">=</span> <span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_input_column</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+
+        <span class="n">date_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+        <span class="n">assets_indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">sids</span><span class="p">)</span>
+
+        <span class="c1"># Boolean arrays with True on matched entries</span>
+        <span class="n">good_dates</span> <span class="o">=</span> <span class="n">date_indexer</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">good_assets</span> <span class="o">=</span> <span class="n">assets_indexer</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">baseline</span><span class="p">[</span><span class="n">ix_</span><span class="p">(</span><span class="n">date_indexer</span><span class="p">,</span> <span class="n">assets_indexer</span><span class="p">)]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">good_assets</span> <span class="o">&amp;</span> <span class="n">as_column</span><span class="p">(</span><span class="n">good_dates</span><span class="p">))</span> <span class="o">&amp;</span> <span class="n">mask</span>
+
+        <span class="c1"># Mask out requested columns/rows that didn&#39;t match.</span>
+        <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">missing_value</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">column</span><span class="p">:</span> <span class="n">AdjustedArray</span><span class="p">(</span>
+                <span class="c1"># Pull out requested columns/rows from our baseline data.</span>
+                <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                <span class="n">adjustments</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">format_adjustments</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">sids</span><span class="p">),</span>
+                <span class="n">missing_value</span><span class="o">=</span><span class="n">column</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">}</span></div>
+
+    <span class="k">def</span> <span class="nf">_validate_input_column</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">column</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Make sure a passed column is our column.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">column</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span> <span class="ow">and</span> <span class="n">column</span><span class="o">.</span><span class="n">unspecialize</span><span class="p">()</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">column</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t load unknown column </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">column</span><span class="p">)</span></div>
+</pre></div>
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
