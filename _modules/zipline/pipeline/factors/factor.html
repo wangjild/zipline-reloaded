@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.factors.factor &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.factors.factor &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.factors.factor</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.factors.factor</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">factor.py</span>
@@ -234,7 +232,7 @@
 <span class="kn">from</span> <span class="nn">zipline.utils.sharedoc</span> <span class="kn">import</span> <span class="n">templated_docstring</span>
 
 
-<span class="n">_RANK_METHODS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s1">&#39;average&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;dense&#39;</span><span class="p">,</span> <span class="s1">&#39;ordinal&#39;</span><span class="p">])</span>
+<span class="n">_RANK_METHODS</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">([</span><span class="s2">&quot;average&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;dense&quot;</span><span class="p">,</span> <span class="s2">&quot;ordinal&quot;</span><span class="p">])</span>
 
 
 <span class="k">def</span> <span class="nf">coerce_numbers_to_my_dtype</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
@@ -253,11 +251,13 @@
 <span class="sd">    my_factor probably has dtype float64, but 3 is an int, so we want to coerce</span>
 <span class="sd">    to float64 before doing the comparison.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
             <span class="n">other</span> <span class="o">=</span> <span class="n">coerce_to_dtype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">method</span>
 
 
@@ -343,10 +343,10 @@
 
     <span class="k">if</span> <span class="n">is_compare</span><span class="p">:</span>
         <span class="n">ret_doc</span> <span class="o">=</span> <span class="n">BINOP_RETURN_FILTER</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">)</span>
-        <span class="n">rtype</span> <span class="o">=</span> <span class="s1">&#39;Filter&#39;</span>
+        <span class="n">rtype</span> <span class="o">=</span> <span class="s2">&quot;Filter&quot;</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">ret_doc</span> <span class="o">=</span> <span class="n">BINOP_RETURN_FACTOR</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">)</span>
-        <span class="n">rtype</span> <span class="o">=</span> <span class="s1">&#39;Factor&#39;</span>
+        <span class="n">rtype</span> <span class="o">=</span> <span class="s2">&quot;Factor&quot;</span>
 
     <span class="n">docstring</span> <span class="o">=</span> <span class="n">BINOP_DOCSTRING_TEMPLATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">,</span>
@@ -365,7 +365,8 @@
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">NumExprFactor</span><span class="p">):</span>
             <span class="n">self_expr</span><span class="p">,</span> <span class="n">other_expr</span><span class="p">,</span> <span class="n">new_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_binary_op</span><span class="p">(</span>
-                <span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span>
+                <span class="n">op</span><span class="p">,</span>
+                <span class="n">other</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="k">return</span> <span class="n">return_type</span><span class="p">(</span>
                 <span class="s2">&quot;(</span><span class="si">{left}</span><span class="s2">) </span><span class="si">{op}</span><span class="s2"> (</span><span class="si">{right}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
@@ -399,7 +400,7 @@
                 <span class="n">binds</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="p">,),</span>
                 <span class="c1"># .dtype access is safe here because coerce_numbers_to_my_dtype</span>
                 <span class="c1"># will convert any input numbers to numpy equivalents.</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">binop_return_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">binop_return_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
             <span class="p">)</span>
         <span class="k">raise</span> <span class="n">BadBinaryOperator</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
 
@@ -420,9 +421,7 @@
     <span class="k">def</span> <span class="nf">reflected_binary_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">NumericalExpression</span><span class="p">):</span>
-            <span class="n">self_expr</span><span class="p">,</span> <span class="n">other_expr</span><span class="p">,</span> <span class="n">new_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_binary_op</span><span class="p">(</span>
-                <span class="n">op</span><span class="p">,</span> <span class="n">other</span>
-            <span class="p">)</span>
+            <span class="n">self_expr</span><span class="p">,</span> <span class="n">other_expr</span><span class="p">,</span> <span class="n">new_inputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_binary_op</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">NumExprFactor</span><span class="p">(</span>
                 <span class="s2">&quot;(</span><span class="si">{left}</span><span class="s2">) </span><span class="si">{op}</span><span class="s2"> (</span><span class="si">{right}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">left</span><span class="o">=</span><span class="n">other_expr</span><span class="p">,</span>
@@ -430,7 +429,7 @@
                     <span class="n">op</span><span class="o">=</span><span class="n">op</span><span class="p">,</span>
                 <span class="p">),</span>
                 <span class="n">new_inputs</span><span class="p">,</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">binop_return_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">binop_return_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
             <span class="p">)</span>
 
         <span class="c1"># Only have to handle the numeric case because in all other valid cases</span>
@@ -442,6 +441,7 @@
                 <span class="n">dtype</span><span class="o">=</span><span class="n">binop_return_dtype</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
             <span class="p">)</span>
         <span class="k">raise</span> <span class="n">BadBinaryOperator</span><span class="p">(</span><span class="n">op</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">reflected_binary_operator</span>
 
 
@@ -450,7 +450,7 @@
 <span class="sd">    Factory function for making unary operator methods for Factors.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Only negate is currently supported.</span>
-    <span class="n">valid_ops</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;-&#39;</span><span class="p">}</span>
+    <span class="n">valid_ops</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;-&quot;</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">op</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_ops</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid unary operator </span><span class="si">%s</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="n">op</span><span class="p">)</span>
 
@@ -484,6 +484,7 @@
                 <span class="p">(</span><span class="bp">self</span><span class="p">,),</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="n">float64_dtype</span><span class="p">,</span>
             <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">unary_operator</span>
 
 
@@ -502,7 +503,9 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        factor : zipline.pipeline.Factor</span>
-<span class="sd">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="sd">        &quot;&quot;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">func</span>
+        <span class="p">)</span>
     <span class="p">)</span>
 
     <span class="nd">@with_doc</span><span class="p">(</span><span class="n">docstring</span><span class="p">)</span>
@@ -520,6 +523,7 @@
                 <span class="p">(</span><span class="bp">self</span><span class="p">,),</span>
                 <span class="n">dtype</span><span class="o">=</span><span class="n">float64_dtype</span><span class="p">,</span>
             <span class="p">)</span>
+
     <span class="k">return</span> <span class="n">mathfunc</span>
 
 
@@ -530,7 +534,7 @@
         <span class="s2">&quot;</span><span class="si">{method_name}</span><span class="s2">() was called on a factor of dtype </span><span class="si">{received_dtype}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;</span><span class="si">{method_name}</span><span class="s2">() is only defined for dtype </span><span class="si">{expected_dtype}</span><span class="s2">.&quot;</span>
         <span class="s2">&quot;To filter missing data, use isnull() or notnull().&quot;</span>
-    <span class="p">)</span>
+    <span class="p">),</span>
 <span class="p">)</span>
 
 <span class="n">float64_only</span> <span class="o">=</span> <span class="n">restrict_to_dtype</span><span class="p">(</span>
@@ -538,7 +542,7 @@
     <span class="n">message_template</span><span class="o">=</span><span class="p">(</span>
         <span class="s2">&quot;</span><span class="si">{method_name}</span><span class="s2">() is only defined on Factors of dtype </span><span class="si">{expected_dtype}</span><span class="s2">,&quot;</span>
         <span class="s2">&quot; but it was called on a Factor of dtype </span><span class="si">{received_dtype}</span><span class="s2">.&quot;</span>
-    <span class="p">)</span>
+    <span class="p">),</span>
 <span class="p">)</span>
 
 
@@ -556,8 +560,7 @@
 
 
 <span class="k">class</span> <span class="nc">summary_funcs</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Namespace of functions meant to be used with DailySummary.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Namespace of functions meant to be used with DailySummary.&quot;&quot;&quot;</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">missing_value</span><span class="p">):</span>
@@ -587,7 +590,7 @@
     <span class="k">def</span> <span class="nf">notnull_count</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">missing_value</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span><span class="o">~</span><span class="n">is_missing</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">missing_value</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)}</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)}</span>
 
 
 <span class="k">def</span> <span class="nf">summary_method</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -622,7 +625,7 @@
     <span class="k">return</span> <span class="n">f</span>
 
 
-<div class="viewcode-block" id="Factor"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor">[docs]</a><span class="k">class</span> <span class="nc">Factor</span><span class="p">(</span><span class="n">RestrictedDTypeMixin</span><span class="p">,</span> <span class="n">ComputableTerm</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor">[docs]</a><span class="k">class</span> <span class="nc">Factor</span><span class="p">(</span><span class="n">RestrictedDTypeMixin</span><span class="p">,</span> <span class="n">ComputableTerm</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Pipeline API expression producing a numerical or date-valued output.</span>
 
@@ -651,6 +654,7 @@
 <span class="sd">    on rank-order properties of results (:meth:`top`, :meth:`bottom`,</span>
 <span class="sd">    :meth:`percentile_between`).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">ALLOWED_DTYPES</span> <span class="o">=</span> <span class="n">FACTOR_DTYPES</span>  <span class="c1"># Used by RestrictedDTypeMixin</span>
 
     <span class="c1"># Dynamically add functions for creating NumExprFactor/NumExprFilter</span>
@@ -661,7 +665,7 @@
             <span class="n">method_name_for_op</span><span class="p">(</span><span class="n">op</span><span class="p">):</span> <span class="n">binary_operator</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
             <span class="c1"># Don&#39;t override __eq__ because it breaks comparisons on tuples of</span>
             <span class="c1"># Factors.</span>
-            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">MATH_BINOPS</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">COMPARISONS</span> <span class="o">-</span> <span class="p">{</span><span class="s1">&#39;==&#39;</span><span class="p">})</span>
+            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">MATH_BINOPS</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">COMPARISONS</span> <span class="o">-</span> <span class="p">{</span><span class="s2">&quot;==&quot;</span><span class="p">})</span>
         <span class="p">}</span>
     <span class="p">)</span>
     <span class="n">clsdict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
@@ -670,22 +674,14 @@
             <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">MATH_BINOPS</span>
         <span class="p">}</span>
     <span class="p">)</span>
-    <span class="n">clsdict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-        <span class="p">{</span>
-            <span class="n">unary_op_name</span><span class="p">(</span><span class="n">op</span><span class="p">):</span> <span class="n">unary_operator</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">UNARY_OPS</span>
-        <span class="p">}</span>
-    <span class="p">)</span>
+    <span class="n">clsdict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">unary_op_name</span><span class="p">(</span><span class="n">op</span><span class="p">):</span> <span class="n">unary_operator</span><span class="p">(</span><span class="n">op</span><span class="p">)</span> <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">UNARY_OPS</span><span class="p">})</span>
 
     <span class="n">clsdict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-        <span class="p">{</span>
-            <span class="n">funcname</span><span class="p">:</span> <span class="n">function_application</span><span class="p">(</span><span class="n">funcname</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">funcname</span> <span class="ow">in</span> <span class="n">NUMEXPR_MATH_FUNCS</span>
-        <span class="p">}</span>
+        <span class="p">{</span><span class="n">funcname</span><span class="p">:</span> <span class="n">function_application</span><span class="p">(</span><span class="n">funcname</span><span class="p">)</span> <span class="k">for</span> <span class="n">funcname</span> <span class="ow">in</span> <span class="n">NUMEXPR_MATH_FUNCS</span><span class="p">}</span>
     <span class="p">)</span>
 
-    <span class="fm">__truediv__</span> <span class="o">=</span> <span class="n">clsdict</span><span class="p">[</span><span class="s1">&#39;__div__&#39;</span><span class="p">]</span>
-    <span class="fm">__rtruediv__</span> <span class="o">=</span> <span class="n">clsdict</span><span class="p">[</span><span class="s1">&#39;__rdiv__&#39;</span><span class="p">]</span>
+    <span class="fm">__truediv__</span> <span class="o">=</span> <span class="n">clsdict</span><span class="p">[</span><span class="s2">&quot;__div__&quot;</span><span class="p">]</span>
+    <span class="fm">__rtruediv__</span> <span class="o">=</span> <span class="n">clsdict</span><span class="p">[</span><span class="s2">&quot;__rdiv__&quot;</span><span class="p">]</span>
 
     <span class="c1"># Add summary functions.</span>
     <span class="n">clsdict</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
@@ -694,9 +690,9 @@
 
     <span class="k">del</span> <span class="n">clsdict</span>  <span class="c1"># don&#39;t pollute the class namespace with this.</span>
 
-    <span class="n">eq</span> <span class="o">=</span> <span class="n">binary_operator</span><span class="p">(</span><span class="s1">&#39;==&#39;</span><span class="p">)</span>
+    <span class="n">eq</span> <span class="o">=</span> <span class="n">binary_operator</span><span class="p">(</span><span class="s2">&quot;==&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Factor.demean"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.demean">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+<div class="viewcode-block" id="Factor.demean"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.demean">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
         <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
         <span class="n">groupby</span><span class="o">=</span><span class="p">(</span><span class="n">Classifier</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
@@ -825,7 +821,7 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.zscore"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.zscore">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+<div class="viewcode-block" id="Factor.zscore"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.zscore">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
         <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
         <span class="n">groupby</span><span class="o">=</span><span class="p">(</span><span class="n">Classifier</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
@@ -892,11 +888,9 @@
             <span class="n">window_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.rank"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.rank">[docs]</a>    <span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-             <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">,</span>
-             <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-             <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-             <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor.rank"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.rank">[docs]</a>    <span class="k">def</span> <span class="nf">rank</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;ordinal&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a new Factor representing the sorted rank of each column</span>
 <span class="sd">        within each row.</span>
@@ -951,8 +945,10 @@
             <span class="n">window_safe</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.pearsonr"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.pearsonr">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
-        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span> <span class="n">correlation_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
+<div class="viewcode-block" id="Factor.pearsonr"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.pearsonr">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span>
+        <span class="n">correlation_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="nd">@templated_docstring</span><span class="p">(</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="o">=</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">pearsonr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">correlation_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
@@ -1010,6 +1006,7 @@
 <span class="sd">        :meth:`Factor.spearmanr`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.statistical</span> <span class="kn">import</span> <span class="n">RollingPearson</span>
+
         <span class="k">return</span> <span class="n">RollingPearson</span><span class="p">(</span>
             <span class="n">base_factor</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
@@ -1017,8 +1014,10 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.spearmanr"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.spearmanr">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
-        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span> <span class="n">correlation_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
+<div class="viewcode-block" id="Factor.spearmanr"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.spearmanr">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span>
+        <span class="n">correlation_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="nd">@templated_docstring</span><span class="p">(</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="o">=</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">spearmanr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">correlation_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
@@ -1075,6 +1074,7 @@
 <span class="sd">        :meth:`Factor.pearsonr`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.statistical</span> <span class="kn">import</span> <span class="n">RollingSpearman</span>
+
         <span class="k">return</span> <span class="n">RollingSpearman</span><span class="p">(</span>
             <span class="n">base_factor</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
@@ -1082,8 +1082,10 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.linear_regression"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.linear_regression">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
-        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span> <span class="n">regression_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
+<div class="viewcode-block" id="Factor.linear_regression"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.linear_regression">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+        <span class="n">target</span><span class="o">=</span><span class="n">Term</span><span class="p">,</span>
+        <span class="n">regression_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="nd">@templated_docstring</span><span class="p">(</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="o">=</span><span class="n">CORRELATION_METHOD_NOTE</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">linear_regression</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">regression_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
@@ -1137,6 +1139,7 @@
 <span class="sd">        :func:`scipy.stats.linregress`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.statistical</span> <span class="kn">import</span> <span class="n">RollingLinearRegression</span>
+
         <span class="k">return</span> <span class="n">RollingLinearRegression</span><span class="p">(</span>
             <span class="n">dependent</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
             <span class="n">independent</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
@@ -1144,18 +1147,16 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.winsorize"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.winsorize">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
+<div class="viewcode-block" id="Factor.winsorize"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.winsorize">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span>
         <span class="n">min_percentile</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
         <span class="n">max_percentile</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
         <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
         <span class="n">groupby</span><span class="o">=</span><span class="p">(</span><span class="n">Classifier</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="nd">@float64_only</span>
-    <span class="k">def</span> <span class="nf">winsorize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                  <span class="n">min_percentile</span><span class="p">,</span>
-                  <span class="n">max_percentile</span><span class="p">,</span>
-                  <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                  <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">winsorize</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">min_percentile</span><span class="p">,</span> <span class="n">max_percentile</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a new factor that winsorizes the result of this factor.</span>
 
@@ -1248,7 +1249,7 @@
             <span class="n">window_safe</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window_safe</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.quantiles"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.quantiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
+<div class="viewcode-block" id="Factor.quantiles"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.quantiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">quantiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Classifier computing quantiles of the output of ``self``.</span>
@@ -1275,7 +1276,7 @@
             <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask</span>
         <span class="k">return</span> <span class="n">Quantiles</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="p">,),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.quartiles"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.quartiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
+<div class="viewcode-block" id="Factor.quartiles"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.quartiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">quartiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Classifier computing quartiles over the output of ``self``.</span>
@@ -1299,7 +1300,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.quintiles"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.quintiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
+<div class="viewcode-block" id="Factor.quintiles"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.quintiles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">quintiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Classifier computing quintile labels on ``self``.</span>
@@ -1323,7 +1324,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.deciles"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.deciles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
+<div class="viewcode-block" id="Factor.deciles"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.deciles">[docs]</a>    <span class="nd">@expect_types</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">Filter</span><span class="p">,</span> <span class="n">NotSpecifiedType</span><span class="p">))</span>
     <span class="k">def</span> <span class="nf">deciles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Classifier computing decile labels on ``self``.</span>
@@ -1347,7 +1348,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantiles</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.top"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.top">[docs]</a>    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor.top"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.top">[docs]</a>    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Filter matching the top N asset values of self each day.</span>
 
@@ -1375,7 +1376,7 @@
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_maximum</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">groupby</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">groupby</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">N</span></div>
 
-<div class="viewcode-block" id="Factor.bottom"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.bottom">[docs]</a>    <span class="k">def</span> <span class="nf">bottom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor.bottom"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.bottom">[docs]</a>    <span class="k">def</span> <span class="nf">bottom</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Filter matching the bottom N asset values of self each day.</span>
 
@@ -1402,10 +1403,7 @@
     <span class="k">def</span> <span class="nf">_maximum</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MaximumFilter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">groupby</span><span class="o">=</span><span class="n">groupby</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Factor.percentile_between"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.percentile_between">[docs]</a>    <span class="k">def</span> <span class="nf">percentile_between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                           <span class="n">min_percentile</span><span class="p">,</span>
-                           <span class="n">max_percentile</span><span class="p">,</span>
-                           <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor.percentile_between"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.percentile_between">[docs]</a>    <span class="k">def</span> <span class="nf">percentile_between</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_percentile</span><span class="p">,</span> <span class="n">max_percentile</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Construct a Filter matching values of self that fall within the range</span>
 <span class="sd">        defined by ``min_percentile`` and ``max_percentile``.</span>
@@ -1435,7 +1433,7 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.isnan"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.isnan">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
+<div class="viewcode-block" id="Factor.isnan"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.isnan">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
     <span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A Filter producing True for all values where this Factor is NaN.</span>
@@ -1446,7 +1444,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span> <span class="o">!=</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Factor.notnan"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.notnan">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
+<div class="viewcode-block" id="Factor.notnan"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.notnan">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
     <span class="k">def</span> <span class="nf">notnan</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A Filter producing True for values where this Factor is not NaN.</span>
@@ -1457,7 +1455,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">isnan</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Factor.isfinite"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.isfinite">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
+<div class="viewcode-block" id="Factor.isfinite"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.isfinite">[docs]</a>    <span class="nd">@if_not_float64_tell_caller_to_use_isnull</span>
     <span class="k">def</span> <span class="nf">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A Filter producing True for values where this Factor is anything but</span>
@@ -1465,7 +1463,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">inf</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span> <span class="o">&lt;</span> <span class="n">inf</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Factor.clip"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Factor.clip">[docs]</a>    <span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_bound</span><span class="p">,</span> <span class="n">max_bound</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+<div class="viewcode-block" id="Factor.clip"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Factor.clip">[docs]</a>    <span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_bound</span><span class="p">,</span> <span class="n">max_bound</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Clip (limit) the values in a factor.</span>
 
@@ -1527,6 +1525,7 @@
 <span class="sd">    NumExprFactors are constructed by numerical operators like `+` and `-`.</span>
 <span class="sd">    Users should rarely need to construct a NumExprFactor directly.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">pass</span>
 
 
@@ -1565,17 +1564,20 @@
 <span class="sd">    zipline.pipeline.Factor.demean</span>
 <span class="sd">    zipline.pipeline.Factor.rank</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">0</span>
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">transform</span><span class="p">,</span>
-                <span class="n">transform_args</span><span class="p">,</span>
-                <span class="n">factor</span><span class="p">,</span>
-                <span class="n">groupby</span><span class="p">,</span>
-                <span class="n">dtype</span><span class="p">,</span>
-                <span class="n">missing_value</span><span class="p">,</span>
-                <span class="n">mask</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">transform</span><span class="p">,</span>
+        <span class="n">transform_args</span><span class="p">,</span>
+        <span class="n">factor</span><span class="p">,</span>
+        <span class="n">groupby</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="p">,</span>
+        <span class="n">mask</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
 
         <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="n">NotSpecified</span><span class="p">:</span>
             <span class="n">mask</span> <span class="o">=</span> <span class="n">factor</span><span class="o">.</span><span class="n">mask</span>
@@ -1632,7 +1634,7 @@
 
     <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Short repr to use when rendering Pipeline graphs.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(</span><span class="si">%r</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_name</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(</span><span class="si">%r</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">transform_name</span>
 
 
 <span class="k">class</span> <span class="nc">Rank</span><span class="p">(</span><span class="n">SingleInputMixin</span><span class="p">,</span> <span class="n">Factor</span><span class="p">):</span>
@@ -1658,6 +1660,7 @@
 <span class="sd">    Most users should call Factor.rank rather than directly construct an</span>
 <span class="sd">    instance of this class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">float64_dtype</span>
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1730,7 +1733,7 @@
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="CustomFactor"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.CustomFactor">[docs]</a><span class="k">class</span> <span class="nc">CustomFactor</span><span class="p">(</span><span class="n">PositiveWindowLengthMixin</span><span class="p">,</span> <span class="n">CustomTermMixin</span><span class="p">,</span> <span class="n">Factor</span><span class="p">):</span>
+<div class="viewcode-block" id="CustomFactor"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.CustomFactor">[docs]</a><span class="k">class</span> <span class="nc">CustomFactor</span><span class="p">(</span><span class="n">PositiveWindowLengthMixin</span><span class="p">,</span> <span class="n">CustomTermMixin</span><span class="p">,</span> <span class="n">Factor</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Base class for user-defined Factors.</span>
 
@@ -1873,6 +1876,7 @@
 <span class="sd">    same dtype. For instance, in the example above, if alpha is a float then</span>
 <span class="sd">    beta must also be a float.</span>
 <span class="sd">    &#39;&#39;&#39;</span>
+
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">float64_dtype</span>
 
     <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1883,18 +1887,18 @@
                 <span class="k">raise</span> <span class="n">UnsupportedDataType</span><span class="p">(</span>
                     <span class="n">typename</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                     <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
-                    <span class="n">hint</span><span class="o">=</span><span class="s1">&#39;Did you mean to create a CustomClassifier?&#39;</span><span class="p">,</span>
+                    <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;Did you mean to create a CustomClassifier?&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">in</span> <span class="n">FILTER_DTYPES</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="n">UnsupportedDataType</span><span class="p">(</span>
                     <span class="n">typename</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                     <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
-                    <span class="n">hint</span><span class="o">=</span><span class="s1">&#39;Did you mean to create a CustomFilter?&#39;</span><span class="p">,</span>
+                    <span class="n">hint</span><span class="o">=</span><span class="s2">&quot;Did you mean to create a CustomFilter?&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="k">raise</span>
 
     <span class="k">def</span> <span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-        <span class="n">outputs</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;outputs&#39;</span><span class="p">)</span>
+        <span class="n">outputs</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;outputs&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">outputs</span> <span class="ow">is</span> <span class="n">NotSpecified</span><span class="p">:</span>
             <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">:</span>
@@ -1904,8 +1908,8 @@
                 <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-                    <span class="s1">&#39;Instance of </span><span class="si">{factor}</span><span class="s1"> has no output named </span><span class="si">{attr!r}</span><span class="s1">. &#39;</span>
-                    <span class="s1">&#39;Possible choices are: </span><span class="si">{choices}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="s2">&quot;Instance of </span><span class="si">{factor}</span><span class="s2"> has no output named </span><span class="si">{attr!r}</span><span class="s2">. &quot;</span>
+                    <span class="s2">&quot;Possible choices are: </span><span class="si">{choices}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                         <span class="n">factor</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                         <span class="n">attr</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
                         <span class="n">choices</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">,</span>
@@ -1915,7 +1919,7 @@
     <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span> <span class="ow">is</span> <span class="n">NotSpecified</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="s1">&#39;</span><span class="si">{factor}</span><span class="s1"> does not have multiple outputs.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{factor}</span><span class="s2"> does not have multiple outputs.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                     <span class="n">factor</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
@@ -1926,6 +1930,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A single field from a multi-output factor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">attribute</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">RecarrayField</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
@@ -1935,7 +1940,7 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">factor</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span>
             <span class="n">dtype</span><span class="o">=</span><span class="n">factor</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
             <span class="n">missing_value</span><span class="o">=</span><span class="n">factor</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
-            <span class="n">window_safe</span><span class="o">=</span><span class="n">factor</span><span class="o">.</span><span class="n">window_safe</span>
+            <span class="n">window_safe</span><span class="o">=</span><span class="n">factor</span><span class="o">.</span><span class="n">window_safe</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1956,33 +1961,33 @@
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">recursive_repr</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attribute</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="Latest"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Latest">[docs]</a><span class="k">class</span> <span class="nc">Latest</span><span class="p">(</span><span class="n">LatestMixin</span><span class="p">,</span> <span class="n">CustomFactor</span><span class="p">):</span>
+<div class="viewcode-block" id="Latest"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Latest">[docs]</a><span class="k">class</span> <span class="nc">Latest</span><span class="p">(</span><span class="n">LatestMixin</span><span class="p">,</span> <span class="n">CustomFactor</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Factor producing the most recently-known value of `inputs[0]` on each day.</span>
 
 <span class="sd">    The `.latest` attribute of DataSet columns returns an instance of this</span>
 <span class="sd">    Factor.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">1</span>
 
-<div class="viewcode-block" id="Latest.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.Latest.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Latest.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.Latest.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="n">out</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">DailySummary</span><span class="p">(</span><span class="n">SingleInputMixin</span><span class="p">,</span> <span class="n">Factor</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;1D Factor that computes a summary statistic across all assets.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;1D Factor that computes a summary statistic across all assets.&quot;&quot;&quot;</span>
+
     <span class="n">ndim</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;func&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;func&quot;</span><span class="p">,)</span>
 
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">input_</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
         <span class="c1"># TODO: We should be able to support datetime64 as well, but that</span>
         <span class="c1"># requires extra care for handling NaT.</span>
         <span class="k">if</span> <span class="n">dtype</span> <span class="o">!=</span> <span class="n">float64_dtype</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
-                <span class="s2">&quot;DailySummary only supports float64 dtype, got </span><span class="si">{}</span><span class="s2">&quot;</span>
-                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span>
+                <span class="s2">&quot;DailySummary only supports float64 dtype, got </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dtype</span><span class="p">),</span>
             <span class="p">)</span>
 
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">DailySummary</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span>
@@ -1996,7 +2001,7 @@
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arrays</span><span class="p">,</span> <span class="n">dates</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
-        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;func&#39;</span><span class="p">]</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;func&quot;</span><span class="p">]</span>
 
         <span class="n">data</span> <span class="o">=</span> <span class="n">arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">nan</span>
@@ -2008,7 +2013,7 @@
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">()&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">recursive_repr</span><span class="p">(),</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;func&#39;</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;func&quot;</span><span class="p">]</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="n">graph_repr</span> <span class="o">=</span> <span class="n">recursive_repr</span> <span class="o">=</span> <span class="fm">__repr__</span>
@@ -2054,60 +2059,41 @@
     <span class="k">return</span> <span class="n">a</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

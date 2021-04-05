@@ -1,190 +1,261 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Risk and Performance Metrics &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metrics &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/zipline.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Development Guidelines" href="development-guidelines.html" />
-    <link rel="prev" title="Trading Calendars" href="trading-calendars.html" /> 
-</head>
-
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
+    <link rel="next" title="API" href="api-reference.html" />
+    <link rel="prev" title="Trading Calendars" href="trading-calendars.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
-          
-            <a href="index.html" class="icon icon-home"> Zipline
-          
 
-          
+    
+    <a class="navbar-brand" href="index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="releases.html">
+  Releases
+ </a>
+</li>
+
+        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
           </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Risk and Performance Metrics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#metrics-sets">Metrics Sets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#selecting-the-metrics-set">Selecting the Metrics Set</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#command-line-and-ipython-magic">Command Line and IPython Magic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#run-algorithm"><code class="docutils literal notranslate"><span class="pre">run_algorithm</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#running-without-metrics">Running Without Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#defining-new-metrics">Defining New Metrics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#start-of-simulation"><code class="docutils literal notranslate"><span class="pre">start_of_simulation</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#end-of-simulation"><code class="docutils literal notranslate"><span class="pre">end_of_simulation</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#start-of-session"><code class="docutils literal notranslate"><span class="pre">start_of_session</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#end-of-session"><code class="docutils literal notranslate"><span class="pre">end_of_session</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#end-of-bar"><code class="docutils literal notranslate"><span class="pre">end_of_bar</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#defining-new-metrics-sets">Defining New Metrics Sets</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
     </nav>
+    
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Zipline</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
+    <div class="container-xl">
+      <div class="row">
           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Risk and Performance Metrics</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-          
-            <a href="_sources/risk-and-perf-metrics.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
             
-  <div class="section" id="risk-and-performance-metrics">
-<span id="metrics"></span><h1>Risk and Performance Metrics<a class="headerlink" href="#risk-and-performance-metrics" title="Permalink to this headline">¶</a></h1>
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics-sets">
+   Metrics Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#selecting-the-metrics-set">
+   Selecting the Metrics Set
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-line-and-ipython-magic">
+     Command Line and IPython Magic
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#run-algorithm">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       run_algorithm
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-without-metrics">
+   Running Without Metrics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-new-metrics">
+   Defining New Metrics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-of-simulation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       start_of_simulation
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-of-simulation">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       end_of_simulation
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-of-session">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       start_of_session
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-of-session">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       end_of_session
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#end-of-bar">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       end_of_bar
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-new-metrics-sets">
+   Defining New Metrics Sets
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="metrics">
+<span id="id1"></span><h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h1>
 <p>The risk and performance metrics are summarizing values calculated by Zipline
 when running a simulation. These metrics can be about the performance of an
 algorithm, like returns or cash flow, or the riskiness of an algorithm, like
@@ -214,7 +285,7 @@ may be selected by passing the <code class="docutils literal notranslate"><span 
 </div>
 <div class="section" id="run-algorithm">
 <h3><code class="docutils literal notranslate"><span class="pre">run_algorithm</span></code><a class="headerlink" href="#run-algorithm" title="Permalink to this headline">¶</a></h3>
-<p>When running through the <a class="reference internal" href="appendix.html#zipline.run_algorithm" title="zipline.run_algorithm"><code class="xref py py-func docutils literal notranslate"><span class="pre">run_algorithm()</span></code></a> interface, the metrics
+<p>When running through the <a class="reference internal" href="api-reference.html#zipline.run_algorithm" title="zipline.run_algorithm"><code class="xref py py-func docutils literal notranslate"><span class="pre">run_algorithm()</span></code></a> interface, the metrics
 set may be passed with the <code class="docutils literal notranslate"><span class="pre">metrics_set</span></code> argument. This may either be the name
 of a registered metrics set, or a set of metric object. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">run_algorithm</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">metrics_set</span><span class="o">=</span><span class="s1">&#39;my-metrics-set&#39;</span><span class="p">)</span>
@@ -267,7 +338,7 @@ a single simulation.</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
+<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 starting portfolio values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">emission_rate</span></code> is a string representing the smallest frequency at which
@@ -275,14 +346,14 @@ metrics should be reported. <code class="docutils literal notranslate"><span cla
 <code class="docutils literal notranslate"><span class="pre">daily</span></code>. When <code class="docutils literal notranslate"><span class="pre">emission_rate</span></code> is <code class="docutils literal notranslate"><span class="pre">daily</span></code>, <code class="docutils literal notranslate"><span class="pre">end_of_bar</span></code> will not be
 called at all.</p>
 <p><code class="docutils literal notranslate"><span class="pre">trading_calendar</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
+<a class="reference internal" href="api-reference.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
 being used by the simulation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
 labels, in sorted order, that the simulation will execute.</p>
 <p><code class="docutils literal notranslate"><span class="pre">benchmark_source</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.sources.benchmark_source.BenchmarkSource" title="zipline.sources.benchmark_source.BenchmarkSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSource</span></code></a> which is the
+<a class="reference internal" href="api-reference.html#zipline.sources.benchmark_source.BenchmarkSource" title="zipline.sources.benchmark_source.BenchmarkSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSource</span></code></a> which is the
 interface to the returns of the benchmark specified by
-<a class="reference internal" href="appendix.html#zipline.api.set_benchmark" title="zipline.api.set_benchmark"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_benchmark()</span></code></a>.</p>
+<a class="reference internal" href="api-reference.html#zipline.api.set_benchmark" title="zipline.api.set_benchmark"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_benchmark()</span></code></a>.</p>
 </div>
 <div class="section" id="end-of-simulation">
 <h3><code class="docutils literal notranslate"><span class="pre">end_of_simulation</span></code><a class="headerlink" href="#end-of-simulation" title="Permalink to this headline">¶</a></h3>
@@ -297,22 +368,22 @@ interface to the returns of the benchmark specified by
     <span class="o">...</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
+<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 final portfolio values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">packet</span></code> is a dictionary to write the end of simulation values for the given
 metric into.</p>
 <p><code class="docutils literal notranslate"><span class="pre">trading_calendar</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
+<a class="reference internal" href="api-reference.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
 being used by the simulation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
 labels, in sorted order, that the simulation has executed.</p>
-<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
+<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data.</p>
 <p><code class="docutils literal notranslate"><span class="pre">benchmark_source</span></code> is an instance of
-<a class="reference internal" href="appendix.html#zipline.sources.benchmark_source.BenchmarkSource" title="zipline.sources.benchmark_source.BenchmarkSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSource</span></code></a> which is the
+<a class="reference internal" href="api-reference.html#zipline.sources.benchmark_source.BenchmarkSource" title="zipline.sources.benchmark_source.BenchmarkSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSource</span></code></a> which is the
 interface to the returns of the benchmark specified by
-<a class="reference internal" href="appendix.html#zipline.api.set_benchmark" title="zipline.api.set_benchmark"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_benchmark()</span></code></a>.</p>
+<a class="reference internal" href="api-reference.html#zipline.api.set_benchmark" title="zipline.api.set_benchmark"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_benchmark()</span></code></a>.</p>
 </div>
 <div class="section" id="start-of-session">
 <h3><code class="docutils literal notranslate"><span class="pre">start_of_session</span></code><a class="headerlink" href="#start-of-session" title="Permalink to this headline">¶</a></h3>
@@ -328,12 +399,12 @@ occurs.</p>
     <span class="o">...</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
+<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
 session which is about to run.</p>
-<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
+<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data.</p>
 </div>
 <div class="section" id="end-of-session">
@@ -352,7 +423,7 @@ contains two sub-dictionaries: <code class="docutils literal notranslate"><span 
 applicable, the <code class="docutils literal notranslate"><span class="pre">daily_perf</span></code> should hold the current day’s value, and
 <code class="docutils literal notranslate"><span class="pre">cumulative_perf</span></code> should hold a cumulative value for the entire simulation up
 to the current time.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
+<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
@@ -360,7 +431,7 @@ session which is has just completed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_ix</span></code> is an <a class="reference external" href="https://docs.python.org/dev/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which is the index of the current trading
 session being run. This is provided to allow for efficient access to the daily
 returns through <code class="docutils literal notranslate"><span class="pre">ledger.daily_returns_array[:session_ix</span> <span class="pre">+</span> <span class="pre">1]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
+<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data</p>
 </div>
 <div class="section" id="end-of-bar">
@@ -383,7 +454,7 @@ contains two sub-dictionaries: <code class="docutils literal notranslate"><span 
 applicable, the <code class="docutils literal notranslate"><span class="pre">minute_perf</span></code> should hold the current partial day’s value, and
 <code class="docutils literal notranslate"><span class="pre">cumulative_perf</span></code> should hold a cumulative value for the entire simulation up
 to the current time.</p>
-<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
+<p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
 <p><code class="docutils literal notranslate"><span class="pre">dt</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of bar that has just
@@ -391,13 +462,13 @@ completed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_ix</span></code> is an <a class="reference external" href="https://docs.python.org/dev/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which is the index of the current trading
 session being run. This is provided to allow for efficient access to the daily
 returns through <code class="docutils literal notranslate"><span class="pre">ledger.daily_returns_array[:session_ix</span> <span class="pre">+</span> <span class="pre">1]</span></code>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="appendix.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
+<p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data.</p>
 </div>
 </div>
 <div class="section" id="defining-new-metrics-sets">
 <h2>Defining New Metrics Sets<a class="headerlink" href="#defining-new-metrics-sets" title="Permalink to this headline">¶</a></h2>
-<p>Users may use <a class="reference internal" href="appendix.html#zipline.finance.metrics.register" title="zipline.finance.metrics.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">zipline.finance.metrics.register()</span></code></a> to register a new metrics
+<p>Users may use <a class="reference internal" href="api-reference.html#zipline.finance.metrics.register" title="zipline.finance.metrics.register"><code class="xref py py-func docutils literal notranslate"><span class="pre">zipline.finance.metrics.register()</span></code></a> to register a new metrics
 set. This may be used to decorate a function taking no arguments which returns a
 new set of metric object instances. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">zipline.finance</span> <span class="kn">import</span> <span class="n">metrics</span>
@@ -416,64 +487,43 @@ do not need to fetch the resources when the metrics set is not being used.</p>
 </div>
 
 
-           </div>
-           
-          </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="development-guidelines.html" class="btn btn-neutral float-right" title="Development Guidelines" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="trading-calendars.html" class="btn btn-neutral float-left" title="Trading Calendars" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="trading-calendars.html" title="previous page">Trading Calendars</a>
+    <a class='right-next' id="next-link" href="api-reference.html" title="next page">API</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
     </div>
 
-  <hr/>
+    
+  <script src="_static/js/index.a26b4849e0a18c48af57.js"></script>
 
-  <div role="contentinfo">
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

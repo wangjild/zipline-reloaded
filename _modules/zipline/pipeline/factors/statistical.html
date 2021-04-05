@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.factors.statistical &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.factors.statistical &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.factors.statistical</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.factors.statistical</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">numexpr</span> <span class="kn">import</span> <span class="n">evaluate</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -196,14 +194,9 @@
 
 
 <span class="k">class</span> <span class="nc">_RollingCorrelation</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">):</span>
-
     <span class="nd">@expect_dtypes</span><span class="p">(</span><span class="n">base_factor</span><span class="o">=</span><span class="n">ALLOWED_DTYPES</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="n">ALLOWED_DTYPES</span><span class="p">)</span>
     <span class="nd">@expect_bounded</span><span class="p">(</span><span class="n">correlation_length</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">base_factor</span><span class="p">,</span>
-                <span class="n">target</span><span class="p">,</span>
-                <span class="n">correlation_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">base_factor</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">correlation_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">base_factor</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">target</span><span class="o">.</span><span class="n">mask</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">IncompatibleTerms</span><span class="p">(</span><span class="n">term_1</span><span class="o">=</span><span class="n">base_factor</span><span class="p">,</span> <span class="n">term_2</span><span class="o">=</span><span class="n">target</span><span class="p">)</span>
 
@@ -215,7 +208,7 @@
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="RollingPearson"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingPearson">[docs]</a><span class="k">class</span> <span class="nc">RollingPearson</span><span class="p">(</span><span class="n">_RollingCorrelation</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingPearson"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingPearson">[docs]</a><span class="k">class</span> <span class="nc">RollingPearson</span><span class="p">(</span><span class="n">_RollingCorrelation</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Factor that computes pearson correlation coefficients between the columns</span>
 <span class="sd">    of a given Factor and either the columns of another Factor/BoundColumn or a</span>
@@ -249,9 +242,10 @@
 <span class="sd">    Most users should call Factor.pearsonr rather than directly construct an</span>
 <span class="sd">    instance of this class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
 
-<div class="viewcode-block" id="RollingPearson.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingPearson.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">base_data</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingPearson.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingPearson.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">base_data</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
         <span class="n">vectorized_pearson_r</span><span class="p">(</span>
             <span class="n">base_data</span><span class="p">,</span>
             <span class="n">target_data</span><span class="p">,</span>
@@ -260,7 +254,7 @@
         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="RollingSpearman"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingSpearman">[docs]</a><span class="k">class</span> <span class="nc">RollingSpearman</span><span class="p">(</span><span class="n">_RollingCorrelation</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingSpearman"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingSpearman">[docs]</a><span class="k">class</span> <span class="nc">RollingSpearman</span><span class="p">(</span><span class="n">_RollingCorrelation</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A Factor that computes spearman rank correlation coefficients between the</span>
 <span class="sd">    columns of a given Factor and either the columns of another</span>
@@ -294,9 +288,10 @@
 <span class="sd">    Most users should call Factor.spearmanr rather than directly construct an</span>
 <span class="sd">    instance of this class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
 
-<div class="viewcode-block" id="RollingSpearman.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingSpearman.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">base_data</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingSpearman.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingSpearman.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">base_data</span><span class="p">,</span> <span class="n">target_data</span><span class="p">):</span>
         <span class="c1"># If `target_data` is a Slice or single column of data, broadcast it</span>
         <span class="c1"># out to the same shape as `base_data`, then compute column-wise. This</span>
         <span class="c1"># is efficient because each column of the broadcasted array only refers</span>
@@ -338,15 +333,12 @@
 <span class="sd">    Most users should call Factor.linear_regression rather than directly</span>
 <span class="sd">    construct an instance of this class.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="s1">&#39;r_value&#39;</span><span class="p">,</span> <span class="s1">&#39;p_value&#39;</span><span class="p">,</span> <span class="s1">&#39;stderr&#39;</span><span class="p">]</span>
+
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">,</span> <span class="s2">&quot;r_value&quot;</span><span class="p">,</span> <span class="s2">&quot;p_value&quot;</span><span class="p">,</span> <span class="s2">&quot;stderr&quot;</span><span class="p">]</span>
 
     <span class="nd">@expect_dtypes</span><span class="p">(</span><span class="n">dependent</span><span class="o">=</span><span class="n">ALLOWED_DTYPES</span><span class="p">,</span> <span class="n">independent</span><span class="o">=</span><span class="n">ALLOWED_DTYPES</span><span class="p">)</span>
     <span class="nd">@expect_bounded</span><span class="p">(</span><span class="n">regression_length</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">dependent</span><span class="p">,</span>
-                <span class="n">independent</span><span class="p">,</span>
-                <span class="n">regression_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dependent</span><span class="p">,</span> <span class="n">independent</span><span class="p">,</span> <span class="n">regression_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">independent</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">dependent</span><span class="o">.</span><span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">independent</span><span class="o">.</span><span class="n">mask</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">IncompatibleTerms</span><span class="p">(</span><span class="n">term_1</span><span class="o">=</span><span class="n">dependent</span><span class="p">,</span> <span class="n">term_2</span><span class="o">=</span><span class="n">independent</span><span class="p">)</span>
 
@@ -383,7 +375,7 @@
             <span class="n">regress</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">dependent</span><span class="p">[:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">independent</span><span class="p">[:,</span> <span class="n">i</span><span class="p">])</span>
 
 
-<div class="viewcode-block" id="RollingPearsonOfReturns"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingPearsonOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingPearsonOfReturns</span><span class="p">(</span><span class="n">RollingPearson</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingPearsonOfReturns"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingPearsonOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingPearsonOfReturns</span><span class="p">(</span><span class="n">RollingPearson</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the Pearson product-moment correlation coefficient of the</span>
 <span class="sd">    returns of the given asset with the returns of all other assets.</span>
@@ -456,11 +448,8 @@
 <span class="sd">    :class:`zipline.pipeline.factors.RollingSpearmanOfReturns`</span>
 <span class="sd">    :class:`zipline.pipeline.factors.RollingLinearRegressionOfReturns`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">target</span><span class="p">,</span>
-                <span class="n">returns_length</span><span class="p">,</span>
-                <span class="n">correlation_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">returns_length</span><span class="p">,</span> <span class="n">correlation_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="c1"># Use the `SingleAsset` filter here because it protects against</span>
         <span class="c1"># inputting a non-existent target asset.</span>
         <span class="n">returns</span> <span class="o">=</span> <span class="n">Returns</span><span class="p">(</span>
@@ -476,7 +465,7 @@
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="RollingSpearmanOfReturns"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingSpearmanOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingSpearmanOfReturns</span><span class="p">(</span><span class="n">RollingSpearman</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingSpearmanOfReturns"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingSpearmanOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingSpearmanOfReturns</span><span class="p">(</span><span class="n">RollingSpearman</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates the Spearman rank correlation coefficient of the returns of the</span>
 <span class="sd">    given asset with the returns of all other assets.</span>
@@ -506,11 +495,8 @@
 <span class="sd">    :class:`zipline.pipeline.factors.RollingPearsonOfReturns`</span>
 <span class="sd">    :class:`zipline.pipeline.factors.RollingLinearRegressionOfReturns`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">target</span><span class="p">,</span>
-                <span class="n">returns_length</span><span class="p">,</span>
-                <span class="n">correlation_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">returns_length</span><span class="p">,</span> <span class="n">correlation_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="c1"># Use the `SingleAsset` filter here because it protects against</span>
         <span class="c1"># inputting a non-existent target asset.</span>
         <span class="n">returns</span> <span class="o">=</span> <span class="n">Returns</span><span class="p">(</span>
@@ -526,7 +512,7 @@
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="RollingLinearRegressionOfReturns"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RollingLinearRegressionOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingLinearRegressionOfReturns</span><span class="p">(</span><span class="n">RollingLinearRegression</span><span class="p">):</span>
+<div class="viewcode-block" id="RollingLinearRegressionOfReturns"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RollingLinearRegressionOfReturns">[docs]</a><span class="k">class</span> <span class="nc">RollingLinearRegressionOfReturns</span><span class="p">(</span><span class="n">RollingLinearRegression</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Perform an ordinary least-squares regression predicting the returns of all</span>
 <span class="sd">    other assets on the given asset.</span>
@@ -623,13 +609,10 @@
 <span class="sd">    :class:`zipline.pipeline.factors.RollingPearsonOfReturns`</span>
 <span class="sd">    :class:`zipline.pipeline.factors.RollingSpearmanOfReturns`</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">target</span><span class="p">,</span>
-                <span class="n">returns_length</span><span class="p">,</span>
-                <span class="n">regression_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">returns_length</span><span class="p">,</span> <span class="n">regression_length</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">):</span>
         <span class="c1"># Use the `SingleAsset` filter here because it protects against</span>
         <span class="c1"># inputting a non-existent target asset.</span>
         <span class="n">returns</span> <span class="o">=</span> <span class="n">Returns</span><span class="p">(</span>
@@ -645,7 +628,7 @@
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="SimpleBeta"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.SimpleBeta">[docs]</a><span class="k">class</span> <span class="nc">SimpleBeta</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">,</span> <span class="n">StandardOutputs</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleBeta"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.SimpleBeta">[docs]</a><span class="k">class</span> <span class="nc">SimpleBeta</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">,</span> <span class="n">StandardOutputs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Factor producing the slope of a regression line between each asset&#39;s daily</span>
 <span class="sd">    returns to the daily returns of a single &quot;target&quot; asset.</span>
@@ -662,32 +645,28 @@
 <span class="sd">        percentage of returns observations missing will produce values of</span>
 <span class="sd">        NaN. Default behavior is that 25% of inputs can be missing.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">float64_dtype</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;allowed_missing_count&#39;</span><span class="p">,)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;allowed_missing_count&quot;</span><span class="p">,)</span>
 
     <span class="nd">@expect_types</span><span class="p">(</span>
         <span class="n">target</span><span class="o">=</span><span class="n">Asset</span><span class="p">,</span>
         <span class="n">regression_length</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
         <span class="n">allowed_missing_percentage</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">),</span>
-        <span class="n">__funcname</span><span class="o">=</span><span class="s1">&#39;SimpleBeta&#39;</span><span class="p">,</span>
+        <span class="n">__funcname</span><span class="o">=</span><span class="s2">&quot;SimpleBeta&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="nd">@expect_bounded</span><span class="p">(</span>
         <span class="n">regression_length</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
         <span class="n">allowed_missing_percentage</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
-        <span class="n">__funcname</span><span class="o">=</span><span class="s1">&#39;SimpleBeta&#39;</span><span class="p">,</span>
+        <span class="n">__funcname</span><span class="o">=</span><span class="s2">&quot;SimpleBeta&quot;</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">target</span><span class="p">,</span>
-                <span class="n">regression_length</span><span class="p">,</span>
-                <span class="n">allowed_missing_percentage</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">regression_length</span><span class="p">,</span> <span class="n">allowed_missing_percentage</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
         <span class="n">daily_returns</span> <span class="o">=</span> <span class="n">Returns</span><span class="p">(</span>
             <span class="n">window_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">mask</span><span class="o">=</span><span class="p">(</span><span class="n">AssetExists</span><span class="p">()</span> <span class="o">|</span> <span class="n">SingleAsset</span><span class="p">(</span><span class="n">asset</span><span class="o">=</span><span class="n">target</span><span class="p">)),</span>
         <span class="p">)</span>
-        <span class="n">allowed_missing_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
-            <span class="n">allowed_missing_percentage</span> <span class="o">*</span> <span class="n">regression_length</span>
-        <span class="p">)</span>
+        <span class="n">allowed_missing_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">allowed_missing_percentage</span> <span class="o">*</span> <span class="n">regression_length</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">SimpleBeta</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span>
             <span class="bp">cls</span><span class="p">,</span>
             <span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">daily_returns</span><span class="p">,</span> <span class="n">daily_returns</span><span class="p">[</span><span class="n">target</span><span class="p">]],</span>
@@ -695,13 +674,9 @@
             <span class="n">allowed_missing_count</span><span class="o">=</span><span class="n">allowed_missing_count</span><span class="p">,</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="SimpleBeta.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.SimpleBeta.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">today</span><span class="p">,</span>
-                <span class="n">assets</span><span class="p">,</span>
-                <span class="n">out</span><span class="p">,</span>
-                <span class="n">all_returns</span><span class="p">,</span>
-                <span class="n">target_returns</span><span class="p">,</span>
-                <span class="n">allowed_missing_count</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleBeta.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.SimpleBeta.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">all_returns</span><span class="p">,</span> <span class="n">target_returns</span><span class="p">,</span> <span class="n">allowed_missing_count</span>
+    <span class="p">):</span>
         <span class="n">vectorized_beta</span><span class="p">(</span>
             <span class="n">dependents</span><span class="o">=</span><span class="n">all_returns</span><span class="p">,</span>
             <span class="n">independent</span><span class="o">=</span><span class="n">target_returns</span><span class="p">,</span>
@@ -709,18 +684,17 @@
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="SimpleBeta.graph_repr"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.SimpleBeta.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SimpleBeta.graph_repr"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.SimpleBeta.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(</span><span class="si">{!r}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
             <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="o">.</span><span class="n">symbol</span><span class="p">),</span>  <span class="c1"># coerce from unicode to str in py2.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;allowed_missing_count&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;allowed_missing_count&quot;</span><span class="p">],</span>
         <span class="p">)</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">target</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get the target of the beta calculation.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Get the target of the beta calculation.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">asset</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -728,7 +702,7 @@
             <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">,</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;allowed_missing_count&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s2">&quot;allowed_missing_count&quot;</span><span class="p">],</span>
         <span class="p">)</span></div>
 
 
@@ -890,72 +864,55 @@
     <span class="n">covariances</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">ind_residual</span> <span class="o">*</span> <span class="n">dep_residual</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="n">evaluate</span><span class="p">(</span>
-        <span class="s1">&#39;where(mask, nan, cov / sqrt(ind_variance * dep_variance))&#39;</span><span class="p">,</span>
-        <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;cov&#39;</span><span class="p">:</span> <span class="n">covariances</span><span class="p">,</span>
-                    <span class="s1">&#39;mask&#39;</span><span class="p">:</span> <span class="n">isnan</span><span class="p">(</span><span class="n">independents</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">allowed_missing</span><span class="p">,</span>
-                    <span class="s1">&#39;nan&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
-                    <span class="s1">&#39;ind_variance&#39;</span><span class="p">:</span> <span class="n">ind_variance</span><span class="p">,</span>
-                    <span class="s1">&#39;dep_variance&#39;</span><span class="p">:</span> <span class="n">dep_variance</span><span class="p">},</span>
+        <span class="s2">&quot;where(mask, nan, cov / sqrt(ind_variance * dep_variance))&quot;</span><span class="p">,</span>
+        <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;cov&quot;</span><span class="p">:</span> <span class="n">covariances</span><span class="p">,</span>
+            <span class="s2">&quot;mask&quot;</span><span class="p">:</span> <span class="n">isnan</span><span class="p">(</span><span class="n">independents</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">allowed_missing</span><span class="p">,</span>
+            <span class="s2">&quot;nan&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+            <span class="s2">&quot;ind_variance&quot;</span><span class="p">:</span> <span class="n">ind_variance</span><span class="p">,</span>
+            <span class="s2">&quot;dep_variance&quot;</span><span class="p">:</span> <span class="n">dep_variance</span><span class="p">,</span>
+        <span class="p">},</span>
         <span class="n">global_dict</span><span class="o">=</span><span class="p">{},</span>
         <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">out</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

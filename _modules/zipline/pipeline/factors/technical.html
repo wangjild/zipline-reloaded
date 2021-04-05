@@ -1,173 +1,169 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.factors.technical &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.factors.technical &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
-        <script src="../../../../_static/jquery.js"></script>
-        <script src="../../../../_static/underscore.js"></script>
-        <script src="../../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  <link href="../../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.factors.technical</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.factors.technical</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Technical Analysis Factors</span>
 <span class="sd">--------------------------</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
-
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="nb">abs</span><span class="p">,</span>
     <span class="n">average</span><span class="p">,</span>
@@ -200,11 +196,11 @@
     <span class="n">MaxDrawdown</span><span class="p">,</span>
     <span class="n">SimpleMovingAverage</span><span class="p">,</span>
     <span class="n">VWAP</span><span class="p">,</span>
-    <span class="n">WeightedAverageValue</span>
+    <span class="n">WeightedAverageValue</span><span class="p">,</span>
 <span class="p">)</span>
 
 
-<div class="viewcode-block" id="RSI"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RSI">[docs]</a><span class="k">class</span> <span class="nc">RSI</span><span class="p">(</span><span class="n">SingleInputMixin</span><span class="p">,</span> <span class="n">CustomFactor</span><span class="p">):</span>
+<div class="viewcode-block" id="RSI"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RSI">[docs]</a><span class="k">class</span> <span class="nc">RSI</span><span class="p">(</span><span class="n">SingleInputMixin</span><span class="p">,</span> <span class="n">CustomFactor</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Relative Strength Index</span>
 
@@ -212,23 +208,24 @@
 
 <span class="sd">    **Default Window Length**: 15</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">15</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">,)</span>
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
 
-<div class="viewcode-block" id="RSI.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.RSI.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">closes</span><span class="p">):</span>
+<div class="viewcode-block" id="RSI.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.RSI.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">closes</span><span class="p">):</span>
         <span class="n">diffs</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">closes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">ups</span> <span class="o">=</span> <span class="n">nanmean</span><span class="p">(</span><span class="n">clip</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inf</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">downs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">nanmean</span><span class="p">(</span><span class="n">clip</span><span class="p">(</span><span class="n">diffs</span><span class="p">,</span> <span class="o">-</span><span class="n">inf</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">evaluate</span><span class="p">(</span>
             <span class="s2">&quot;100 - (100 / (1 + (ups / downs)))&quot;</span><span class="p">,</span>
-            <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;ups&#39;</span><span class="p">:</span> <span class="n">ups</span><span class="p">,</span> <span class="s1">&#39;downs&#39;</span><span class="p">:</span> <span class="n">downs</span><span class="p">},</span>
+            <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ups&quot;</span><span class="p">:</span> <span class="n">ups</span><span class="p">,</span> <span class="s2">&quot;downs&quot;</span><span class="p">:</span> <span class="n">downs</span><span class="p">},</span>
             <span class="n">global_dict</span><span class="o">=</span><span class="p">{},</span>
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="BollingerBands"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.BollingerBands">[docs]</a><span class="k">class</span> <span class="nc">BollingerBands</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">):</span>
+<div class="viewcode-block" id="BollingerBands"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.BollingerBands">[docs]</a><span class="k">class</span> <span class="nc">BollingerBands</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Bollinger Bands technical indicator.</span>
 <span class="sd">    https://en.wikipedia.org/wiki/Bollinger_Bands</span>
@@ -246,11 +243,12 @@
 <span class="sd">        The number of standard deviations to add or subtract to create the</span>
 <span class="sd">        upper and lower bands.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">,)</span>
-    <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">,)</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="s1">&#39;upper&#39;</span>
 
-<div class="viewcode-block" id="BollingerBands.compute"><a class="viewcode-back" href="../../../../appendix.html#zipline.pipeline.factors.BollingerBands.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;k&quot;</span><span class="p">,)</span>
+    <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">,)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="s2">&quot;middle&quot;</span><span class="p">,</span> <span class="s2">&quot;upper&quot;</span>
+
+<div class="viewcode-block" id="BollingerBands.compute"><a class="viewcode-back" href="../../../../api-reference.html#zipline.pipeline.factors.BollingerBands.compute">[docs]</a>    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
         <span class="n">difference</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">nanstd</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">out</span><span class="o">.</span><span class="n">middle</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">=</span> <span class="n">nanmean</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">out</span><span class="o">.</span><span class="n">upper</span> <span class="o">=</span> <span class="n">middle</span> <span class="o">+</span> <span class="n">difference</span>
@@ -270,28 +268,28 @@
 <span class="sd">    window_length : int &gt; 0</span>
 <span class="sd">        Length of the lookback window over which to compute the Aroon</span>
 <span class="sd">        indicator.</span>
-<span class="sd">    &quot;&quot;&quot;</span> <span class="c1"># noqa</span>
+<span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa</span>
 
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">high</span><span class="p">)</span>
-    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;down&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">)</span>
+    <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;down&quot;</span><span class="p">,</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">lows</span><span class="p">,</span> <span class="n">highs</span><span class="p">):</span>
         <span class="n">wl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span>
         <span class="n">high_date_index</span> <span class="o">=</span> <span class="n">nanargmax</span><span class="p">(</span><span class="n">highs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">low_date_index</span> <span class="o">=</span> <span class="n">nanargmin</span><span class="p">(</span><span class="n">lows</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">evaluate</span><span class="p">(</span>
-            <span class="s1">&#39;(100 * high_date_index) / (wl - 1)&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;(100 * high_date_index) / (wl - 1)&quot;</span><span class="p">,</span>
             <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;high_date_index&#39;</span><span class="p">:</span> <span class="n">high_date_index</span><span class="p">,</span>
-                <span class="s1">&#39;wl&#39;</span><span class="p">:</span> <span class="n">wl</span><span class="p">,</span>
+                <span class="s2">&quot;high_date_index&quot;</span><span class="p">:</span> <span class="n">high_date_index</span><span class="p">,</span>
+                <span class="s2">&quot;wl&quot;</span><span class="p">:</span> <span class="n">wl</span><span class="p">,</span>
             <span class="p">},</span>
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">up</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="n">evaluate</span><span class="p">(</span>
-            <span class="s1">&#39;(100 * low_date_index) / (wl - 1)&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;(100 * low_date_index) / (wl - 1)&quot;</span><span class="p">,</span>
             <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;low_date_index&#39;</span><span class="p">:</span> <span class="n">low_date_index</span><span class="p">,</span>
-                <span class="s1">&#39;wl&#39;</span><span class="p">:</span> <span class="n">wl</span><span class="p">,</span>
+                <span class="s2">&quot;low_date_index&quot;</span><span class="p">:</span> <span class="n">low_date_index</span><span class="p">,</span>
+                <span class="s2">&quot;wl&quot;</span><span class="p">:</span> <span class="n">wl</span><span class="p">,</span>
             <span class="p">},</span>
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="o">.</span><span class="n">down</span><span class="p">,</span>
         <span class="p">)</span>
@@ -316,6 +314,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    out: %K oscillator</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">,</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">high</span><span class="p">)</span>
     <span class="n">window_safe</span> <span class="o">=</span> <span class="kc">True</span>
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">14</span>
@@ -327,11 +326,11 @@
         <span class="n">today_closes</span> <span class="o">=</span> <span class="n">closes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="n">evaluate</span><span class="p">(</span>
-            <span class="s1">&#39;((tc - ll) / (hh - ll)) * 100&#39;</span><span class="p">,</span>
+            <span class="s2">&quot;((tc - ll) / (hh - ll)) * 100&quot;</span><span class="p">,</span>
             <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;tc&#39;</span><span class="p">:</span> <span class="n">today_closes</span><span class="p">,</span>
-                <span class="s1">&#39;ll&#39;</span><span class="p">:</span> <span class="n">lowest_lows</span><span class="p">,</span>
-                <span class="s1">&#39;hh&#39;</span><span class="p">:</span> <span class="n">highest_highs</span><span class="p">,</span>
+                <span class="s2">&quot;tc&quot;</span><span class="p">:</span> <span class="n">today_closes</span><span class="p">,</span>
+                <span class="s2">&quot;ll&quot;</span><span class="p">:</span> <span class="n">lowest_lows</span><span class="p">,</span>
+                <span class="s2">&quot;hh&quot;</span><span class="p">:</span> <span class="n">highest_highs</span><span class="p">,</span>
             <span class="p">},</span>
             <span class="n">global_dict</span><span class="o">=</span><span class="p">{},</span>
             <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
@@ -358,20 +357,20 @@
 <span class="sd">        The length of the window for the kijou-sen.</span>
 <span class="sd">    chikou_span_length : int &gt;= 0, &lt;= window_length</span>
 <span class="sd">        The lag for the chikou span.</span>
-<span class="sd">    &quot;&quot;&quot;</span> <span class="c1"># noqa</span>
+<span class="sd">    &quot;&quot;&quot;</span>  <span class="c1"># noqa</span>
 
     <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;tenkan_sen_length&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
-        <span class="s1">&#39;kijun_sen_length&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
-        <span class="s1">&#39;chikou_span_length&#39;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+        <span class="s2">&quot;tenkan_sen_length&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>
+        <span class="s2">&quot;kijun_sen_length&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+        <span class="s2">&quot;chikou_span_length&quot;</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
     <span class="p">}</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">high</span><span class="p">,</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">low</span><span class="p">,</span> <span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">)</span>
     <span class="n">outputs</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s1">&#39;tenkan_sen&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;kijun_sen&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;senkou_span_a&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;senkou_span_b&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;chikou_span&#39;</span><span class="p">,</span>
+        <span class="s2">&quot;tenkan_sen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kijun_sen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;senkou_span_a&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;senkou_span_b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;chikou_span&quot;</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">window_length</span> <span class="o">=</span> <span class="mi">52</span>
 
@@ -380,29 +379,32 @@
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="k">if</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> must be &lt;= the window_length: </span><span class="si">%s</span><span class="s1"> &gt; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span>
-                        <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">,</span>
+                    <span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> must be &lt;= the window_length: </span><span class="si">%s</span><span class="s2"> &gt; </span><span class="si">%s</span><span class="s2">&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span>
+                        <span class="n">k</span><span class="p">,</span>
+                        <span class="n">v</span><span class="p">,</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">,</span>
                     <span class="p">),</span>
                 <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                <span class="n">today</span><span class="p">,</span>
-                <span class="n">assets</span><span class="p">,</span>
-                <span class="n">out</span><span class="p">,</span>
-                <span class="n">high</span><span class="p">,</span>
-                <span class="n">low</span><span class="p">,</span>
-                <span class="n">close</span><span class="p">,</span>
-                <span class="n">tenkan_sen_length</span><span class="p">,</span>
-                <span class="n">kijun_sen_length</span><span class="p">,</span>
-                <span class="n">chikou_span_length</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">today</span><span class="p">,</span>
+        <span class="n">assets</span><span class="p">,</span>
+        <span class="n">out</span><span class="p">,</span>
+        <span class="n">high</span><span class="p">,</span>
+        <span class="n">low</span><span class="p">,</span>
+        <span class="n">close</span><span class="p">,</span>
+        <span class="n">tenkan_sen_length</span><span class="p">,</span>
+        <span class="n">kijun_sen_length</span><span class="p">,</span>
+        <span class="n">chikou_span_length</span><span class="p">,</span>
+    <span class="p">):</span>
 
         <span class="n">out</span><span class="o">.</span><span class="n">tenkan_sen</span> <span class="o">=</span> <span class="n">tenkan_sen</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">high</span><span class="p">[</span><span class="o">-</span><span class="n">tenkan_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span>
-            <span class="n">low</span><span class="p">[</span><span class="o">-</span><span class="n">tenkan_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">high</span><span class="p">[</span><span class="o">-</span><span class="n">tenkan_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">low</span><span class="p">[</span><span class="o">-</span><span class="n">tenkan_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="n">out</span><span class="o">.</span><span class="n">kijun_sen</span> <span class="o">=</span> <span class="n">kijun_sen</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">high</span><span class="p">[</span><span class="o">-</span><span class="n">kijun_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span>
-            <span class="n">low</span><span class="p">[</span><span class="o">-</span><span class="n">kijun_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">high</span><span class="p">[</span><span class="o">-</span><span class="n">kijun_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">low</span><span class="p">[</span><span class="o">-</span><span class="n">kijun_sen_length</span><span class="p">:]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="n">out</span><span class="o">.</span><span class="n">senkou_span_a</span> <span class="o">=</span> <span class="p">(</span><span class="n">tenkan_sen</span> <span class="o">+</span> <span class="n">kijun_sen</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
         <span class="n">out</span><span class="o">.</span><span class="n">senkou_span_b</span> <span class="o">=</span> <span class="p">(</span><span class="n">high</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">low</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span>
@@ -419,17 +421,16 @@
 <span class="sd">    price - the current price</span>
 <span class="sd">    prevPrice - the price n days ago, equals window length</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">close</span><span class="p">):</span>
         <span class="n">today_close</span> <span class="o">=</span> <span class="n">close</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">prev_close</span> <span class="o">=</span> <span class="n">close</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">evaluate</span><span class="p">(</span><span class="s1">&#39;((tc - pc) / pc) * 100&#39;</span><span class="p">,</span>
-                 <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span>
-                     <span class="s1">&#39;tc&#39;</span><span class="p">:</span> <span class="n">today_close</span><span class="p">,</span>
-                     <span class="s1">&#39;pc&#39;</span><span class="p">:</span> <span class="n">prev_close</span>
-                 <span class="p">},</span>
-                 <span class="n">global_dict</span><span class="o">=</span><span class="p">{},</span>
-                 <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
-                 <span class="p">)</span>
+        <span class="n">evaluate</span><span class="p">(</span>
+            <span class="s2">&quot;((tc - pc) / pc) * 100&quot;</span><span class="p">,</span>
+            <span class="n">local_dict</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tc&quot;</span><span class="p">:</span> <span class="n">today_close</span><span class="p">,</span> <span class="s2">&quot;pc&quot;</span><span class="p">:</span> <span class="n">prev_close</span><span class="p">},</span>
+            <span class="n">global_dict</span><span class="o">=</span><span class="p">{},</span>
+            <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
+        <span class="p">)</span>
 
 
 <span class="k">class</span> <span class="nc">TrueRange</span><span class="p">(</span><span class="n">CustomFactor</span><span class="p">):</span>
@@ -445,6 +446,7 @@
 
 <span class="sd">    **Default Window Length:** 2</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">EquityPricing</span><span class="o">.</span><span class="n">high</span><span class="p">,</span>
         <span class="n">EquityPricing</span><span class="o">.</span><span class="n">low</span><span class="p">,</span>
@@ -457,12 +459,14 @@
         <span class="n">high_to_prev_close</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">highs</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">closes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">low_to_prev_close</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">lows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">closes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
         <span class="n">out</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">nanmax</span><span class="p">(</span>
-            <span class="n">dstack</span><span class="p">((</span>
-                <span class="n">high_to_low</span><span class="p">,</span>
-                <span class="n">high_to_prev_close</span><span class="p">,</span>
-                <span class="n">low_to_prev_close</span><span class="p">,</span>
-            <span class="p">)),</span>
-            <span class="mi">2</span>
+            <span class="n">dstack</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="n">high_to_low</span><span class="p">,</span>
+                    <span class="n">high_to_prev_close</span><span class="p">,</span>
+                    <span class="n">low_to_prev_close</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="mi">2</span><span class="p">,</span>
         <span class="p">)</span>
 
 
@@ -493,24 +497,20 @@
 <span class="sd">    ``window_length`` parameter. ``window_length`` is inferred from</span>
 <span class="sd">    ``slow_period`` and ``signal_period``.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">(</span><span class="n">EquityPricing</span><span class="o">.</span><span class="n">close</span><span class="p">,)</span>
     <span class="c1"># We don&#39;t use the default form of `params` here because we want to</span>
     <span class="c1"># dynamically calculate `window_length` from the period lengths in our</span>
     <span class="c1"># __new__.</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;fast_period&#39;</span><span class="p">,</span> <span class="s1">&#39;slow_period&#39;</span><span class="p">,</span> <span class="s1">&#39;signal_period&#39;</span><span class="p">)</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;fast_period&quot;</span><span class="p">,</span> <span class="s2">&quot;slow_period&quot;</span><span class="p">,</span> <span class="s2">&quot;signal_period&quot;</span><span class="p">)</span>
 
     <span class="nd">@expect_bounded</span><span class="p">(</span>
-        <span class="n">__funcname</span><span class="o">=</span><span class="s1">&#39;MACDSignal&#39;</span><span class="p">,</span>
+        <span class="n">__funcname</span><span class="o">=</span><span class="s2">&quot;MACDSignal&quot;</span><span class="p">,</span>
         <span class="n">fast_period</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>  <span class="c1"># These must all be &gt;= 1.</span>
         <span class="n">slow_period</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
         <span class="n">signal_period</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">fast_period</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-                <span class="n">slow_period</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span>
-                <span class="n">signal_period</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
-                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">fast_period</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">slow_period</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">signal_period</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="k">if</span> <span class="n">slow_period</span> <span class="o">&lt;=</span> <span class="n">fast_period</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -527,26 +527,20 @@
             <span class="n">slow_period</span><span class="o">=</span><span class="n">slow_period</span><span class="p">,</span>
             <span class="n">signal_period</span><span class="o">=</span><span class="n">signal_period</span><span class="p">,</span>
             <span class="n">window_length</span><span class="o">=</span><span class="n">slow_period</span> <span class="o">+</span> <span class="n">signal_period</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_ewma</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">length</span><span class="p">):</span>
         <span class="n">decay_rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">length</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">average</span><span class="p">(</span>
-            <span class="n">data</span><span class="p">,</span>
-            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">weights</span><span class="o">=</span><span class="n">exponential_weights</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">decay_rate</span><span class="p">)</span>
-        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">average</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">exponential_weights</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">decay_rate</span><span class="p">))</span>
 
-    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">fast_period</span><span class="p">,</span> <span class="n">slow_period</span><span class="p">,</span>
-                <span class="n">signal_period</span><span class="p">):</span>
-        <span class="n">slow_EWMA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ewma</span><span class="p">(</span>
-            <span class="n">rolling_window</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">slow_period</span><span class="p">),</span>
-            <span class="n">slow_period</span>
-        <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">today</span><span class="p">,</span> <span class="n">assets</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">close</span><span class="p">,</span> <span class="n">fast_period</span><span class="p">,</span> <span class="n">slow_period</span><span class="p">,</span> <span class="n">signal_period</span>
+    <span class="p">):</span>
+        <span class="n">slow_EWMA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ewma</span><span class="p">(</span><span class="n">rolling_window</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">slow_period</span><span class="p">),</span> <span class="n">slow_period</span><span class="p">)</span>
         <span class="n">fast_EWMA</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ewma</span><span class="p">(</span>
-            <span class="n">rolling_window</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">fast_period</span><span class="p">)[</span><span class="o">-</span><span class="n">signal_period</span><span class="p">:],</span>
-            <span class="n">fast_period</span>
+            <span class="n">rolling_window</span><span class="p">(</span><span class="n">close</span><span class="p">,</span> <span class="n">fast_period</span><span class="p">)[</span><span class="o">-</span><span class="n">signal_period</span><span class="p">:],</span> <span class="n">fast_period</span>
         <span class="p">)</span>
         <span class="n">macd</span> <span class="o">=</span> <span class="n">fast_EWMA</span> <span class="o">-</span> <span class="n">slow_EWMA</span>
         <span class="n">out</span><span class="p">[:]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ewma</span><span class="p">(</span><span class="n">macd</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">signal_period</span><span class="p">)</span>
@@ -556,60 +550,41 @@
 <span class="n">MACDSignal</span> <span class="o">=</span> <span class="n">MovingAverageConvergenceDivergenceSignal</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

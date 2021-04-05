@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.finance.commission &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.finance.commission &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.finance.commission</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.finance.commission</h1><div class="highlight"><pre>
 <span></span><span class="c1">#</span>
 <span class="c1"># Copyright 2016 Quantopian, Inc.</span>
@@ -187,14 +185,14 @@
 <span class="kn">from</span> <span class="nn">zipline.finance.shared</span> <span class="kn">import</span> <span class="n">AllowedAssetMarker</span><span class="p">,</span> <span class="n">FinancialModelMeta</span>
 <span class="kn">from</span> <span class="nn">zipline.utils.dummy</span> <span class="kn">import</span> <span class="n">DummyMapping</span>
 
-<span class="n">DEFAULT_PER_SHARE_COST</span> <span class="o">=</span> <span class="mf">0.001</span>               <span class="c1"># 0.1 cents per share</span>
-<span class="n">DEFAULT_PER_CONTRACT_COST</span> <span class="o">=</span> <span class="mf">0.85</span>             <span class="c1"># $0.85 per future contract</span>
-<span class="n">DEFAULT_PER_DOLLAR_COST</span> <span class="o">=</span> <span class="mf">0.0015</span>             <span class="c1"># 0.15 cents per dollar</span>
+<span class="n">DEFAULT_PER_SHARE_COST</span> <span class="o">=</span> <span class="mf">0.001</span>  <span class="c1"># 0.1 cents per share</span>
+<span class="n">DEFAULT_PER_CONTRACT_COST</span> <span class="o">=</span> <span class="mf">0.85</span>  <span class="c1"># $0.85 per future contract</span>
+<span class="n">DEFAULT_PER_DOLLAR_COST</span> <span class="o">=</span> <span class="mf">0.0015</span>  <span class="c1"># 0.15 cents per dollar</span>
 <span class="n">DEFAULT_MINIMUM_COST_PER_EQUITY_TRADE</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># $0 per trade</span>
 <span class="n">DEFAULT_MINIMUM_COST_PER_FUTURE_TRADE</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># $0 per trade</span>
 
 
-<div class="viewcode-block" id="CommissionModel"><a class="viewcode-back" href="../../../appendix.html#zipline.finance.commission.CommissionModel">[docs]</a><span class="k">class</span> <span class="nc">CommissionModel</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">FinancialModelMeta</span><span class="p">)):</span>
+<div class="viewcode-block" id="CommissionModel"><a class="viewcode-back" href="../../../api-reference.html#zipline.finance.commission.CommissionModel">[docs]</a><span class="k">class</span> <span class="nc">CommissionModel</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">FinancialModelMeta</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Abstract base class for commission models.</span>
 
 <span class="sd">    Commission models are responsible for accepting order/transaction pairs and</span>
@@ -209,7 +207,7 @@
     <span class="c1"># Asset types that are compatible with the given model.</span>
     <span class="n">allowed_asset_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">Equity</span><span class="p">,</span> <span class="n">Future</span><span class="p">)</span>
 
-<div class="viewcode-block" id="CommissionModel.calculate"><a class="viewcode-back" href="../../../appendix.html#zipline.finance.commission.CommissionModel.calculate">[docs]</a>    <span class="nd">@abstractmethod</span>
+<div class="viewcode-block" id="CommissionModel.calculate"><a class="viewcode-back" href="../../../api-reference.html#zipline.finance.commission.CommissionModel.calculate">[docs]</a>    <span class="nd">@abstractmethod</span>
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">transaction</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the amount of commission to charge on ``order`` as a result</span>
@@ -234,7 +232,7 @@
 <span class="sd">            The additional commission, in dollars, that we should attribute to</span>
 <span class="sd">            this order.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;calculate&#39;</span><span class="p">)</span></div></div>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;calculate&quot;</span><span class="p">)</span></div></div>
 
 
 <span class="k">class</span> <span class="nc">NoCommission</span><span class="p">(</span><span class="n">CommissionModel</span><span class="p">):</span>
@@ -250,27 +248,27 @@
         <span class="k">return</span> <span class="mf">0.0</span>
 
 
-<span class="k">class</span> <span class="nc">EquityCommissionModel</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">AllowedAssetMarker</span><span class="p">,</span>
-                                           <span class="n">CommissionModel</span><span class="p">)):</span>
+<span class="c1"># todo: update to Python3</span>
+<span class="k">class</span> <span class="nc">EquityCommissionModel</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">AllowedAssetMarker</span><span class="p">,</span> <span class="n">CommissionModel</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for commission models which only support equities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">allowed_asset_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">Equity</span><span class="p">,)</span>
 
 
-<span class="k">class</span> <span class="nc">FutureCommissionModel</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">AllowedAssetMarker</span><span class="p">,</span>
-                                           <span class="n">CommissionModel</span><span class="p">)):</span>
+<span class="c1"># todo: update to Python3</span>
+<span class="k">class</span> <span class="nc">FutureCommissionModel</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">AllowedAssetMarker</span><span class="p">,</span> <span class="n">CommissionModel</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for commission models which only support futures.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">allowed_asset_types</span> <span class="o">=</span> <span class="p">(</span><span class="n">Future</span><span class="p">,)</span>
 
 
-<span class="k">def</span> <span class="nf">calculate_per_unit_commission</span><span class="p">(</span><span class="n">order</span><span class="p">,</span>
-                                  <span class="n">transaction</span><span class="p">,</span>
-                                  <span class="n">cost_per_unit</span><span class="p">,</span>
-                                  <span class="n">initial_commission</span><span class="p">,</span>
-                                  <span class="n">min_trade_cost</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">calculate_per_unit_commission</span><span class="p">(</span>
+    <span class="n">order</span><span class="p">,</span> <span class="n">transaction</span><span class="p">,</span> <span class="n">cost_per_unit</span><span class="p">,</span> <span class="n">initial_commission</span><span class="p">,</span> <span class="n">min_trade_cost</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    If there is a minimum commission:</span>
 <span class="sd">        If the order hasn&#39;t had a commission paid yet, pay the minimum</span>
@@ -291,10 +289,11 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># we&#39;ve already paid some commission, so figure out how much we</span>
         <span class="c1"># would be paying if we only counted per unit.</span>
-        <span class="n">per_unit_total</span> <span class="o">=</span> \
-            <span class="nb">abs</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">filled</span> <span class="o">*</span> <span class="n">cost_per_unit</span><span class="p">)</span> <span class="o">+</span> \
-            <span class="n">additional_commission</span> <span class="o">+</span> \
-            <span class="n">initial_commission</span>
+        <span class="n">per_unit_total</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="nb">abs</span><span class="p">(</span><span class="n">order</span><span class="o">.</span><span class="n">filled</span> <span class="o">*</span> <span class="n">cost_per_unit</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">additional_commission</span>
+            <span class="o">+</span> <span class="n">initial_commission</span>
+        <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">per_unit_total</span> <span class="o">&lt;</span> <span class="n">min_trade_cost</span><span class="p">:</span>
             <span class="c1"># if we haven&#39;t hit the minimum threshold yet, don&#39;t pay</span>
@@ -305,7 +304,7 @@
             <span class="k">return</span> <span class="n">per_unit_total</span> <span class="o">-</span> <span class="n">order</span><span class="o">.</span><span class="n">commission</span>
 
 
-<div class="viewcode-block" id="PerShare"><a class="viewcode-back" href="../../../appendix.html#zipline.finance.commission.PerShare">[docs]</a><span class="k">class</span> <span class="nc">PerShare</span><span class="p">(</span><span class="n">EquityCommissionModel</span><span class="p">):</span>
+<div class="viewcode-block" id="PerShare"><a class="viewcode-back" href="../../../api-reference.html#zipline.finance.commission.PerShare">[docs]</a><span class="k">class</span> <span class="nc">PerShare</span><span class="p">(</span><span class="n">EquityCommissionModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates a commission for a transaction based on a per share cost with</span>
 <span class="sd">    an optional minimum cost per trade.</span>
@@ -324,17 +323,18 @@
 <span class="sd">    This is zipline&#39;s default commission model for equities.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">cost</span><span class="o">=</span><span class="n">DEFAULT_PER_SHARE_COST</span><span class="p">,</span>
-                 <span class="n">min_trade_cost</span><span class="o">=</span><span class="n">DEFAULT_MINIMUM_COST_PER_EQUITY_TRADE</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">cost</span><span class="o">=</span><span class="n">DEFAULT_PER_SHARE_COST</span><span class="p">,</span>
+        <span class="n">min_trade_cost</span><span class="o">=</span><span class="n">DEFAULT_MINIMUM_COST_PER_EQUITY_TRADE</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cost_per_share</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">min_trade_cost</span> <span class="o">=</span> <span class="n">min_trade_cost</span> <span class="ow">or</span> <span class="mi">0</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
-            <span class="s1">&#39;</span><span class="si">{class_name}</span><span class="s1">(cost_per_share=</span><span class="si">{cost_per_share}</span><span class="s1">, &#39;</span>
-            <span class="s1">&#39;min_trade_cost=</span><span class="si">{min_trade_cost}</span><span class="s1">)&#39;</span>
-            <span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{class_name}</span><span class="s2">(cost_per_share=</span><span class="si">{cost_per_share}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;min_trade_cost=</span><span class="si">{min_trade_cost}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                 <span class="n">cost_per_share</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cost_per_share</span><span class="p">,</span>
                 <span class="n">min_trade_cost</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">min_trade_cost</span><span class="p">,</span>
@@ -373,10 +373,9 @@
 <span class="sd">        The minimum amount of commissions paid per trade.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                 <span class="n">cost</span><span class="p">,</span>
-                 <span class="n">exchange_fee</span><span class="p">,</span>
-                 <span class="n">min_trade_cost</span><span class="o">=</span><span class="n">DEFAULT_MINIMUM_COST_PER_FUTURE_TRADE</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="p">,</span> <span class="n">exchange_fee</span><span class="p">,</span> <span class="n">min_trade_cost</span><span class="o">=</span><span class="n">DEFAULT_MINIMUM_COST_PER_FUTURE_TRADE</span>
+    <span class="p">):</span>
         <span class="c1"># If &#39;cost&#39; or &#39;exchange fee&#39; are constants, use a dummy mapping to</span>
         <span class="c1"># treat them as a dictionary that always returns the same value.</span>
         <span class="c1"># NOTE: These dictionary does not handle unknown root symbols, so it</span>
@@ -398,7 +397,8 @@
             <span class="c1"># provide an exchange fee for a certain contract, fall back on the</span>
             <span class="c1"># pre-defined exchange fees per root symbol.</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_exchange_fee</span> <span class="o">=</span> <span class="n">merge</span><span class="p">(</span>
-                <span class="n">FUTURE_EXCHANGE_FEES_BY_SYMBOL</span><span class="p">,</span> <span class="n">exchange_fee</span><span class="p">,</span>
+                <span class="n">FUTURE_EXCHANGE_FEES_BY_SYMBOL</span><span class="p">,</span>
+                <span class="n">exchange_fee</span><span class="p">,</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">min_trade_cost</span> <span class="o">=</span> <span class="n">min_trade_cost</span> <span class="ow">or</span> <span class="mi">0</span>
@@ -406,20 +406,19 @@
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_contract</span><span class="p">,</span> <span class="n">DummyMapping</span><span class="p">):</span>
             <span class="c1"># Cost per contract is a constant, so extract it.</span>
-            <span class="n">cost_per_contract</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_contract</span><span class="p">[</span><span class="s1">&#39;dummy key&#39;</span><span class="p">]</span>
+            <span class="n">cost_per_contract</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_contract</span><span class="p">[</span><span class="s2">&quot;dummy key&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">cost_per_contract</span> <span class="o">=</span> <span class="s1">&#39;&lt;varies&gt;&#39;</span>
+            <span class="n">cost_per_contract</span> <span class="o">=</span> <span class="s2">&quot;&lt;varies&gt;&quot;</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exchange_fee</span><span class="p">,</span> <span class="n">DummyMapping</span><span class="p">):</span>
             <span class="c1"># Exchange fee is a constant, so extract it.</span>
-            <span class="n">exchange_fee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exchange_fee</span><span class="p">[</span><span class="s1">&#39;dummy key&#39;</span><span class="p">]</span>
+            <span class="n">exchange_fee</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exchange_fee</span><span class="p">[</span><span class="s2">&quot;dummy key&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">exchange_fee</span> <span class="o">=</span> <span class="s1">&#39;&lt;varies&gt;&#39;</span>
+            <span class="n">exchange_fee</span> <span class="o">=</span> <span class="s2">&quot;&lt;varies&gt;&quot;</span>
 
         <span class="k">return</span> <span class="p">(</span>
-            <span class="s1">&#39;</span><span class="si">{class_name}</span><span class="s1">(cost_per_contract=</span><span class="si">{cost_per_contract}</span><span class="s1">, &#39;</span>
-            <span class="s1">&#39;exchange_fee=</span><span class="si">{exchange_fee}</span><span class="s1">, min_trade_cost=</span><span class="si">{min_trade_cost}</span><span class="s1">)&#39;</span>
-            <span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="s2">&quot;</span><span class="si">{class_name}</span><span class="s2">(cost_per_contract=</span><span class="si">{cost_per_contract}</span><span class="s2">, &quot;</span>
+            <span class="s2">&quot;exchange_fee=</span><span class="si">{exchange_fee}</span><span class="s2">, min_trade_cost=</span><span class="si">{min_trade_cost}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
                 <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                 <span class="n">cost_per_contract</span><span class="o">=</span><span class="n">cost_per_contract</span><span class="p">,</span>
                 <span class="n">exchange_fee</span><span class="o">=</span><span class="n">exchange_fee</span><span class="p">,</span>
@@ -441,7 +440,7 @@
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="PerTrade"><a class="viewcode-back" href="../../../appendix.html#zipline.finance.commission.PerTrade">[docs]</a><span class="k">class</span> <span class="nc">PerTrade</span><span class="p">(</span><span class="n">CommissionModel</span><span class="p">):</span>
+<div class="viewcode-block" id="PerTrade"><a class="viewcode-back" href="../../../api-reference.html#zipline.finance.commission.PerTrade">[docs]</a><span class="k">class</span> <span class="nc">PerTrade</span><span class="p">(</span><span class="n">CommissionModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculates a commission for a transaction based on a per trade cost.</span>
 
@@ -464,8 +463,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{class_name}</span><span class="s1">(cost_per_trade=</span><span class="si">{cost}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">,</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{class_name}</span><span class="s2">(cost_per_trade=</span><span class="si">{cost}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">cost</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">transaction</span><span class="p">):</span>
@@ -501,22 +501,25 @@
         <span class="c1"># per-contract model because the exchange fee is just a one time cost</span>
         <span class="c1"># incurred on the first fill.</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PerFutureTrade</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">exchange_fee</span><span class="o">=</span><span class="n">cost</span><span class="p">,</span> <span class="n">min_trade_cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">exchange_fee</span><span class="o">=</span><span class="n">cost</span><span class="p">,</span>
+            <span class="n">min_trade_cost</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_trade</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exchange_fee</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_trade</span><span class="p">,</span> <span class="n">DummyMapping</span><span class="p">):</span>
             <span class="c1"># Cost per trade is a constant, so extract it.</span>
-            <span class="n">cost_per_trade</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_trade</span><span class="p">[</span><span class="s1">&#39;dummy key&#39;</span><span class="p">]</span>
+            <span class="n">cost_per_trade</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_per_trade</span><span class="p">[</span><span class="s2">&quot;dummy key&quot;</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">cost_per_trade</span> <span class="o">=</span> <span class="s1">&#39;&lt;varies&gt;&#39;</span>
-        <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{class_name}</span><span class="s1">(cost_per_trade=</span><span class="si">{cost_per_trade}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">cost_per_trade</span><span class="o">=</span><span class="n">cost_per_trade</span><span class="p">,</span>
+            <span class="n">cost_per_trade</span> <span class="o">=</span> <span class="s2">&quot;&lt;varies&gt;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{class_name}</span><span class="s2">(cost_per_trade=</span><span class="si">{cost_per_trade}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">cost_per_trade</span><span class="o">=</span><span class="n">cost_per_trade</span><span class="p">,</span>
         <span class="p">)</span>
 
 
-<div class="viewcode-block" id="PerDollar"><a class="viewcode-back" href="../../../appendix.html#zipline.finance.commission.PerDollar">[docs]</a><span class="k">class</span> <span class="nc">PerDollar</span><span class="p">(</span><span class="n">EquityCommissionModel</span><span class="p">):</span>
+<div class="viewcode-block" id="PerDollar"><a class="viewcode-back" href="../../../api-reference.html#zipline.finance.commission.PerDollar">[docs]</a><span class="k">class</span> <span class="nc">PerDollar</span><span class="p">(</span><span class="n">EquityCommissionModel</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Model commissions by applying a fixed cost per dollar transacted.</span>
 
@@ -526,6 +529,7 @@
 <span class="sd">        The flat amount of commissions paid per dollar of equities</span>
 <span class="sd">        traded. Default is a commission of $0.0015 per dollar transacted.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="n">DEFAULT_PER_DOLLAR_COST</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Cost parameter is the cost of a trade per-dollar. 0.0015</span>
@@ -535,8 +539,8 @@
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{class_name}</span><span class="s2">(cost_per_dollar=</span><span class="si">{cost}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="n">cost</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cost_per_dollar</span><span class="p">)</span>
+            <span class="n">class_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">cost</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cost_per_dollar</span>
+        <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">transaction</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -546,60 +550,41 @@
         <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">transaction</span><span class="o">.</span><span class="n">amount</span><span class="p">)</span> <span class="o">*</span> <span class="n">cost_per_share</span></div>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>

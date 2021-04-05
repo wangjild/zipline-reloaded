@@ -1,166 +1,164 @@
 
-
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>zipline.pipeline.term &mdash; Zipline 1.4.1 documentation</title>
-  
 
-  
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="../../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zipline.pipeline.term &#8212; Zipline 2.0.0rc4 documentation</title>
     
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.9cbddbe73919dad2dc02138ed54fcd50.css" rel="stylesheet" />
 
     
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-</head>
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-<body class="wy-body-for-nav">
-
-   
-  <div class="wy-grid-for-nav">
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../../../index.html" class="icon icon-home"> Zipline
-          
-
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                1.4.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../beginner-tutorial.html">Zipline Beginner Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../bundles.html">Data Bundles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../trading-calendars.html">Trading Calendars</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../risk-and-perf-metrics.html">Risk and Performance Metrics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development-guidelines.html">Development Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../appendix.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../release-process.html">Release Process</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../releases.html">Release Notes</a></li>
-</ul>
-
-            
-          
-        </div>
-        
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
       
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">Zipline</a>
-        
-      </nav>
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.a26b4849e0a18c48af57.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/zipline.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
 
 
-      <div class="wy-nav-content">
+    
+    <a class="navbar-brand" href="../../../index.html">
+      <p class="title">Zipline</p>
+    </a>
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../install.html">
+  Installation
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../beginner-tutorial.html">
+  Tutorial
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../bundles.html">
+  Data
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../trading-calendars.html">
+  Trading Calendars
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../risk-and-perf-metrics.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../api-reference.html">
+  API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../releases.html">
+  Releases
+ </a>
+</li>
+
         
-        <div class="rst-content">
-        
+      </ul>
+
+      <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/stefan-jansen/zipline-reloaded" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/ml4trading" rel="noopener" target="_blank" title="Twitter">
+            <span><i class="fab fa-twitter-square"></i></span>
+            <label class="sr-only">Twitter</label>
+          </a>
+        </li>
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+            </div>
+            
           
 
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
+<nav id="bd-toc-nav">
     
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>zipline.pipeline.term</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
+</nav>
 
-  
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+
+              
+          </div>
+          
+
+          
+          
             
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
   <h1>Source code for zipline.pipeline.term</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Base class for Filters, Factors and Classifiers</span>
@@ -212,7 +210,7 @@
 <span class="kn">from</span> <span class="nn">.sentinels</span> <span class="kn">import</span> <span class="n">NotSpecified</span>
 
 
-<div class="viewcode-block" id="Term"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.Term">[docs]</a><span class="k">class</span> <span class="nc">Term</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">ABCMeta</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
+<div class="viewcode-block" id="Term"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.Term">[docs]</a><span class="k">class</span> <span class="nc">Term</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">ABCMeta</span><span class="p">,</span> <span class="nb">object</span><span class="p">)):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Base class for objects that can appear in the compute graph of a</span>
 <span class="sd">    :class:`zipline.pipeline.Pipeline`.</span>
@@ -244,6 +242,7 @@
 <span class="sd">       Memoization of terms means that it&#39;s generally unsafe to modify</span>
 <span class="sd">       attributes of a term after construction.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># These are NotSpecified because a subclass is required to provide them.</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">NotSpecified</span>
     <span class="n">missing_value</span> <span class="o">=</span> <span class="n">NotSpecified</span>
@@ -263,15 +262,17 @@
 
     <span class="n">_term_cache</span> <span class="o">=</span> <span class="n">WeakValueDictionary</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">domain</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                <span class="n">missing_value</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                <span class="n">window_safe</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                <span class="n">ndim</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
-                <span class="c1"># params is explicitly not allowed to be passed to an instance.</span>
-                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">domain</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="n">missing_value</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="n">window_safe</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="n">ndim</span><span class="o">=</span><span class="n">NotSpecified</span><span class="p">,</span>
+        <span class="c1"># params is explicitly not allowed to be passed to an instance.</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Memoized constructor for Terms.</span>
 
@@ -309,22 +310,27 @@
             <span class="n">window_safe</span><span class="o">=</span><span class="n">window_safe</span><span class="p">,</span>
             <span class="n">ndim</span><span class="o">=</span><span class="n">ndim</span><span class="p">,</span>
             <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_term_cache</span><span class="p">[</span><span class="n">identity</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-            <span class="n">new_instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_term_cache</span><span class="p">[</span><span class="n">identity</span><span class="p">]</span> <span class="o">=</span> \
-                <span class="nb">super</span><span class="p">(</span><span class="n">Term</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span>
+            <span class="n">new_instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_term_cache</span><span class="p">[</span><span class="n">identity</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="nb">super</span><span class="p">(</span><span class="n">Term</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
+                <span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+                <span class="o">.</span><span class="n">_init</span><span class="p">(</span>
                     <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
                     <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
                     <span class="n">missing_value</span><span class="o">=</span><span class="n">missing_value</span><span class="p">,</span>
                     <span class="n">window_safe</span><span class="o">=</span><span class="n">window_safe</span><span class="p">,</span>
                     <span class="n">ndim</span><span class="o">=</span><span class="n">ndim</span><span class="p">,</span>
                     <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
-                    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+                    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                    <span class="o">**</span><span class="n">kwargs</span>
                 <span class="p">)</span>
+            <span class="p">)</span>
             <span class="k">return</span> <span class="n">new_instance</span>
 
     <span class="nd">@classmethod</span>
@@ -364,8 +370,7 @@
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
                     <span class="s2">&quot;</span><span class="si">{typename}</span><span class="s2"> expected a keyword parameter </span><span class="si">{name!r}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-                        <span class="n">typename</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-                        <span class="n">name</span><span class="o">=</span><span class="n">key</span>
+                        <span class="n">typename</span><span class="o">=</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">key</span>
                     <span class="p">)</span>
                 <span class="p">)</span>
             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
@@ -404,17 +409,12 @@
             <span class="k">raise</span> <span class="n">NonSliceableTerm</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span>
 
         <span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">SliceMixin</span>
+
         <span class="n">slice_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_with_mixin</span><span class="p">(</span><span class="n">SliceMixin</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">slice_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                         <span class="n">domain</span><span class="p">,</span>
-                         <span class="n">dtype</span><span class="p">,</span>
-                         <span class="n">missing_value</span><span class="p">,</span>
-                         <span class="n">window_safe</span><span class="p">,</span>
-                         <span class="n">ndim</span><span class="p">,</span>
-                         <span class="n">params</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">domain</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">missing_value</span><span class="p">,</span> <span class="n">window_safe</span><span class="p">,</span> <span class="n">ndim</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return the identity of the Term that would be constructed from the</span>
 <span class="sd">        given arguments.</span>
@@ -487,11 +487,7 @@
         <span class="c1"># call super().</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_subclass_called_super_validate</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">compute_extra_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-                           <span class="n">all_dates</span><span class="p">,</span>
-                           <span class="n">start_date</span><span class="p">,</span>
-                           <span class="n">end_date</span><span class="p">,</span>
-                           <span class="n">min_extra_rows</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">compute_extra_rows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">all_dates</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span> <span class="n">min_extra_rows</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the number of extra rows needed to compute ``self``.</span>
 
@@ -525,14 +521,14 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A tuple of other Terms needed as inputs for ``self``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;inputs&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;inputs&quot;</span><span class="p">)</span>
 
     <span class="nd">@abstractproperty</span>
     <span class="k">def</span> <span class="nf">windowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Boolean indicating whether this term is a trailing-window computation.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;windowed&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;windowed&quot;</span><span class="p">)</span>
 
     <span class="nd">@abstractproperty</span>
     <span class="k">def</span> <span class="nf">mask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -540,7 +536,7 @@
 <span class="sd">        A :class:`~zipline.pipeline.Filter` representing asset/date pairs to</span>
 <span class="sd">        while computing this Term. True means include; False means exclude.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;mask&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;mask&quot;</span><span class="p">)</span>
 
     <span class="nd">@abstractproperty</span>
     <span class="k">def</span> <span class="nf">dependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -548,17 +544,15 @@
 <span class="sd">        A dictionary mapping terms that must be computed before `self` to the</span>
 <span class="sd">        number of extra rows needed for those terms.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;dependencies&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;dependencies&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Term.graph_repr"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.Term.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;A short repr to use when rendering GraphViz graphs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Term.graph_repr"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.Term.graph_repr">[docs]</a>    <span class="k">def</span> <span class="nf">graph_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A short repr to use when rendering GraphViz graphs.&quot;&quot;&quot;</span>
         <span class="c1"># Default graph_repr is just the name of the type.</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span></div>
 
-<div class="viewcode-block" id="Term.recursive_repr"><a class="viewcode-back" href="../../../appendix.html#zipline.pipeline.Term.recursive_repr">[docs]</a>    <span class="k">def</span> <span class="nf">recursive_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;A short repr to use when recursively rendering terms with inputs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Term.recursive_repr"><a class="viewcode-back" href="../../../api-reference.html#zipline.pipeline.Term.recursive_repr">[docs]</a>    <span class="k">def</span> <span class="nf">recursive_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A short repr to use when recursively rendering terms with inputs.&quot;&quot;&quot;</span>
         <span class="c1"># Default recursive_repr is just the name of the type.</span>
         <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span></div></div>
 
@@ -580,6 +574,7 @@
 <span class="sd">    --------</span>
 <span class="sd">    zipline.assets.AssetFinder.lifetimes</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">bool_dtype</span>
     <span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">()</span>
@@ -606,6 +601,7 @@
 <span class="sd">    This term is guaranteed to be available as an input for any term computed</span>
 <span class="sd">    by SimplePipelineEngine.run_pipeline().</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">ndim</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">dataset</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">dtype</span> <span class="o">=</span> <span class="n">datetime64ns_dtype</span>
@@ -633,6 +629,7 @@
 
 <span class="sd">    This is the base class for :class:`zipline.pipeline.data.BoundColumn`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">windowed</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="n">inputs</span> <span class="o">=</span> <span class="p">()</span>
 
@@ -648,19 +645,23 @@
 <span class="sd">    This is the base class for :class:`zipline.pipeline.Factor`,</span>
 <span class="sd">    :class:`zipline.pipeline.Filter`, and :class:`zipline.pipeline.Classifier`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">inputs</span> <span class="o">=</span> <span class="n">NotSpecified</span>
     <span class="n">outputs</span> <span class="o">=</span> <span class="n">NotSpecified</span>
     <span class="n">window_length</span> <span class="o">=</span> <span class="n">NotSpecified</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">NotSpecified</span>
     <span class="n">domain</span> <span class="o">=</span> <span class="n">NotSpecified</span>
 
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
-                <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">,</span>
-                <span class="n">window_length</span><span class="o">=</span><span class="n">window_length</span><span class="p">,</span>
-                <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
-                <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
-                <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span>
+        <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">,</span>
+        <span class="n">window_length</span><span class="o">=</span><span class="n">window_length</span><span class="p">,</span>
+        <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+        <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span>
 
         <span class="k">if</span> <span class="n">inputs</span> <span class="ow">is</span> <span class="n">NotSpecified</span><span class="p">:</span>
             <span class="n">inputs</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">inputs</span>
@@ -701,7 +702,8 @@
             <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
             <span class="n">window_length</span><span class="o">=</span><span class="n">window_length</span><span class="p">,</span>
             <span class="n">domain</span><span class="o">=</span><span class="n">domain</span><span class="p">,</span>
-            <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">window_length</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -712,13 +714,7 @@
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">ComputableTerm</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_init</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span>
-                         <span class="n">inputs</span><span class="p">,</span>
-                         <span class="n">outputs</span><span class="p">,</span>
-                         <span class="n">window_length</span><span class="p">,</span>
-                         <span class="n">mask</span><span class="p">,</span>
-                         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-                         <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_static_identity</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="p">,</span> <span class="n">window_length</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">return</span> <span class="p">(</span>
             <span class="nb">super</span><span class="p">(</span><span class="n">ComputableTerm</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span><span class="o">.</span><span class="n">_static_identity</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
             <span class="n">inputs</span><span class="p">,</span>
@@ -749,16 +745,15 @@
             <span class="c1"># Raise an exception if there are any naming conflicts between the</span>
             <span class="c1"># term&#39;s output names and certain attributes.</span>
             <span class="n">disallowed_names</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ComputableTerm</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">attr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                <span class="n">attr</span> <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">ComputableTerm</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">attr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
             <span class="p">]</span>
 
             <span class="c1"># The name &#39;compute&#39; is an added special case that is disallowed.</span>
             <span class="c1"># Use insort to add it to the list in alphabetical order.</span>
-            <span class="n">insort</span><span class="p">(</span><span class="n">disallowed_names</span><span class="p">,</span> <span class="s1">&#39;compute&#39;</span><span class="p">)</span>
+            <span class="n">insort</span><span class="p">(</span><span class="n">disallowed_names</span><span class="p">,</span> <span class="s2">&quot;compute&quot;</span><span class="p">)</span>
 
             <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">outputs</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">disallowed_names</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">output</span> <span class="ow">in</span> <span class="n">disallowed_names</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="n">InvalidOutputName</span><span class="p">(</span>
                         <span class="n">output_name</span><span class="o">=</span><span class="n">output</span><span class="p">,</span>
                         <span class="n">termname</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
@@ -785,7 +780,7 @@
 <span class="sd">        ``compute`` is reserved for user-supplied functions in</span>
 <span class="sd">        CustomFilter/CustomFactor/CustomClassifier.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;_compute&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;_compute&quot;</span><span class="p">)</span>
 
     <span class="c1"># NOTE: This is a method rather than a property because ABCMeta tries to</span>
     <span class="c1">#       access all abstract attributes of its child classes to see if</span>
@@ -807,7 +802,7 @@
 <span class="sd">        that need to produce different output types depending on the type of</span>
 <span class="sd">        the receiver.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;_principal_computable_term_type&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;_principal_computable_term_type&quot;</span><span class="p">)</span>
 
     <span class="nd">@lazyval</span>
     <span class="k">def</span> <span class="nf">windowed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -820,10 +815,7 @@
 <span class="sd">        If term.windowed is falsey, its compute_from_baseline will be called</span>
 <span class="sd">        with instances of np.ndarray as inputs.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NotSpecified</span>
-            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span> <span class="o">&gt;</span> <span class="mi">0</span>
-        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">NotSpecified</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_length</span> <span class="o">&gt;</span> <span class="mi">0</span>
 
     <span class="nd">@lazyval</span>
     <span class="k">def</span> <span class="nf">dependencies</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -871,10 +863,15 @@
 <span class="sd">        workspace_value : array-like</span>
 <span class="sd">            An array like value that the engine can consume.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">missing_value</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
-            <span class="n">columns</span><span class="o">=</span><span class="n">assets</span><span class="p">,</span>
-            <span class="n">fill_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">missing_value</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">assets</span><span class="p">,</span>
+                <span class="n">fill_value</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">missing_value</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">values</span>
+        <span class="p">)</span>
 
     <span class="nd">@expect_downsample_frequency</span>
     <span class="nd">@templated_docstring</span><span class="p">(</span><span class="n">frequency</span><span class="o">=</span><span class="n">PIPELINE_DOWNSAMPLING_FREQUENCY_DOC</span><span class="p">)</span>
@@ -887,6 +884,7 @@
 <span class="sd">        {frequency}</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">DownsampledMixin</span>
+
         <span class="n">downsampled_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_with_mixin</span><span class="p">(</span><span class="n">DownsampledMixin</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">downsampled_type</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="n">frequency</span><span class="p">)</span>
 
@@ -909,6 +907,7 @@
 <span class="sd">        This is useful for giving a name to a numerical or boolean expression.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">AliasedMixin</span>
+
         <span class="n">aliased_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_with_mixin</span><span class="p">(</span><span class="n">AliasedMixin</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">aliased_type</span><span class="p">(</span><span class="n">term</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
 
@@ -1045,24 +1044,24 @@
     <span class="nd">@classlazyval</span>
     <span class="k">def</span> <span class="nf">_constant_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">ConstantMixin</span>
+
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_with_mixin</span><span class="p">(</span><span class="n">ConstantMixin</span><span class="p">)</span>
 
     <span class="nd">@classlazyval</span>
     <span class="k">def</span> <span class="nf">_if_else_type</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="kn">from</span> <span class="nn">.mixins</span> <span class="kn">import</span> <span class="n">IfElseMixin</span>
+
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_with_mixin</span><span class="p">(</span><span class="n">IfElseMixin</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">(</span>
-            <span class="s2">&quot;</span><span class="si">{type}</span><span class="s2">([</span><span class="si">{inputs}</span><span class="s2">], </span><span class="si">{window_length}</span><span class="s2">)&quot;</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{type}</span><span class="s2">([</span><span class="si">{inputs}</span><span class="s2">], </span><span class="si">{window_length}</span><span class="s2">)&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
             <span class="nb">type</span><span class="o">=</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
-            <span class="n">inputs</span><span class="o">=</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">recursive_repr</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">),</span>
+            <span class="n">inputs</span><span class="o">=</span><span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">recursive_repr</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">inputs</span><span class="p">),</span>
             <span class="n">window_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">window_length</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">recursive_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;(...)&#39;</span>
+        <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s2">&quot;(...)&quot;</span>
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">_with_mixin</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">mixin_type</span><span class="p">):</span>
@@ -1136,8 +1135,9 @@
     <span class="n">label_types</span> <span class="o">=</span> <span class="n">LabelArray</span><span class="o">.</span><span class="n">SUPPORTED_SCALAR_TYPES</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">label_types</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-            <span class="s2">&quot;String-dtype classifiers can only produce strings or None.&quot;</span>
-            <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">types</span><span class="o">=</span><span class="s1">&#39; or &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">label_types</span><span class="p">]))</span>
+            <span class="s2">&quot;String-dtype classifiers can only produce strings or None.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">types</span><span class="o">=</span><span class="s2">&quot; or &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="vm">__name__</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">label_types</span><span class="p">])</span>
+            <span class="p">)</span>
         <span class="p">)</span>
 
 
@@ -1157,63 +1157,44 @@
         <span class="c1"># misleading, since it does allow conversion between different dtype</span>
         <span class="c1"># kinds in some cases. In particular, conversion from int to float is</span>
         <span class="c1"># allowed.</span>
-        <span class="k">return</span> <span class="n">array</span><span class="p">([</span><span class="n">value</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s1">&#39;same_kind&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">array</span><span class="p">([</span><span class="n">value</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;same_kind&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
-           </div>
-           
-          </div>
-          <footer>
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
 
-  <hr/>
+              </div>
+              
+          </main>
+          
 
-  <div role="contentinfo">
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.a26b4849e0a18c48af57.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-74956955-3', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
     <p>
-        &#169; Copyright 2020, Quantopian Inc..
-
+          &copy; Copyright 2020, Quantopian Inc..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.3.<br/>
     </p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
 </footer>
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-  
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script>
-
-  
-  
-    
-    <!-- Theme Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-74956955-3', 'auto');
-    
-    ga('send', 'pageview');
-    </script>
-
-    
-   
-
-</body>
+  </body>
 </html>
