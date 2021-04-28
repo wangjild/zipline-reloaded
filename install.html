@@ -185,8 +185,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#osx">
-     OSX
+    <a class="reference internal nav-link" href="#macos">
+     macOS
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -240,9 +240,11 @@
 <span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>You can install Zipline either using <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>, the Python package installer, or
 <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/index.html">conda</a>, the package and environment management system
-that runs on Windows, macOS, and Linux.</p>
+that runs on Windows, macOS, and Linux. In case you are installing <cite>zipline-reloaded</cite> alongside other packages and
+encounter [conflict errors](<a class="reference external" href="https://github.com/conda/conda/issues/9707">https://github.com/conda/conda/issues/9707</a>), consider using
+[mamba](<a class="reference external" href="https://github.com/mamba-org/mamba">https://github.com/mamba-org/mamba</a>) instead.</p>
 <p>Zipline runs on Python 3.7, 3.8 and 3.9. To install and use different Python versions in parallel as well as create
-a virtual environment, you could use, for example, <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>.</p>
+a virtual environment, you may want to use <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>.</p>
 <div class="section" id="installing-with-pip">
 <h2>Installing with <code class="docutils literal notranslate"><span class="pre">pip</span></code><a class="headerlink" href="#installing-with-pip" title="Permalink to this headline">¶</a></h2>
 <p>Installing Zipline via <code class="docutils literal notranslate"><span class="pre">pip</span></code> is slightly more involved than the average Python package.</p>
@@ -307,14 +309,16 @@ $ sudo make install
 <p>This will allow you to install the Python wrapper with <code class="docutils literal notranslate"><span class="pre">pip</span></code> as expected by the binary wheel.</p>
 </div>
 </div>
-<div class="section" id="osx">
-<h3>OSX<a class="headerlink" href="#osx" title="Permalink to this headline">¶</a></h3>
-<p>The version of Python shipped with OSX by default is generally out of date, and
-has a number of quirks because it’s used directly by the operating system.  For
+<div class="section" id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Permalink to this headline">¶</a></h3>
+<p>The version of Python shipped with macOS is generally out of date, and
+has a number of quirks because it’s used directly by the operating system. For
 these reasons, many developers choose to install and use a separate Python
-installation. The <a class="reference external" href="https://docs.python-guide.org/en/latest/">Hitchhiker’s Guide to Python</a> provides an excellent guide
-to <a class="reference external" href="https://docs.python-guide.org/en/latest/">Installing Python on OSX</a>, which
-explains how to install Python with the <a class="reference external" href="https://brew.sh/">Homebrew</a> manager.</p>
+installation.</p>
+<p>The <a class="reference external" href="https://docs.python-guide.org/en/latest/">Hitchhiker’s Guide to Python</a> provides an excellent guide
+to <a class="reference external" href="https://docs.python-guide.org/en/latest/">Installing Python on macOS</a>, which
+explains how to install Python with the <a class="reference external" href="https://brew.sh/">Homebrew</a> manager. Alternatively,
+you could use <a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a>.</p>
 <p>Assuming you’ve installed Python with <code class="docutils literal notranslate"><span class="pre">brew</span></code>, you’ll also likely need the
 following packages:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ brew install freetype pkg-config gcc openssl hdf5 ta-lib
@@ -328,7 +332,7 @@ following packages:</p>
 </div>
 </div>
 <div class="section" id="installing-with-conda">
-<span id="id2"></span><h2>Installing with <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#installing-with-conda" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>Installing with <code class="docutils literal notranslate"><span class="pre">conda</span></code><a class="headerlink" href="#installing-with-conda" title="Permalink to this headline">¶</a></h2>
 <p>Another way to install Zipline is via the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package manager, which
 comes as part of the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> distribution. Alternatively, you can use
 the related but more lightweight <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html#">Miniconda</a>  or
@@ -339,7 +343,12 @@ understands the complex binary dependencies of packages like <code class="docuti
 without requiring the use of a second tool to acquire Zipline’s non-Python
 dependencies.</p>
 <p>For instructions on how to install <code class="docutils literal notranslate"><span class="pre">conda</span></code>, see the <a class="reference external" href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html">Conda Installation
-Documentation</a></p>
+Documentation</a>.</p>
+<p>Unfortunately, as of April 2021, <code class="docutils literal notranslate"><span class="pre">conda</span></code> produces numerous false
+positive [conflict errors](<a class="reference external" href="https://github.com/conda/conda/issues/9707">https://github.com/conda/conda/issues/9707</a>)
+while working to identify dependencies. Should this be your experience, consider
+[mamba](<a class="reference external" href="https://github.com/mamba-org/mamba">https://github.com/mamba-org/mamba</a>) instead, which works much faster and
+reliably in most cases.</p>
 <p>Once <code class="docutils literal notranslate"><span class="pre">conda</span></code> has been set up you can install Zipline from the <code class="docutils literal notranslate"><span class="pre">ml4t</span></code> channel
 (assuming you are listing additional channels like <a class="reference external" href="https://conda-forge.org/">conda-forge</a>
 in your <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html">.condarc</a> configuration file):</p>
@@ -347,7 +356,7 @@ in your <a class="reference external" href="https://docs.conda.io/projects/conda
 </pre></div>
 </div>
 <div class="section" id="managing-conda-environments">
-<span id="id4"></span><h3>Managing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments<a class="headerlink" href="#managing-conda-environments" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>Managing <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments<a class="headerlink" href="#managing-conda-environments" title="Permalink to this headline">¶</a></h3>
 <p>It is recommended to install Zipline in an isolated <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment.
 Installing Zipline in <code class="docutils literal notranslate"><span class="pre">conda</span></code> environments will not interfere your default
 Python deployment or site-packages, which will prevent any possible conflict

@@ -356,7 +356,7 @@ called at all.</p>
 <p><code class="docutils literal notranslate"><span class="pre">trading_calendar</span></code> is an instance of
 <a class="reference internal" href="api-reference.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
 being used by the simulation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
+<p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
 labels, in sorted order, that the simulation will execute.</p>
 <p><code class="docutils literal notranslate"><span class="pre">benchmark_source</span></code> is an instance of
 <a class="reference internal" href="api-reference.html#zipline.sources.benchmark_source.BenchmarkSource" title="zipline.sources.benchmark_source.BenchmarkSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">BenchmarkSource</span></code></a> which is the
@@ -384,7 +384,7 @@ metric into.</p>
 <p><code class="docutils literal notranslate"><span class="pre">trading_calendar</span></code> is an instance of
 <a class="reference internal" href="api-reference.html#zipline.utils.calendars.TradingCalendar" title="zipline.utils.calendars.TradingCalendar"><code class="xref py py-class docutils literal notranslate"><span class="pre">TradingCalendar</span></code></a> which is the trading calendar
 being used by the simulation.</p>
-<p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
+<p><code class="docutils literal notranslate"><span class="pre">sessions</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DatetimeIndex.html#pandas.DatetimeIndex" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pandas.DatetimeIndex</span></code></a> which is holds the session
 labels, in sorted order, that the simulation has executed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data.</p>
@@ -410,7 +410,7 @@ occurs.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
+<p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
 session which is about to run.</p>
 <p><code class="docutils literal notranslate"><span class="pre">data_portal</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.data.data_portal.DataPortal" title="zipline.data.data_portal.DataPortal"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataPortal</span></code></a>
 which is the metric’s interface to pricing data.</p>
@@ -434,7 +434,7 @@ to the current time.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
+<p><code class="docutils literal notranslate"><span class="pre">session_label</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of the
 session which is has just completed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_ix</span></code> is an <a class="reference external" href="https://docs.python.org/dev/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which is the index of the current trading
 session being run. This is provided to allow for efficient access to the daily
@@ -465,7 +465,7 @@ to the current time.</p>
 <p><code class="docutils literal notranslate"><span class="pre">ledger</span></code> is an instance of <a class="reference internal" href="api-reference.html#zipline.finance.ledger.Ledger" title="zipline.finance.ledger.Ledger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ledger</span></code></a> which is
 maintaining the simulation’s state. This may be used to lookup the algorithm’s
 current portfolio values.</p>
-<p><code class="docutils literal notranslate"><span class="pre">dt</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.3)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of bar that has just
+<p><code class="docutils literal notranslate"><span class="pre">dt</span></code> is a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Timestamp.html#pandas.Timestamp" title="(in pandas v1.2.4)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Timestamp</span></code></a> which is the label of bar that has just
 completed.</p>
 <p><code class="docutils literal notranslate"><span class="pre">session_ix</span></code> is an <a class="reference external" href="https://docs.python.org/dev/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> which is the index of the current trading
 session being run. This is provided to allow for efficient access to the daily
