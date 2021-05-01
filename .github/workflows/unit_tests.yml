@@ -3,7 +3,7 @@ name: CI Tests
 on:
   push:
     branches:
-      - ci
+      - ci_test
   pull_request:
     branches:
       - main
