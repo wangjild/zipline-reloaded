@@ -84,4 +84,4 @@ jobs:
 
       - name: Unittests with tox & pytest
         run: |
-          tox -p auto -q
+          tox
