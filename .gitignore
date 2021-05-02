@@ -78,6 +78,13 @@ TAGS
 .gdb_history
 
 *.dSYM/
+
+# Vscode custome settings
+.vscode
+
+# Python Virtual envs
+.venv
+
 revision
 .python-version
 conda
@@ -85,10 +92,4 @@ archive
 
 conda/ta-lib
 conda/logbook
-
-# Vscode custome settings
-.vscode
-
-# Python Virtual envs
-.venv
-Pipfile
+.pytest_cache
