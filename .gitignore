@@ -87,7 +87,7 @@ TAGS
 
 revision
 .python-version
-conda
+condag
 archive
 
 conda/ta-lib

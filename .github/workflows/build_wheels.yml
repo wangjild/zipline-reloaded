@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - ci_test
-#    tags:
-#      - '**'           # Push events to every tag including hierarchical tags like v1.0/beta
+    tags:
+      - '**'           # Push events to every tag including hierarchical tags like v1.0/beta
 
 jobs:
   build_wheels:
