@@ -15,17 +15,18 @@ build:
   skip: true # [py<37 or not x86_64]
   entry_points:
     - zipline = zipline.__main__:main
-  script: {{ PYTHON }} -m pip install . -vv
+#  script: {{ PYTHON }} -m pip install . -vv
+  script: python -m pip install . -vv
   include_recipe: False
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+#  - python >=3.9                                # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]      -
     - {{ compiler('c') }}
   host:
-    - python
+#    - python >=3.9
     - cython
     - numpy
     - pip
@@ -47,7 +48,8 @@ requirements:
     - numexpr >=2.6.1
     - pandas >=1.1.0
     - patsy >=0.4.0
-    - python >=3.7
+    - pytables >=3.4.3
+#    - python >=3.9
     - python-dateutil >=2.4.2
     - python-interface >=1.5.3
     - pytz >=2018.5
@@ -65,7 +67,6 @@ test:
   commands:
     - pip check
     - python -c "import zipline; print(zipline.__version__)"
-    - conda update --all -y
   requires:
     - pip
 
