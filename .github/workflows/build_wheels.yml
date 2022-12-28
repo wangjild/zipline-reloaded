@@ -1,110 +1,116 @@
 name: PyPI
 
 on:
-  push:
-    branches:
-      - main
-    tags:
-      - '**'           # Push events to every tag including hierarchical tags like v1.0/beta
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Package Index'
+        required: true
+        default: 'TESTPYPI'
 
 jobs:
   build_wheels:
-    name: py${{ matrix.python }} on ${{ matrix.os }} using ${{ matrix.platform_id }}-${{ matrix.manylinux_image }}
+    name: Wheels for py${{ matrix.python }} on ${{ matrix.os }} - upload to ${{github.event.inputs.target}}
     runs-on: ${{ matrix.os }}
-    env:
-      CIBW_BEFORE_TEST_LINUX: >
-        curl -L -o ta-lib-0.4.0-src.tar.gz  http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz &&
-        tar xvfz ta-lib-0.4.0-src.tar.gz &&
-        cd ta-lib &&
-        ./configure &&
-        make &&
-        make install &&
-        ldconfig
-      CIBW_BEFORE_TEST_MACOS: >
-        brew install freetype pkg-config gcc openssl hdf5 ta-lib
-      CIBW_TEST_COMMAND: python -c "import zipline; print(zipline.__version__)"
-      CIBW_TEST_EXTRAS: test
-      CIBW_BUILD_VERBOSITY: 1
-
     strategy:
-      # Ensure that a wheel builders continue even if another fails
       fail-fast: false
       matrix:
-        os: [ macos-latest, ubuntu-latest ]
-        python: [ 37, 38, 39 ]
-        manylinux_image: [ manylinux2010, manylinux2014 ]
-        include:
-          - os: macos-latest
-            platform_id: macosx_x86_64
-          - os: ubuntu-latest
-            platform_id: manylinux_x86_64
-        exclude:
-          - os: macos-latest
-            manylinux_image: manylinux2010
+        os: [ ubuntu-latest , windows-latest, macos-latest ]
+        python: [ 37, 38, 39, '310' ]
+        arch: [ auto64 ]
 
     steps:
       - name: Checkout zipline
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-      - name: Build and test wheels
-        uses: joerick/cibuildwheel@v1.11.1
+      - name: Set Xcode version
+        uses: maxim-lobanov/setup-xcode@v1
+        if: ${{ matrix.os == 'macos-latest' }}
+        with:
+          xcode-version: latest-stable
+
+      - name: Wheels macOS / Linux
+        if: runner.os != 'Windows'
+        uses: pypa/cibuildwheel@v2.11.2
         env:
-          CIBW_ENVIRONMENT: MACOSX_DEPLOYMENT_TARGET=10.14
-          CIBW_BUILD: cp${{ matrix.python }}-${{ matrix.platform_id }}
+          CIBW_BEFORE_ALL_LINUX: >
+            ./tools/install_talib.sh
+          CIBW_BEFORE_TEST_MACOS: brew install ta-lib
+          CIBW_ARCHS_LINUX: ${{ matrix.arch }}
+          CIBW_ARCHS_MACOS: x86_64 arm64
+          CIBW_BUILD: "cp${{ matrix.python }}-*"
+          CIBW_SKIP: "*-musllinux_*"
+          CIBW_ENVIRONMENT_MACOS: MACOSX_DEPLOYMENT_TARGET=10.15
+
+      - name: Install MSVC amd64
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: amd64
+
+      - name: Wheels Windows
+        if: runner.os == 'Windows'
+        uses: pypa/cibuildwheel@v2.11.2
+        env:
+          CIBW_BUILD: "cp${{ matrix.python }}-win_amd64"
+          CIBW_BEFORE_TEST_WINDOWS: >
+            call "c:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" amd64 &&
+            call ./tools/install_talib.bat
 
       - name: Store artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          path: wheelhouse/*.whl
+          path: ./wheelhouse/*.whl
+
 
   build_sdist:
     name: Build source distribution
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v4
         name: Install Python
         with:
-          python-version: '3.8'
+          python-version: '3.9'
 
       - name: Build sdist
         run: |
           pip install -U pip setuptools build
           python -m build --sdist
 
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         with:
           path: dist/*.tar.gz
 
   upload_pypi:
     needs: [ build_wheels, build_sdist ]
     runs-on: ubuntu-latest
-    # upload to (Test)-PyPI on push with tag
-    if: startsWith(github.ref, 'refs/tags')
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: artifact
           path: dist
 
       - name: publish to testpypi
-        uses: pypa/gh-action-pypi-publish@master
-        if: startsWith(github.event.head_commit.message, 'TEST')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        if: ${{ github.event.inputs.target }} == 'TESTPYPI'
         with:
           user: __token__
           password: ${{ secrets.TESTPYPI_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
+
       - name: publish to pypi
-        uses: pypa/gh-action-pypi-publish@master
-        if: startsWith(github.event.head_commit.message, 'PYPI')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        if: ${{ github.event.inputs.target }} == 'PYPI' && startsWith(github.ref, 'refs/tags'
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}

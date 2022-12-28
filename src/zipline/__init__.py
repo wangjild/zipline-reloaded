@@ -12,13 +12,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-from distutils.version import StrictVersion
+from packaging.version import Version
 import os
 import numpy as np
 
 # This is *not* a place to dump arbitrary classes/modules for convenience,
 # it is a place to expose the public interfaces.
-from trading_calendars import get_calendar
+from zipline.utils.calendar_utils import get_calendar
 
 from . import data
 from . import finance
@@ -37,7 +37,7 @@ from zipline.finance.blotter import Blotter
 # PERF: Fire a warning if calendars were instantiated during zipline import.
 # Having calendars doesn't break anything per-se, but it makes zipline imports
 # noticeably slower, which becomes particularly noticeable in the Zipline CLI.
-from trading_calendars.calendar_utils import global_calendar_dispatcher
+from zipline.utils.calendar_utils import global_calendar_dispatcher
 
 if global_calendar_dispatcher._calendars:
     import warnings
@@ -49,10 +49,12 @@ if global_calendar_dispatcher._calendars:
     del warnings
 del global_calendar_dispatcher
 
-from ._version import get_versions  # noqa 402
-
-__version__ = get_versions()["version"]
-del get_versions
+try:
+    from ._version import version as __version__
+    from ._version import version_tuple
+except ImportError:
+    __version__ = "unknown version"
+    version_tuple = (0, 0, "unknown version")
 
 extension_args = ext.Namespace()
 
@@ -99,12 +101,12 @@ def setup(
     self,
     np=np,
     numpy_version=numpy_version,
-    StrictVersion=StrictVersion,
+    Version=Version,
     new_pandas=new_pandas,
 ):
     """Lives in zipline.__init__ for doctests."""
 
-    if numpy_version >= StrictVersion("1.14"):
+    if numpy_version >= Version("1.14"):
         self.old_opts = np.get_printoptions()
         np.set_printoptions(legacy="1.13")
     else:
@@ -131,5 +133,5 @@ def teardown(self, np=np):
 del os
 del np
 del numpy_version
-del StrictVersion
+del Version
 del new_pandas
