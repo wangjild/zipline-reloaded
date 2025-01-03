@@ -1,6 +1,7 @@
 """
 Helpers for downsampling code.
 """
+
 from toolz import compose
 from operator import attrgetter, methodcaller
 
@@ -56,6 +57,4 @@ def select_sampling_indices(dates, frequency):
     ``np.diff(dates.<frequency>)`` to find dates where the sampling
     period has changed.
     """
-    return changed_locations(
-        _dt_to_period[frequency](dates), include_first=True
-    )
+    return changed_locations(_dt_to_period[frequency](dates), include_first=True)

@@ -1,6 +1,7 @@
 """
 Dependency-Graph representation of Pipeline API terms.
 """
+
 import uuid
 
 import networkx as nx
@@ -23,7 +24,7 @@ class CyclicDependency(Exception):
 SCREEN_NAME = "screen_" + uuid.uuid4().hex
 
 
-class TermGraph(object):
+class TermGraph:
     """
     An abstract representation of Pipeline Term dependencies.
 
@@ -285,7 +286,7 @@ class ExecutionPlan(TermGraph):
 
         self.domain = domain
 
-        sessions = domain.all_sessions()
+        sessions = domain.sessions()
         for term in terms.values():
             self.set_extra_rows(
                 term,

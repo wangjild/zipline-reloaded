@@ -1,8 +1,7 @@
 import numpy as np
 import pandas as pd
-import talib
 from numpy.random import RandomState
-
+from packaging.version import Version
 from zipline.lib.adjusted_array import AdjustedArray
 from zipline.pipeline.data import USEquityPricing
 from zipline.pipeline.factors import (
@@ -22,6 +21,14 @@ from zipline.testing.predicates import assert_equal
 from .base import BaseUSEquityPipelineTestCase
 import pytest
 import re
+
+# talib is not yet compatible with numpy 2.0, and also now optional.
+NUMPY2 = Version(np.__version__) >= Version("2.0.0")
+if not NUMPY2:
+    try:
+        import talib
+    except ImportError:
+        talib = None
 
 
 class BollingerBandsTestCase(BaseUSEquityPipelineTestCase):
@@ -75,6 +82,7 @@ class BollingerBandsTestCase(BaseUSEquityPipelineTestCase):
         mask_last_sid={True, False},
         __fail_fast=True,
     )
+    @pytest.mark.skipif(NUMPY2 or talib is None, reason="requires numpy 1.0")
     def test_bollinger_bands(self, window_length, k, mask_last_sid):
         closes = self.closes(mask_last_sid=mask_last_sid)
         mask = ~np.isnan(closes)
@@ -143,9 +151,7 @@ class TestAroon:
                 np.recarray(
                     shape=(nassets,),
                     dtype=dtype,
-                    buf=np.array(
-                        [100 * 3 / 9, 100 * 5 / 9] * nassets, dtype="f8"
-                    ),
+                    buf=np.array([100 * 3 / 9, 100 * 5 / 9] * nassets, dtype="f8"),
                 ),
             ),
         ],
@@ -196,6 +202,7 @@ class TestFastStochasticOscillator:
             range(5),
         ],
     )
+    @pytest.mark.skipif(NUMPY2 or talib is None, reason="requires numpy 1.0")
     def test_fso_expected_with_talib(self, seed):
         """
         Test the output that is returned from the fast stochastic oscillator
@@ -367,7 +374,7 @@ class TestRateOfChangePercentage:
             ([2.0] * 10, 0.0, "constant"),
             ([2.0] + [1.0] * 9, -50.0, "step"),
             ([2.0 + x for x in range(10)], 450.0, "linear"),
-            ([2.0 + x ** 2 for x in range(10)], 4050.0, "quadratic"),
+            ([2.0 + x**2 for x in range(10)], 4050.0, "quadratic"),
         ],
     )
     def test_rate_of_change_percentage(self, data, expected, test_name):
@@ -471,19 +478,13 @@ class TestMovingAverageConvergenceDivergence:
             "MACDSignal() expected a value greater than or equal to 1"
             " for argument %r, but got 0 instead."
         )
-        with pytest.raises(
-            ValueError, match=re.escape(template % "fast_period")
-        ):
+        with pytest.raises(ValueError, match=re.escape(template % "fast_period")):
             MovingAverageConvergenceDivergenceSignal(fast_period=0)
 
-        with pytest.raises(
-            ValueError, match=re.escape(template % "slow_period")
-        ):
+        with pytest.raises(ValueError, match=re.escape(template % "slow_period")):
             MovingAverageConvergenceDivergenceSignal(slow_period=0)
 
-        with pytest.raises(
-            ValueError, match=re.escape(template % "signal_period")
-        ):
+        with pytest.raises(ValueError, match=re.escape(template % "signal_period")):
             MovingAverageConvergenceDivergenceSignal(signal_period=0)
 
         err_msg = (
@@ -568,7 +569,6 @@ class TestRSI:
         ],
     )
     def test_rsi(self, seed_value, expected):
-
         rsi = RSI()
 
         today = np.datetime64(1, "ns")
@@ -665,9 +665,7 @@ class TestAnnualizedVolatility:
         ann_vol = AnnualizedVolatility()
         today = pd.Timestamp("2016", tz="utc")
         assets = np.arange(nassets, dtype=np.float64)
-        returns = np.full(
-            (ann_vol.window_length, nassets), 0.004, dtype=np.float64
-        )
+        returns = np.full((ann_vol.window_length, nassets), 0.004, dtype=np.float64)
         out = np.empty(shape=(nassets,), dtype=np.float64)
 
         ann_vol.compute(today, assets, out, returns, 252)

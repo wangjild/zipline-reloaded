@@ -1,6 +1,7 @@
 """
 filter.py
 """
+
 from itertools import chain
 from operator import attrgetter
 
@@ -541,19 +542,19 @@ class CustomFilter(PositiveWindowLengthMixin, CustomTermMixin, Filter):
     def _validate(self):
         try:
             super(CustomFilter, self)._validate()
-        except UnsupportedDataType:
+        except UnsupportedDataType as exc:
             if self.dtype in CLASSIFIER_DTYPES:
                 raise UnsupportedDataType(
                     typename=type(self).__name__,
                     dtype=self.dtype,
                     hint="Did you mean to create a CustomClassifier?",
-                )
+                ) from exc
             elif self.dtype in FACTOR_DTYPES:
                 raise UnsupportedDataType(
                     typename=type(self).__name__,
                     dtype=self.dtype,
                     hint="Did you mean to create a CustomFactor?",
-                )
+                ) from exc
             raise
 
 

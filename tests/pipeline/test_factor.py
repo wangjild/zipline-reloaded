@@ -1,59 +1,56 @@
 """
 Tests for Factor terms.
 """
+
+import re
+import sys
 from functools import partial
 from itertools import product
-from parameterized import parameterized
 from unittest import skipIf
-
-from toolz import compose
 import numpy as np
+import pandas as pd
+import pytest
 from numpy import nan
 from numpy.random import randn, seed
-import pandas as pd
+from parameterized import parameterized
 from scipy.stats.mstats import winsorize as scipy_winsorize
-
+from toolz import compose
 from zipline.errors import BadPercentileBounds, UnknownRankMethod
 from zipline.lib.labelarray import LabelArray
-from zipline.lib.rank import masked_rankdata_2d
 from zipline.lib.normalize import naive_grouped_rowwise_apply as grouped_apply
+from zipline.lib.rank import masked_rankdata_2d
 from zipline.pipeline import Classifier, Factor, Filter, Pipeline
-from zipline.pipeline.data import DataSet, Column, EquityPricing
-from zipline.pipeline.factors import (
-    CustomFactor,
-    DailyReturns,
-    Returns,
-    PercentChange,
-)
-from zipline.pipeline.factors.factor import (
-    summary_funcs,
-    winsorize as zp_winsorize,
-)
-from zipline.testing import (
-    check_allclose,
-    check_arrays,
-    parameter_space,
-    permute_rows,
-)
-from zipline.testing.fixtures import (
-    WithUSEquityPricingPipelineEngine,
-    ZiplineTestCase,
-)
+from zipline.pipeline.data import Column, DataSet, EquityPricing
+from zipline.pipeline.factors import CustomFactor, DailyReturns, PercentChange, Returns
+from zipline.pipeline.factors.factor import summary_funcs
+from zipline.pipeline.factors.factor import winsorize as zp_winsorize
+from zipline.testing import check_allclose, check_arrays, parameter_space, permute_rows
+from zipline.testing.fixtures import WithUSEquityPricingPipelineEngine, ZiplineTestCase
+from zipline.testing.github_actions import skip_on
 from zipline.testing.predicates import assert_equal
+from zipline.utils.math_utils import nanmean, nanstd
 from zipline.utils.numpy_utils import (
+    NaTns,
     as_column,
     categorical_dtype,
     datetime64ns_dtype,
     float64_dtype,
     int64_dtype,
-    NaTns,
 )
-from zipline.utils.math_utils import nanmean, nanstd
 from zipline.utils.pandas_utils import new_pandas, skip_pipeline_new_pandas
 
 from .base import BaseUSEquityPipelineTestCase
-import pytest
-import re
+from packaging.version import Version
+
+from .test_statistical import ON_GITHUB_ACTIONS
+
+NUMPY2 = Version(np.__version__) >= Version("2.0.0")
+
+pandas_two_point_two = False
+if Version(pd.__version__) >= Version("2.2"):
+    # pandas 2.2.0 has a bug in qcut that causes it to return a Series with
+    # the wrong dtype when labels=False.
+    pandas_two_point_two = True
 
 
 class F(Factor):
@@ -203,7 +200,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
 
     @for_each_factor_dtype
     def test_rank_ascending(self, name, factor_dtype):
-
         f = F(dtype=factor_dtype)
 
         # Generated with:
@@ -283,7 +279,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
 
     @for_each_factor_dtype
     def test_rank_descending(self, name, factor_dtype):
-
         f = F(dtype=factor_dtype)
 
         # Generated with:
@@ -360,7 +355,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
 
     @for_each_factor_dtype
     def test_rank_after_mask(self, name, factor_dtype):
-
         f = F(dtype=factor_dtype)
         # data = arange(25).reshape(5, 5).transpose() % 4
         data = np.array(
@@ -433,7 +427,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
 
     @for_each_factor_dtype
     def test_grouped_rank_ascending(self, name, factor_dtype=float64_dtype):
-
         f = F(dtype=factor_dtype)
         c = C()
         str_c = C(dtype=categorical_dtype, missing_value=None)
@@ -552,7 +545,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
 
     @for_each_factor_dtype
     def test_grouped_rank_descending(self, name, factor_dtype):
-
         f = F(dtype=factor_dtype)
         c = C()
         str_c = C(dtype=categorical_dtype, missing_value=None)
@@ -673,7 +665,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
         ]
     )
     def test_returns(self, seed_value, window_length):
-
         returns = Returns(window_length=window_length)
 
         today = np.datetime64(1, "ns")
@@ -698,7 +689,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
         ]
     )
     def test_percentchange(self, seed_value, window_length):
-
         pct_change = PercentChange(
             inputs=[EquityPricing.close],
             window_length=window_length,
@@ -1187,7 +1177,6 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
     def test_normalizations_randomized(
         self, seed_value, normalizer_name_and_func, add_nulls_to_factor
     ):
-
         name, kwargs, func = normalizer_name_and_func
 
         shape = (20, 20)
@@ -1488,6 +1477,8 @@ class FactorTestCase(BaseUSEquityPipelineTestCase):
             mask=self.build_mask(self.ones_mask(shape=shape)),
         )
 
+    # skip until https://github.com/pandas-dev/pandas/issues/58240 fixed
+    @skipIf(pandas_two_point_two, "pd.qcut has a bug in pandas 2.2")
     def test_quantiles_uneven_buckets(self):
         permute = partial(permute_rows, 5)
         shape = (5, 5)
@@ -1735,6 +1726,7 @@ class TestSpecialCases(WithUSEquityPricingPipelineEngine, ZiplineTestCase):
         for name in terms:
             assert_equal(results.loc[:, name], first_column, check_names=False)
 
+    @skip_on(PermissionError)
     def test_daily_returns_is_special_case_of_returns(self):
         self.check_equivalent_terms(
             {
@@ -1745,7 +1737,9 @@ class TestSpecialCases(WithUSEquityPricingPipelineEngine, ZiplineTestCase):
 
 
 class SummaryTestCase(BaseUSEquityPipelineTestCase, ZiplineTestCase):
-    @pytest.mark.filterwarnings("ignore", module=np.lib.nanfunctions)
+    @pytest.mark.filterwarnings(
+        "ignore", module=np.lib._nanfunctions_impl if NUMPY2 else np.lib.nanfunctions
+    )
     @parameter_space(
         seed=[1, 2, 3],
         mask=[
@@ -1828,7 +1822,9 @@ class SummaryTestCase(BaseUSEquityPipelineTestCase, ZiplineTestCase):
         assert_equal(result["demean"], result["alt_demean"])
         assert_equal(result["zscore"], result["alt_zscore"])
 
-    @pytest.mark.filterwarnings("ignore", module=np.lib.nanfunctions)
+    @pytest.mark.filterwarnings(
+        "ignore", module=np.lib._nanfunctions_impl if NUMPY2 else np.lib.nanfunctions
+    )
     @parameter_space(
         seed=[100, 200, 300],
         mask=[
@@ -1863,7 +1859,9 @@ class SummaryTestCase(BaseUSEquityPipelineTestCase, ZiplineTestCase):
             mask=self.build_mask(np.ones(shape)),
         )
 
-    @pytest.mark.filterwarnings("ignore", module=np.lib.nanfunctions)
+    @pytest.mark.filterwarnings(
+        "ignore", module=np.lib._nanfunctions_impl if NUMPY2 else np.lib.nanfunctions
+    )
     @parameter_space(
         seed=[40, 41, 42],
         mask=[

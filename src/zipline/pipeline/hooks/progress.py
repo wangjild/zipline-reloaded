@@ -1,5 +1,6 @@
 """Pipeline hooks for tracking and displaying progress.
 """
+
 from collections import namedtuple
 import time
 
@@ -110,7 +111,7 @@ class ProgressHooks(implements(PipelineHooks)):
             self._publish()
 
 
-class ProgressModel(object):
+class ProgressModel:
     """
     Model object for tracking progress of a Pipeline execution.
 
@@ -273,7 +274,6 @@ try:
         def __repr__(self):
             return ""
 
-
 except ImportError:
     HAVE_WIDGETS = False
 
@@ -287,7 +287,7 @@ except ImportError:
 
 # XXX: This class is currently untested, because we don't require ipywidgets as
 #      a test dependency. Be careful if you make changes to this.
-class IPythonWidgetProgressPublisher(object):
+class IPythonWidgetProgressPublisher:
     """A progress publisher that publishes to an IPython/Jupyter widget."""
 
     def __init__(self):
@@ -458,7 +458,7 @@ class IPythonWidgetProgressPublisher(object):
             return "{seconds:.2f} Seconds".format(seconds=seconds)
 
 
-class TestingProgressPublisher(object):
+class TestingProgressPublisher:
     """A progress publisher that records a trace of model states for testing."""
 
     TraceState = namedtuple(

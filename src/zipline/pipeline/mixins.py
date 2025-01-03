@@ -4,6 +4,7 @@ Mixins classes for use with Filters and Factors.
 The mixin classes inherit from Term to ensure they appear before
 Term in the MRO of any class using the mixin
 """
+
 from abc import abstractmethod
 
 from numpy import (
@@ -458,7 +459,7 @@ class DownsampledMixin(StandardOutputs, UniversalMixin):
                     lookback_start=start_date,
                     lookback_length=min_extra_rows,
                 )
-        except KeyError:
+        except KeyError as exc:
             before, after = nearest_unequal_elements(all_dates, start_date)
             raise ValueError(
                 "Pipeline start_date {start_date} is not in calendar.\n"
@@ -468,7 +469,7 @@ class DownsampledMixin(StandardOutputs, UniversalMixin):
                     before=before,
                     after=after,
                 )
-            )
+            ) from exc
 
         # Our possible target dates are all the dates on or before the current
         # starting position.

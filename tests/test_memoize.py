@@ -1,6 +1,5 @@
-"""
-Tests for zipline.utils.memoize.
-"""
+"""Tests for zipline.utils.memoize."""
+
 from collections import defaultdict
 import gc
 
@@ -9,7 +8,6 @@ from zipline.utils.memoize import remember_last
 
 class TestRememberLast:
     def test_remember_last(self):
-
         # Store the count in a list so we can mutate it from inside `func`.
         call_count = [0]
 
@@ -36,7 +34,7 @@ class TestRememberLast:
     def test_remember_last_method(self):
         call_count = defaultdict(int)
 
-        class clz(object):
+        class clz:
             @remember_last
             def func(self, x):
                 call_count[(self, x)] += 1
@@ -96,4 +94,4 @@ class TestRememberLast:
         while gc.collect():
             pass
 
-        assert not [inst for inst in gc.get_objects() if type(inst) == clz]
+        assert not [inst for inst in gc.get_objects() if type(inst) is clz]

@@ -3,11 +3,12 @@ Construction of sentinel objects.
 
 Sentinel objects are used when you only care to check for object identity.
 """
+
 import sys
 from textwrap import dedent
 
 
-class _Sentinel(object):
+class _Sentinel:
     """Base class for Sentinel objects."""
 
     __slots__ = ("__weakref__",)

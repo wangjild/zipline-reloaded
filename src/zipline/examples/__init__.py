@@ -5,12 +5,25 @@ from toolz import merge
 from zipline.utils.calendar_utils import register_calendar, get_calendar
 
 from zipline import run_algorithm
+from packaging.version import Version
+
+# talib is not yet compatible with numpy 2.0
+import numpy
+
+NUMPY2 = Version(numpy.__version__) >= Version("2.0.0")
+if not NUMPY2:
+    try:
+        import talib
+    except ImportError:
+        talib = None
 
 
 # These are used by test_examples.py to discover the examples to run.
 def load_example_modules():
     example_modules = {}
     for f in os.listdir(os.path.dirname(__file__)):
+        if (NUMPY2 or talib is None) and f == "dual_ema_talib.py":
+            continue
         if not f.endswith(".py") or f == "__init__.py" or f == "buyapple_ide.py":
             continue
         modname = f[: -len(".py")]
@@ -64,9 +77,7 @@ _cols_to_check = [
 
 
 def run_example(example_modules, example_name, environ, benchmark_returns=None):
-    """
-    Run an example module from zipline.examples.
-    """
+    """Run an example module from zipline.examples."""
     mod = example_modules[example_name]
 
     register_calendar("YAHOO", get_calendar("NYSE"), force=True)
